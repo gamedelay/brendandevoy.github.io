@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brendan Devoy</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      background: #008080;
+      overflow: hidden;
+      height: 100vh;
+      user-select: none;
+    }
+
+    /* ── DESKTOP ── */
+    #desktop {
+      width: 100vw;
+      height: calc(100vh - 30px);
+      position: relative;
+      background: #008080;
+    }
+
+    /* ── ICONS ── */
+    .icon {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      padding: 4px;
+      width: 76px;
+    }
+    .icon-img { font-size: 28px; text-align: center; }
+    .icon-label {
+      color: #fff;
+      font-size: 11px;
+      text-align: center;
+      padding: 1px 3px;
+      line-height: 1.3;
+    }
+    .icon.sel .icon-label { background: #000080; }
+
+    /* ── WINDOWS ── */
+    .win {
+      position: absolute;
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #fff #808080 #808080 #fff;
+      box-shadow: 2px 2px 0 #000;
+      display: flex;
+      flex-direction: column;
+      min-width: 200px;
+    }
+    .win.hidden { display: none; }
+    .win.maximised {
+      left: 0 !important;
+      top: 0 !important;
+      width: 100% !important;
+      height: calc(100vh - 30px) !important;
+    }
+
+    /* ── TITLE BAR ── */
+    .titlebar {
+      background: linear-gradient(90deg, #000080, #1084d0);
+      color: #fff;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 3px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: move;
+      flex-shrink: 0;
+    }
+    .titlebar.inactive { background: linear-gradient(90deg, #707070, #a0a0a0); }
+    .titlebar-btns { display: flex; gap: 2px; }
+    .wbtn {
+      background: #c0c0c0;
+      border: 2px solid;
+      border-color: #fff #808080 #808080 #fff;
+      width: 16px; height: 14px;
+      font-size: 9px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #000; font-weight: bold; flex-shrink: 0;
+    }
+    .wbtn:active { border-color: #808080 #fff #fff #808080; }
+
+    /* ── MENUS & TOOLBARS ── */
+    .menubar {
+      background: #c0c0c0;
+      border-bottom: 1px solid #808080;
+      padding: 1px 4px;
+      display: flex;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .mitem { padding: 2px 8px; cursor: pointer; color: #000; }
+    .mitem:hover { background: #000080; color: #fff; }
+
+    .toolbar {
+      background: #c0c0c0;
+      border-bottom: 1px solid #808080;
+      padding: 2px 4px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+    .tb { border: 1px solid transparent; padding: 1px 4px; font-size: 10px; cursor: pointer; }
+    .tb:hover { border-color: #fff #808080 #808080 #fff; }
+    .tbsep { width: 1px; background: #808080; height: 14px; margin: 0 2px; }
+
+    /* ── WINDOW BODY ── */
+    .win-body { overflow-y: auto; flex: 1; }
+
+    /* ── STATUS BAR ── */
+    .statusbar {
+      background: #c0c0c0;
+      border-top: 1px solid #808080;
+      padding: 1px 4px;
+      display: flex;
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+    .sstat { border-right: 1px solid #808080; padding: 0 6px; }
+
+    /* ── HOME WINDOW ── */
+    .home-body { padding: 10px; background: #c0c0c0; }
+    .inset { border: 2px solid; border-color: #808080 #fff #fff #808080; padding: 10px; margin-bottom: 8px; }
+    .win95-h1 {
+      background: linear-gradient(90deg, #000080, #1084d0);
+      color: #fff; font-size: 13px; font-weight: bold;
+      padding: 3px 8px; margin-bottom: 6px;
+    }
+    .profile-img {
+      width: 90px; height: 90px;
+      object-fit: cover; object-position: top center;
+      border: 2px solid; border-color: #808080 #fff #fff #808080;
+      flex-shrink: 0; display: block;
+    }
+
+    /* ── CV / WORD ── */
+    .word-outer { background: #2b579a; padding: 16px; min-height: 100%; }
+    .word-doc {
+      background: #f5f0e8;
+      padding: 48px 72px;
+      border: 1px solid #666;
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .wordart {
+      display: block; text-align: center;
+      font-size: 52px; font-weight: 900;
+      font-family: 'Arial Black', Impact, sans-serif;
+      color: #00bcd4; text-shadow: 5px 5px 0 #1a237e;
+      transform: skewX(-5deg); margin-bottom: 16px;
+    }
+    .cv-section-title {
+      font-family: 'Times New Roman', serif;
+      font-size: 14px; font-weight: bold;
+      border-bottom: 1px solid #000;
+      margin-bottom: 5px; margin-top: 18px;
+      text-decoration: underline; color: #000;
+    }
+    .cv-li {
+      font-family: 'Times New Roman', serif;
+      font-size: 12px; margin-left: 12px;
+      line-height: 1.9; color: #000;
+    }
+    .cv-p {
+      font-family: 'Times New Roman', serif;
+      font-size: 12px; line-height: 1.8; color: #000;
+    }
+    .drawbar {
+      background: #c0c0c0; border-top: 1px solid #808080;
+      padding: 2px 4px; display: flex; gap: 2px;
+      font-size: 10px; flex-wrap: wrap; flex-shrink: 0;
+    }
+
+    /* ── MISFIT / PPT ── */
+    .ppt-outer { background: #2b579a; padding: 16px; min-height: 100%; }
+    .ppt-slide {
+      background: #fff; padding: 28px 36px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      max-width: 900px; margin: 0 auto;
+    }
+    .ppt-title {
+      background: #2b579a; color: #fff;
+      font-size: 24px; font-weight: bold;
+      padding: 12px 18px; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 14px;
+    }
+    .ppt-h3 {
+      color: #2b579a; font-size: 14px; font-weight: bold;
+      border-left: 4px solid #2b579a;
+      padding-left: 8px; margin: 12px 0 6px;
+    }
+    .ppt-p { font-size: 13px; color: #333; line-height: 1.7; }
+    .ppt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 8px; margin-top: 10px;
+    }
+    .ppt-img {
+      width: 100%; aspect-ratio: 1;
+      object-fit: cover;
+      border: 1px solid #bbb;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      display: block;
+    }
+    .ppt-img-ph {
+      background: #ddd; border: 1px solid #bbb;
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: #888;
+    }
+
+    /* ── BUNDI / PAINT ── */
+    .paint-tb {
+      background: #c0c0c0; border-bottom: 2px solid #808080;
+      padding: 3px; display: flex; align-items: center;
+      gap: 2px; flex-wrap: wrap; flex-shrink: 0;
+    }
+    .pt {
+      width: 26px; height: 26px; background: #c0c0c0;
+      border: 2px solid; border-color: #fff #808080 #808080 #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13px;
+    }
+    .pt.on, .pt:active { border-color: #808080 #fff #fff #808080; }
+    .pc { width: 16px; height: 16px; border: 1px solid #000; display: inline-block; cursor: pointer; }
+    .paint-canvas { background: #fff; padding: 8px; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+    .paint-img {
+      width: 100%; aspect-ratio: 1;
+      object-fit: cover;
+      border: 2px solid; border-color: #808080 #fff #fff #808080;
+      display: block; cursor: crosshair;
+    }
+    .paint-img-ph {
+      background: #e8e8e8;
+      border: 2px solid; border-color: #808080 #fff #fff #808080;
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: #888; cursor: crosshair;
+    }
+
+    /* ── CONTACT ── */
+    .contact-body { padding: 14px; background: #c0c0c0; }
+    .contact-label { font-size: 11px; margin-bottom: 3px; display: block; color: #000; }
+    .contact-input {
+      width: 100%;
+      border: 2px solid; border-color: #808080 #fff #fff #808080;
+      background: #fff; padding: 3px 5px;
+      font-size: 11px; font-family: Arial, sans-serif;
+      margin-bottom: 8px; color: #000;
+    }
+    .contact-textarea {
+      width: 100%;
+      border: 2px solid; border-color: #808080 #fff #fff #808080;
+      background: #fff; padding: 3px 5px;
+      font-size: 11px; font-family: Arial, sans-serif;
+      resize: vertical; height: 80px;
+      margin-bottom: 8px; color: #000;
+    }
+    .contact-btn {
+      background: #c0c0c0;
+      border: 2px solid; border-color: #fff #808080 #808080 #fff;
+      padding: 4px 18px; font-size: 11px;
+      cursor: pointer; font-family: Arial, sans-serif; color: #000;
+    }
+    .contact-btn:active { border-color: #808080 #fff #fff #808080; transform: translate(1px,1px); }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 16px; }
+    ::-webkit-scrollbar-track { background: #c0c0c0; }
+    ::-webkit-scrollbar-thumb { background: #c0c0c0; border: 2px solid; border-color: #fff #808080 #808080 #fff; }
+    ::-webkit-scrollbar-button { background: #c0c0c0; border: 2px solid; border-color: #fff #808080 #808080 #fff; height: 16px; }
+
+    /* ── TASKBAR ── */
+    #taskbar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #c0c0c0; border-top: 2px solid #fff;
+      height: 30px; display: flex; align-items: center;
+      padding: 0 4px; gap: 3px; z-index: 9999;
+    }
+    .start-btn {
+      background: #c0c0c0;
+      border: 2px solid; border-color: #fff #808080 #808080 #fff;
+      padding: 1px 10px; font-weight: bold; font-size: 12px;
+      cursor: pointer; font-family: Arial, sans-serif;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .start-btn:active { border-color: #808080 #fff #fff #808080; }
+    .tb-divider { width: 1px; height: 20px; background: #808080; margin: 0 2px; }
+    .taskbar-btn {
+      border: 1px solid; border-color: #808080 #fff #fff #808080;
+      padding: 2px 10px; font-size: 11px;
+      background: #c0c0c0; cursor: pointer;
+      font-family: Arial, sans-serif;
+      max-width: 150px; overflow: hidden;
+      white-space: nowrap; text-overflow: ellipsis;
+      height: 22px; display: flex; align-items: center;
+    }
+    .taskbar-btn.active { border-color: #808080 #fff #fff #808080; background: #b0b0b0; font-weight: bold; }
+    #tb-clock {
+      margin-left: auto;
+      border: 1px solid; border-color: #808080 #fff #fff #808080;
+      padding: 2px 10px; font-size: 11px; white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<div id="desktop">
+
+  <!-- ── DESKTOP ICONS ── -->
+  <div class="icon" id="ico-home" style="top:12px;left:10px;" ondblclick="openWin('home')" onclick="selIcon('home')">
+    <span class="icon-img">🌐</span><span class="icon-label">brendandevoy.com</span>
+  </div>
+  <div class="icon" id="ico-cv" style="top:98px;left:10px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
+    <span class="icon-img">📝</span><span class="icon-label">CV.doc</span>
+  </div>
+  <div class="icon" id="ico-misfit" style="top:184px;left:10px;" ondblclick="openWin('misfit')" onclick="selIcon('misfit')">
+    <span class="icon-img">📊</span><span class="icon-label">MisfitBeer.ppt</span>
+  </div>
+  <div class="icon" id="ico-bundi" style="top:270px;left:10px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
+    <span class="icon-img">🎨</span><span class="icon-label">bundipaints.bmp</span>
+  </div>
+  <div class="icon" id="ico-contact" style="top:356px;left:10px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
+    <span class="icon-img">✉️</span><span class="icon-label">Contact.msg</span>
+  </div>
+
+  <!-- ══════════════════════════════
+       HOME WINDOW
+  ══════════════════════════════ -->
+  <div class="win" id="win-home" style="width:400px;z-index:10;">
+    <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
+      <span>🌐 brendandevoy.com</span>
+      <div class="titlebar-btns">
+        <div class="wbtn" onclick="minimiseWin('home')">_</div>
+        <div class="wbtn" onclick="toggleMax('home')">□</div>
+        <div class="wbtn" onclick="closeWin('home')">✕</div>
+      </div>
+    </div>
+    <div class="menubar">
+      <span class="mitem"><u>F</u>ile</span>
+      <span class="mitem"><u>E</u>dit</span>
+      <span class="mitem"><u>V</u>iew</span>
+      <span class="mitem"><u>H</u>elp</span>
+    </div>
+    <div class="win-body">
+      <div class="home-body">
+        <div class="win95-h1">BRENDAN DEVOY</div>
+        <div class="inset" style="display:flex;align-items:flex-start;gap:10px;">
+          <img class="profile-img" src="images/me.png" alt="Brendan Devoy">
+          <div>
+            <div style="font-size:13px;font-weight:bold;margin-bottom:6px;">Kia Ora! 🥝</div>
+            <div style="font-size:11px;line-height:1.7;color:#000;">
+              I'm a pilsner-loving, Auckland-based creative thinker, looking for opportunities to learn new things and push myself into challenging &amp; uncomfortable situations.
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:4px;font-size:11px;color:#444;border-top:1px solid #808080;padding-top:7px;line-height:2;">
+          est. 1995 &nbsp;|&nbsp; +64 21 673 125 &nbsp;|&nbsp;
+          <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;">hey@brendandevoy.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="statusbar"><span class="sstat">Ready</span><span class="sstat">brendandevoy.com</span></div>
+  </div>
+
+  <!-- ══════════════════════════════
+       CV WINDOW — Word 97
+  ══════════════════════════════ -->
+  <div class="win maximised hidden" id="win-cv" style="z-index:11;">
+    <div class="titlebar inactive" id="tb-cv" onmousedown="startDrag(event,'cv')">
+      <span>📝 Brendan Devoy CV.doc — Microsoft Word</span>
+      <div class="titlebar-btns">
+        <div class="wbtn" onclick="minimiseWin('cv')">_</div>
+        <div class="wbtn" onclick="toggleMax('cv')">❐</div>
+        <div class="wbtn" onclick="closeWin('cv')">✕</div>
+      </div>
+    </div>
+    <div class="menubar">
+      <span class="mitem"><u>F</u>ile</span><span class="mitem"><u>E</u>dit</span>
+      <span class="mitem"><u>V</u>iew</span><span class="mitem"><u>I</u>nsert</span>
+      <span class="mitem">F<u>o</u>rmat</span><span class="mitem"><u>T</u>ools</span>
+      <span class="mitem">T<u>a</u>ble</span><span class="mitem"><u>H</u>elp</span>
+    </div>
+    <div class="toolbar">
+      <span class="tb">🗋</span><span class="tb">📂</span><span class="tb">💾</span>
+      <div class="tbsep"></div><span class="tb">🖨️</span><span class="tb">🔍</span>
+      <div class="tbsep"></div><span class="tb">✂️</span><span class="tb">📋</span>
+      <div class="tbsep"></div><span class="tb">↩</span><span class="tb">↪</span>
+      <div class="tbsep"></div>
+      <span class="tb" style="min-width:38px;">75% ▾</span><span class="tb">?</span>
+    </div>
+    <div class="toolbar">
+      <span class="tb" style="min-width:56px;">Normal ▾</span>
+      <div class="tbsep"></div>
+      <span class="tb" style="min-width:120px;">Times New Roman ▾</span>
+      <div class="tbsep"></div>
+      <span class="tb">12 ▾</span>
+      <div class="tbsep"></div>
+      <span class="tb"><b>B</b></span><span class="tb"><i>I</i></span><span class="tb"><u>U</u></span>
+      <div class="tbsep"></div>
+      <span class="tb">≡</span><span class="tb">≡</span><span class="tb">≡</span><span class="tb">≡</span>
+      <div class="tbsep"></div><span class="tb">A ▾</span>
+    </div>
+    <div class="win-body">
+      <div class="word-outer">
+        <div class="word-doc">
+          <span class="wordart">Brendan Devoy</span>
+          <div style="font-family:'Times New Roman',serif;font-size:12px;letter-spacing:3px;margin-bottom:14px;color:#000;text-align:center;">CURRICULUM VITAE</div>
+          <div class="cv-p">Results-driven sales and marketing professional with expertise in liquor and FMCG. Skilled in relationship management, stakeholder engagement, and data-driven decision-making. Passionate about driving brand success and consumer connection through strategic account management and trade execution.</div>
+
+          <div class="cv-section-title">Experience</div>
+          <div class="cv-li">• <strong>Atomic Coffee</strong> (2023–2025) — Account Manager<br>
+            <span style="margin-left:12px;font-size:11px;">Managed key accounts, ensuring optimal sales performance and brand visibility. Developed and executed promotional strategies driving increased distribution and revenue growth.</span></div>
+          <div class="cv-li">• <strong>Futurity</strong> (2021–2022) — Sales Manager<br>
+            <span style="margin-left:12px;font-size:11px;">Led strategic sales planning, collaborating with marketing teams to optimise brand execution in key markets. Utilised CRM tools and data insights to enhance customer targeting.</span></div>
+          <div class="cv-li">• <strong>Misfit Brewing Co.</strong> (2018–2021) — Founder &amp; Sales Lead<br>
+            <span style="margin-left:12px;font-size:11px;">Led the brand from launch to national distribution, building strong partnerships with retailers and distributors across 50+ stockists.</span></div>
+          <div class="cv-li">• <strong>Lion NZ</strong> (2016–2018) — Order Management Executive<br>
+            <span style="margin-left:12px;font-size:11px;">Liaised across supply-chain and brand management to mitigate changing stock levels and ensure the sales channel flowed freely.</span></div>
+
+          <div class="cv-section-title">Skills</div>
+          <div class="cv-li">• Project Management &nbsp;&nbsp;• Commercial Acumen &nbsp;&nbsp;• Stakeholder &amp; Relationship Management</div>
+          <div class="cv-li">• Marketing Strategy &amp; Execution &nbsp;&nbsp;• Sales Strategy &amp; Positioning &nbsp;&nbsp;• Data-driven Decision Making</div>
+
+          <div class="cv-section-title">Education</div>
+          <div class="cv-li">• <strong>BCom Marketing</strong> — University of Auckland (2013–2015)</div>
+          <div class="cv-li">• <strong>Live The Dream</strong> — Inspiring Stories Trust (2015/16)</div>
+          <div class="cv-li">• <strong>Toastmasters International</strong> — Ponsonby Club (2022–2023)</div>
+
+          <div class="cv-section-title">Achievements</div>
+          <div class="cv-li">• Self-appointed Employee of the Month — a record 13 times in 2021 (Misfit Brewing Co.)</div>
+          <div class="cv-li">• Spearheaded nationwide brand expansion across 50+ stockists via strategic brand positioning</div>
+          <div class="cv-li">• Managed a portfolio of accounts equating to $2m+ in annual revenue (Atomic Coffee)</div>
+          <div class="cv-li">• Launched and scaled a new FMCG product, driving revenue growth through targeted marketing</div>
+
+          <div style="margin-top:20px;padding-top:12px;border-top:1px solid #c0c0c0;">
+            <a href="https://www.brendandevoy.com/s/Brendan-Devoy-CV-2026.pdf"
+               style="font-family:'Times New Roman',serif;font-size:12px;color:#000080;text-decoration:underline;">
+              📄 Download CV (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="statusbar">
+      <span class="sstat">Page 1</span><span class="sstat">Sec 1</span><span class="sstat">1/1</span>
+      <span class="sstat">At 4.7"</span><span class="sstat">Ln 12</span><span class="sstat">Col 10</span>
+      <span class="sstat">REC</span><span class="sstat">TRK</span><span class="sstat">OVR</span>
+    </div>
+    <div class="drawbar">
+      <span class="tb">Draw ▾</span><span class="tb">↖</span><span class="tb">↻</span>
+      <span class="tb">AutoShapes ▾</span>
+      <div class="tbsep"></div>
+      <span class="tb">╲</span><span class="tb">→</span><span class="tb">□</span><span class="tb">○</span>
+      <div class="tbsep"></div>
+      <span class="tb">🎨 ▾</span><span class="tb">A ▾</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       MISFIT WINDOW — PowerPoint
+  ══════════════════════════════ -->
+  <div class="win maximised hidden" id="win-misfit" style="z-index:12;">
+    <div class="titlebar inactive" id="tb-misfit" onmousedown="startDrag(event,'misfit')">
+      <span>📊 MisfitBeer.ppt — Microsoft PowerPoint</span>
+      <div class="titlebar-btns">
+        <div class="wbtn" onclick="minimiseWin('misfit')">_</div>
+        <div class="wbtn" onclick="toggleMax('misfit')">❐</div>
+        <div class="wbtn" onclick="closeWin('misfit')">✕</div>
+      </div>
+    </div>
+    <div class="menubar">
+      <span class="mitem"><u>F</u>ile</span><span class="mitem"><u>E</u>dit</span>
+      <span class="mitem"><u>V</u>iew</span><span class="mitem"><u>I</u>nsert</span>
+      <span class="mitem">F<u>o</u>rmat</span><span class="mitem">Slide<u>S</u>how</span>
+      <span class="mitem"><u>H</u>elp</span>
+    </div>
+    <div class="toolbar">
+      <span class="tb">🗋</span><span class="tb">💾</span><span class="tb">🖨️</span>
+      <div class="tbsep"></div><span class="tb">✂️</span><span class="tb">📋</span>
+      <div class="tbsep"></div><span class="tb">↩</span><span class="tb">↪</span>
+      <div class="tbsep"></div>
+      <span class="tb" style="min-width:38px;">66% ▾</span>
+      <span class="tb" style="color:#2b579a;font-weight:bold;">▶ Slide Show</span>
+    </div>
+    <div class="win-body">
+      <div class="ppt-outer">
+        <div class="ppt-slide">
+          <div class="ppt-title">@misfitbeer</div>
+          <div class="ppt-h3">About</div>
+          <div class="ppt-p">I lead a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</div>
+          <div class="ppt-p" style="margin-top:8px;">I founded Misfit, a New Zealand social enterprise brewing company, where we are fighting to restore clean water sources in New Zealand and the wider Pacific, by donating all of our profits to the cause. Great beer, with a great cause.</div>
+          <div class="ppt-h3">Gallery</div>
+          <!-- ADD YOUR MISFIT IMAGES BELOW -->
+          <!-- Replace ppt-img-ph divs with: <img class="ppt-img" src="images/misfit1.jpg" alt=""> -->
+          <div class="ppt-grid">
+            <div class="ppt-img-ph">add image</div>
+            <div class="ppt-img-ph">add image</div>
+            <div class="ppt-img-ph">add image</div>
+            <div class="ppt-img-ph">add image</div>
+            <div class="ppt-img-ph">add image</div>
+            <div class="ppt-img-ph">add image</div>
+          </div>
+          <div class="ppt-h3" style="margin-top:16px;">"Here's to the crazy ones."</div>
+          <div style="text-align:right;font-size:11px;color:#2b579a;margin-top:8px;">Slide 1 of 1</div>
+        </div>
+      </div>
+    </div>
+    <div class="statusbar">
+      <span class="sstat">Slide 1 of 1</span>
+      <span class="sstat">@misfitbeer</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       BUNDI WINDOW — MS Paint
+  ══════════════════════════════ -->
+  <div class="win maximised hidden" id="win-bundi" style="z-index:13;">
+    <div class="titlebar inactive" id="tb-bundi" onmousedown="startDrag(event,'bundi')">
+      <span>🎨 untitled.bmp — Paint</span>
+      <div class="titlebar-btns">
+        <div class="wbtn" onclick="minimiseWin('bundi')">_</div>
+        <div class="wbtn" onclick="toggleMax('bundi')">❐</div>
+        <div class="wbtn" onclick="closeWin('bundi')">✕</div>
+      </div>
+    </div>
+    <div class="menubar">
+      <span class="mitem"><u>F</u>ile</span><span class="mitem"><u>E</u>dit</span>
+      <span class="mitem"><u>V</u>iew</span><span class="mitem"><u>I</u>mage</span>
+      <span class="mitem"><u>H</u>elp</span>
+    </div>
+    <div class="paint-tb">
+      <div class="pt on" title="Pencil">✏️</div>
+      <div class="pt" title="Fill">🪣</div>
+      <div class="pt" title="Eraser">⬜</div>
+      <div class="pt" title="Text">A</div>
+      <div class="pt" title="Line">╱</div>
+      <div class="pt" title="Rectangle">▭</div>
+      <div class="pt" title="Ellipse">⬭</div>
+      <div style="width:1px;background:#808080;height:22px;margin:0 4px;"></div>
+      <div class="pc" style="background:#000"></div>
+      <div class="pc" style="background:#fff"></div>
+      <div class="pc" style="background:#f00"></div>
+      <div class="pc" style="background:#0f0"></div>
+      <div class="pc" style="background:#00f"></div>
+      <div class="pc" style="background:#ff0"></div>
+      <div class="pc" style="background:#f0f"></div>
+      <div class="pc" style="background:#0ff"></div>
+      <div class="pc" style="background:#ff8000"></div>
+      <div class="pc" style="background:#800000"></div>
+      <div class="pc" style="background:#008080"></div>
+      <div class="pc" style="background:#808080"></div>
+      <div class="pc" style="background:#c0c0c0"></div>
+    </div>
+    <div class="win-body">
+      <!-- ADD YOUR BUNDI IMAGES BELOW -->
+      <!-- Replace paint-img-ph divs with: <img class="paint-img" src="images/bundi1.jpg" alt=""> -->
+      <div class="paint-canvas">
+        <div class="paint-img-ph">add image</div>
+        <div class="paint-img-ph">add image</div>
+        <div class="paint-img-ph">add image</div>
+        <div class="paint-img-ph">add image</div>
+        <div class="paint-img-ph">add image</div>
+        <div class="paint-img-ph">add image</div>
+        <div class="paint-img-ph">add image</div>
+        <div class="paint-img-ph">add image</div>
+      </div>
+    </div>
+    <div class="statusbar">
+      <span class="sstat">cursor: crosshair</span>
+      <span class="sstat">640×480</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       CONTACT WINDOW
+  ══════════════════════════════ -->
+  <div class="win hidden" id="win-contact" style="width:320px;z-index:20;">
+    <div class="titlebar inactive" id="tb-contact" onmousedown="startDrag(event,'contact')">
+      <span>✉️ Contact Brendan</span>
+      <div class="titlebar-btns">
+        <div class="wbtn" onclick="minimiseWin('contact')">_</div>
+        <div class="wbtn" onclick="closeWin('contact')">✕</div>
+      </div>
+    </div>
+    <div class="win-body">
+      <div class="contact-body">
+        <div style="font-size:11px;margin-bottom:12px;color:#000;">
+          Send a message to
+          <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;">hey@brendandevoy.com</a>
+        </div>
+        <label class="contact-label">Your name:</label>
+        <input class="contact-input" id="c-name" type="text" placeholder="Full name">
+        <label class="contact-label">Your email:</label>
+        <input class="contact-input" id="c-email" type="email" placeholder="you@email.com">
+        <label class="contact-label">Message:</label>
+        <textarea class="contact-textarea" id="c-msg" placeholder="Type your message here..."></textarea>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="contact-btn" onclick="submitContact()">📨 Send</button>
+          <button class="contact-btn" onclick="closeWin('contact')">Cancel</button>
+        </div>
+        <div id="c-confirm" style="display:none;margin-top:10px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:10px;font-size:11px;">
+          <div style="font-weight:bold;margin-bottom:4px;color:#000;">✅ Message sent!</div>
+          <div style="color:#000;">Thanks — Brendan will get back to you soon.</div>
+          <button class="contact-btn" style="margin-top:8px;" onclick="closeWin('contact')">OK</button>
+        </div>
+      </div>
+    </div>
+    <div class="statusbar"><span class="sstat">Ready to send</span></div>
+  </div>
+
+</div><!-- end #desktop -->
+
+<!-- ── TASKBAR ── -->
+<div id="taskbar">
+  <button class="start-btn">🪟 <strong>Start</strong></button>
+  <div class="tb-divider"></div>
+  <div id="tb-clock"></div>
+</div>
+
+<script>
+(function(){
+  var WINS = ['home','cv','misfit','bundi','contact'];
+  var zTop = 20;
+  var state = {};
+  WINS.forEach(function(w){ state[w] = { min:false, closed:false }; });
+
+  var LABELS = {
+    home:    '🌐 brendandevoy.com',
+    cv:      '📝 CV.doc — Word',
+    misfit:  '📊 MisfitBeer.ppt',
+    bundi:   '🎨 bundipaints.bmp',
+    contact: '✉️ Contact'
+  };
+
+  var isMax = { home:false, cv:true, misfit:true, bundi:true, contact:false };
+  var savedPos = {};
+
+  /* ── CENTRE a window in the desktop ── */
+  function centreWin(id) {
+    var desk = document.getElementById('desktop');
+    var el   = document.getElementById('win-' + id);
+    var dw = desk.offsetWidth, dh = desk.offsetHeight;
+    el.style.left = Math.max(0, Math.round((dw - el.offsetWidth)  / 2)) + 'px';
+    el.style.top  = Math.max(0, Math.round((dh - el.offsetHeight) / 2)) + 'px';
+  }
+
+  function focusWin(id) {
+    WINS.forEach(function(w){
+      var t = document.getElementById('tb-' + w);
+      if (t) t.classList.add('inactive');
+    });
+    var el = document.getElementById('win-' + id);
+    if (el) el.style.zIndex = ++zTop;
+    var t = document.getElementById('tb-' + id);
+    if (t) t.classList.remove('inactive');
+    updateTaskbar();
+  }
+
+  window.openWin = function(id) {
+    state[id].closed = false;
+    state[id].min    = false;
+    var el = document.getElementById('win-' + id);
+    el.classList.remove('hidden');
+    if (isMax[id]) el.classList.add('maximised');
+    else           el.classList.remove('maximised');
+    focusWin(id);
+  };
+
+  window.minimiseWin = function(id) {
+    state[id].min = true;
+    document.getElementById('win-' + id).classList.add('hidden');
+    updateTaskbar();
+  };
+
+  window.closeWin = function(id) {
+    state[id].closed = true;
+    state[id].min    = false;
+    document.getElementById('win-' + id).classList.add('hidden');
+    updateTaskbar();
+  };
+
+  window.toggleMax = function(id) {
+    var el = document.getElementById('win-' + id);
+    if (isMax[id]) {
+      el.classList.remove('maximised');
+      if (savedPos[id]) {
+        el.style.left  = savedPos[id].l;
+        el.style.top   = savedPos[id].t;
+        el.style.width = savedPos[id].w;
+      }
+      isMax[id] = false;
+    } else {
+      savedPos[id] = { l:el.style.left, t:el.style.top, w:el.style.width };
+      el.classList.add('maximised');
+      isMax[id] = true;
+    }
+    focusWin(id);
+  };
+
+  function updateTaskbar() {
+    var tb    = document.getElementById('taskbar');
+    var clock = document.getElementById('tb-clock');
+    tb.querySelectorAll('.taskbar-btn').forEach(function(b){ b.remove(); });
+    WINS.forEach(function(w) {
+      if (!state[w].closed) {
+        var btn = document.createElement('div');
+        btn.className = 'taskbar-btn' + (state[w].min ? '' : ' active');
+        btn.textContent = LABELS[w];
+        btn.onclick = (function(id){ return function(){
+          if (state[id].min) window.openWin(id);
+          else window.minimiseWin(id);
+        }; })(w);
+        tb.insertBefore(btn, clock);
+      }
+    });
+  }
+
+  /* ── CONTACT FORM ── */
+  window.submitContact = function() {
+    var name  = document.getElementById('c-name').value.trim();
+    var email = document.getElementById('c-email').value.trim();
+    var msg   = document.getElementById('c-msg').value.trim();
+    if (!name || !email || !msg) { alert('Please fill in all fields!'); return; }
+    var mailto = 'mailto:hey@brendandevoy.com'
+      + '?subject=' + encodeURIComponent('Message from ' + name)
+      + '&body='    + encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + msg);
+    window.location.href = mailto;
+    document.getElementById('c-confirm').style.display = 'block';
+  };
+
+  /* ── DRAGGING ── */
+  var drag = null, ox = 0, oy = 0;
+  window.startDrag = function(e, id) {
+    if (isMax[id]) return;
+    focusWin(id);
+    drag = document.getElementById('win-' + id);
+    var r  = drag.getBoundingClientRect();
+    var dr = document.getElementById('desktop').getBoundingClientRect();
+    ox = e.clientX - (r.left - dr.left);
+    oy = e.clientY - (r.top  - dr.top);
+    e.preventDefault();
+  };
+  document.addEventListener('mousemove', function(e) {
+    if (!drag) return;
+    var dr = document.getElementById('desktop').getBoundingClientRect();
+    var x = Math.max(0, Math.min(dr.width  - drag.offsetWidth,  e.clientX - dr.left - ox));
+    var y = Math.max(0, Math.min(dr.height - drag.offsetHeight, e.clientY - dr.top  - oy));
+    drag.style.left = x + 'px';
+    drag.style.top  = y + 'px';
+  });
+  document.addEventListener('mouseup', function(){ drag = null; });
+
+  /* ── CLICK TO FOCUS ── */
+  WINS.forEach(function(w){
+    var el = document.getElementById('win-' + w);
+    if (el) el.addEventListener('mousedown', function(){ focusWin(w); });
+  });
+
+  /* ── ICON SELECTION ── */
+  window.selIcon = function(id) {
+    document.querySelectorAll('.icon').forEach(function(i){ i.classList.remove('sel'); });
+    var ic = document.getElementById('ico-' + id);
+    if (ic) ic.classList.add('sel');
+  };
+  document.querySelectorAll('.icon').forEach(function(ic){
+    ic.addEventListener('click', function(){
+      document.querySelectorAll('.icon').forEach(function(i){ i.classList.remove('sel'); });
+      ic.classList.add('sel');
+    });
+  });
+
+  /* ── CLOCK ── */
+  function tick() {
+    var d = new Date(), h = d.getHours(), m = d.getMinutes();
+    var ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    document.getElementById('tb-clock').textContent = h + ':' + (m < 10 ? '0' : '') + m + ' ' + ap;
+  }
+  tick(); setInterval(tick, 10000);
+
+  /* ── INIT ── */
+  updateTaskbar();
+  focusWin('home');
+  setTimeout(function(){ centreWin('home'); centreWin('contact'); }, 60);
+
+})();
+</script>
+</body>
+</html>
