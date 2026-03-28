@@ -43,7 +43,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 .home-body{padding:12px;background:#c0c0c0;}
 .inset{border:2px solid;border-color:#808080 #fff #fff #808080;padding:12px;margin-bottom:10px;}
 .win95-h1{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:14px;font-weight:bold;padding:4px 10px;margin-bottom:8px;}
-.profile-img{width:110px;height:110px;object-fit:cover;object-position:top center;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0;display:block;}
+.profile-img{width:250px;height:250px;object-fit:cover;object-position:top center;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0;display:block;}
 
 /* CV */
 .word-outer{background:#2b579a;padding:16px;min-height:100%;}
@@ -184,23 +184,23 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
   <span class="icon-img">&#x1F4BB;</span><span class="icon-label">My Site</span>
 </div>
 <div class="icon" id="ico-cv" style="top:104px;left:14px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
-  <span class="icon-img">&#x1F4C4;</span><span class="icon-label">CV.doc</span>
+  <span class="icon-img">📄</span><span class="icon-label">CV.doc</span>
 </div>
 <div class="icon" id="ico-misfit" style="top:194px;left:14px;" ondblclick="openWin('misfit')" onclick="selIcon('misfit')">
-  <span class="icon-img">&#x1F37A;</span><span class="icon-label">MisfitBeer.ppt</span>
+  <span class="icon-img">🍻</span><span class="icon-label">MisfitBeer.ppt</span>
 </div>
 <div class="icon" id="ico-bundi" style="top:284px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
   <span class="icon-img">&#x1F5BC;&#xFE0F;</span><span class="icon-label">bundipaints.bmp</span>
 </div>
 <div class="icon" id="ico-contact" style="top:374px;left:14px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
-  <span class="icon-img">&#x1F4EC;</span><span class="icon-label">Contact.msg</span>
+  <span class="icon-img">📨</span><span class="icon-label">Contact.msg</span>
 </div>
 <div class="icon" id="ico-mines" style="top:464px;left:14px;" ondblclick="openWin('mines')" onclick="selIcon('mines')">
   <span class="icon-img">&#x1F4A3;</span><span class="icon-label">Minesweeper</span>
 </div>
 
 <!-- HOME WINDOW -->
-<div class="win" id="win-home" style="width:560px;z-index:10;">
+<div class="win" id="win-home" style="width:700;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
     <span>&#x1F4BB; brendandevoy.com</span>
     <div class="titlebar-btns">
@@ -582,7 +582,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 </div><!-- end desktop -->
 
 <!-- CLIPPY — fixed to lower right, visible only when CV is open -->
-<div id="clippy-wrap" class="hidden-clippy">
+<div id="clippy-wrap hidden" class="hidden-clippy">
   <div id="clippy-bubble">
     <button id="clippy-close" onclick="clippyClose()">&#10005;</button>
     <span id="clippy-text">It looks like you're writing a CV! Would you like help?</span>
