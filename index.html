@@ -200,7 +200,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 </div>
 
 <!-- HOME WINDOW -->
-<div class="win" id="win-home" style="width:700px;z-index:10;">
+<div class="win" id="win-home" style="width:700px;left:300px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
     <span>&#x1F4BB; brendandevoy.com</span>
     <div class="titlebar-btns">
@@ -550,7 +550,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 </div>
 
 <!-- MINESWEEPER WINDOW -->
-<div class="win hidden" id="win-mines" style="z-index:15;right:14px;">
+<div class="win hidden" id="win-mines" style="z-index:15;right:14px;top:300px;">
   <div class="titlebar inactive" id="tb-mines" onmousedown="startDrag(event,'mines')">
     <span>&#x1F4A3; Minesweeper</span>
     <div class="titlebar-btns">
@@ -582,7 +582,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 </div><!-- end desktop -->
 
 <!-- CLIPPY — fixed to lower right, visible only when CV is open -->
-<div id="clippy-wrap hidden" class="hidden-clippy">
+<div id="clippy-wrap" class="hidden-clippy">
   <div id="clippy-bubble">
     <button id="clippy-close" onclick="clippyClose()">&#10005;</button>
     <span id="clippy-text">It looks like you're writing a CV! Would you like help?</span>
