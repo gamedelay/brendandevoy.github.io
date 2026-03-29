@@ -201,7 +201,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 <!-- HOME WINDOW -->
 <div class="win" id="win-home" style="width:700px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
-    <span>🌐; brendandevoy.com</span>
+    <span>🌐 brendandevoy.com</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('home')">_</div>
       <div class="wbtn" onclick="toggleMax('home')">&#9633;</div>
@@ -717,7 +717,7 @@ var WINS=['home','cv','misfit','bundi','contact','mines'];
 var zTop=20,state={};
 WINS.forEach(function(w){state[w]={min:false,closed:true};});
 state['home'].closed=false;
-var LABELS={home:'&#x1F4BB; brendandevoy.com',cv:'&#x1F4C4; CV.doc',misfit:'&#x1F37A; MisfitBeer.ppt',bundi:'&#x1F5BC;&#xFE0F; bundipaints.bmp',contact:'&#x1F4EC; Contact',mines:'&#x1F4A3; Minesweeper'};
+var LABELS={home:'🌐 brendandevoy.com',cv:'📄 CV.doc',misfit:'🍺 MisfitBeer.ppt',bundi:'🎨 bundipaints.bmp',contact:'📨 Contact',mines:'&#x1F4A3; Minesweeper'};
 var isMax={home:false,cv:true,misfit:true,bundi:true,contact:false,mines:false};
 var savedPos={};
 
