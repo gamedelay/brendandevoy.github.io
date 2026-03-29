@@ -71,7 +71,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 .ppt-thumb-wrap.active{border-color:#000080;}
 .ppt-thumb-inner{background:#020403;width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',serif;font-size:8px;color:#ffffff;text-align:center;padding:4px;}
 /* main slide area — blue surround like real PPT */
-.ppt-slide-area{flex:1;background:#ffffff;display:flex;flex-direction:column;align-items:center;padding:16px;gap:16px;overflow-y:auto;}
+.ppt-slide-area{flex:1;background:#2b579a;display:flex;flex-direction:column;align-items:center;padding:16px;gap:16px;overflow-y:auto;}
 /* the actual slide — beige/cream like the reference photo */
 .ppt-slide{background:#020403;width:100%;max-width:700px;aspect-ratio:4/3;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;}
 /* title text box — no border, centered, Times New Roman like reference */
@@ -84,7 +84,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 .ppt-content-title{font-family:'Times New Roman',serif;font-size:20px;font-weight:bold;color:#ffffff;border-bottom:1px solid #888;padding-bottom:8px;margin-bottom:12px;}
 .ppt-content-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin:4px 0 4px 8px;}
 .ppt-content-body{font-family:'Times New Roman',serif;font-size:13px;color:#ffffff;line-height:1.9;} 
-.ppt-content-body li{margin-left:20px;list-style:disc;}
+.ppt-content-body li{margin-left:10px;list-style:disc;}
 /* notes bar at bottom */
 .ppt-notes-bar{background:#c0c0c0;border-top:1px solid #808080;height:28px;display:flex;align-items:center;padding:0 8px;font-size:10px;color:#555;flex-shrink:0;}
 /* bottom status strip */
@@ -414,19 +414,10 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
                 <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer1" style="width:200px;">
              </div>
              <div class="ppt-content-body">
-              <p style="margin-bottom:10px;">I lead a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</p>
-              <p style="margin-bottom:10px;">I founded Misfit, a New Zealand social enterprise brewing company, fighting to restore clean water sources in NZ and the wider Pacific — donating all profits to the cause.</p>
-              <ul>
-                <li>"Here's to the crazy ones."</li>
-                <li>All profits donated to the cause</li>
-                <li>50+ stockists nationwide</li>
+              <p style="margin-bottom:10px;max-width:300px;">I lead a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</p>
+              <p style="margin-bottom:10px;max-width:300px;">I founded Misfit, a New Zealand social enterprise brewing company, fighting to restore clean water sources in NZ and the wider Pacific — donating all profits to the cause.</p>
+              <p style="margin-bottom:10px;max-width:300px;">"Here's to the crazy ones."</p>
               </ul>
-              <!-- ADD MISFIT IMAGES: replace ppt-img-ph divs with <img style="width:100%;aspect-ratio:4/3;object-fit:cover;" src="images/misfit1.jpg" alt=""> -->
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;">
-                <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer1" style="width:200px;">
-                <img class="ppt-img" src="images/misfit2.jpg" alt="Misfit Beer2" style="width:200px;">
-                <img class="ppt-img" src="images/misfit3.jpg" alt="Misfit Beer3" style="width:200px;">
-              </div>
             </div>
           </div>
           <!-- SLIDE 3 — content slide 2 -->
