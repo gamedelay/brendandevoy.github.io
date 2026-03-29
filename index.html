@@ -43,7 +43,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 .home-body{padding:12px;background:#c0c0c0;}
 .inset{border:2px solid;border-color:#808080 #fff #fff #808080;padding:12px;margin-bottom:10px;}
 .win95-h1{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:14px;font-weight:bold;padding:4px 10px;margin-bottom:8px;}
-.profile-img{width:110px;height:110px;object-fit:cover;object-position:top center;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0;display:block;}
+.profile-img{width:250px;height:250px;object-fit:cover;object-position:top center;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0;display:block;}
 
 /* CV */
 .word-outer{background:#2b579a;padding:16px;min-height:100%;}
@@ -69,21 +69,20 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 .ppt-panel{width:130px;background:#c0c0c0;border-right:1px solid #808080;padding:4px;overflow-y:auto;flex-shrink:0;}
 .ppt-thumb-wrap{border:2px solid;border-color:#808080 #fff #fff #808080;padding:2px;margin-bottom:4px;cursor:pointer;}
 .ppt-thumb-wrap.active{border-color:#000080;}
-.ppt-thumb-inner{background:#e8e4d8;width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',serif;font-size:8px;color:#333;text-align:center;padding:4px;}
+.ppt-thumb-inner{background:#020403;width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',serif;font-size:8px;color:#333;text-align:center;padding:4px;}
 /* main slide area — blue surround like real PPT */
 .ppt-slide-area{flex:1;background:#2255aa;display:flex;flex-direction:column;align-items:center;padding:16px;gap:16px;overflow-y:auto;}
 /* the actual slide — beige/cream like the reference photo */
-.ppt-slide{background:#e8e4d8;width:100%;max-width:700px;aspect-ratio:4/3;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;}
+.ppt-slide{background:#020403;width:100%;max-width:700px;aspect-ratio:4/3;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;}
 /* title text box — no border, centered, Times New Roman like reference */
 .ppt-title-box{text-align:center;margin-bottom:24px;width:100%;}
-.ppt-main-title{font-family:'Times New Roman',serif;font-size:28px;font-weight:normal;color:#111;letter-spacing:0.5px;}
+.ppt-main-title{font-family:'Times New Roman',serif;font-size:28px;font-weight:normal;color:#ffffff;letter-spacing:0.5px;}
 /* subtitle — dotted border placeholder like the reference */
-.ppt-subtitle-box{border:1px dashed #888;padding:12px 24px;width:80%;text-align:center;min-height:60px;display:flex;align-items:center;justify-content:center;}
-.ppt-subtitle-text{font-family:'Times New Roman',serif;font-size:14px;color:#666;font-style:italic;}
+.ppt-subtitle-text{font-family:'Times New Roman',serif;font-size:14px;color:#ffffff;font-style:italic;}
 /* content slide (second slide) */
-.ppt-content-slide{background:#e8e4d8;width:100%;max-width:700px;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;padding:28px 36px;position:relative;}
-.ppt-content-title{font-family:'Times New Roman',serif;font-size:20px;font-weight:bold;color:#111;border-bottom:1px solid #888;padding-bottom:8px;margin-bottom:12px;}
-.ppt-content-body{font-family:'Times New Roman',serif;font-size:13px;color:#222;line-height:1.9;}
+.ppt-content-slide{background:#020403;width:100%;max-width:700px;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;padding:28px 36px;position:relative;}
+.ppt-content-title{font-family:'Times New Roman',serif;font-size:20px;font-weight:bold;color:#ffffff;border-bottom:1px solid #888;padding-bottom:8px;margin-bottom:12px;}
+.ppt-content-body{font-family:'Times New Roman',serif;font-size:13px;color:#ffffff;line-height:1.9;}
 .ppt-content-body li{margin-left:20px;list-style:disc;}
 /* notes bar at bottom */
 .ppt-notes-bar{background:#c0c0c0;border-top:1px solid #808080;height:28px;display:flex;align-items:center;padding:0 8px;font-size:10px;color:#555;flex-shrink:0;}
@@ -181,26 +180,26 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 
 <!-- ICONS — left side -->
 <div class="icon" id="ico-home" style="top:14px;left:14px;" ondblclick="openWin('home')" onclick="selIcon('home')">
-  <span class="icon-img">&#x1F4BB;</span><span class="icon-label">My Site</span>
+  <span class="icon-img">🌐</span><span class="icon-label">My Site</span>
 </div>
 <div class="icon" id="ico-cv" style="top:104px;left:14px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
-  <span class="icon-img">&#x1F4C4;</span><span class="icon-label">CV.doc</span>
+  <span class="icon-img">📄</span><span class="icon-label">CV.doc</span>
 </div>
 <div class="icon" id="ico-misfit" style="top:194px;left:14px;" ondblclick="openWin('misfit')" onclick="selIcon('misfit')">
-  <span class="icon-img">&#x1F37A;</span><span class="icon-label">MisfitBeer.ppt</span>
+  <span class="icon-img">🍺</span><span class="icon-label">MisfitBeer.ppt</span>
 </div>
 <div class="icon" id="ico-bundi" style="top:284px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
-  <span class="icon-img">&#x1F5BC;&#xFE0F;</span><span class="icon-label">bundipaints.bmp</span>
+  <span class="icon-img">🎨</span><span class="icon-label">bundipaints.bmp</span>
 </div>
 <div class="icon" id="ico-contact" style="top:374px;left:14px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
-  <span class="icon-img">&#x1F4EC;</span><span class="icon-label">Contact.msg</span>
+  <span class="icon-img">📨</span><span class="icon-label">Contact.msg</span>
 </div>
 <div class="icon" id="ico-mines" style="top:464px;left:14px;" ondblclick="openWin('mines')" onclick="selIcon('mines')">
   <span class="icon-img">&#x1F4A3;</span><span class="icon-label">Minesweeper</span>
 </div>
 
 <!-- HOME WINDOW -->
-<div class="win" id="win-home" style="width:560px;z-index:10;">
+<div class="win" id="win-home" style="width:700px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
     <span>&#x1F4BB; brendandevoy.com</span>
     <div class="titlebar-btns">
@@ -225,7 +224,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
       </div>
       <div style="margin-top:6px;font-size:11px;color:#444;border-top:1px solid #808080;padding-top:8px;line-height:2.2;">
         est. 1995 &nbsp;|&nbsp; +64 21 673 125 &nbsp;|&nbsp;
-        <a href="/cdn-cgi/l/email-protection#e48c819da48696818a80858a8081928b9dca878b89" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="472f223e0725352229232629232231283e6924282a">[email&#160;protected]</span></a>
+        <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="472f223e0725352229232629232231283e6924282a">hey@brendandevoy.com</span></a>
       </div>
     </div>
   </div>
@@ -372,7 +371,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
     <span class="tb">&#x21E6;</span><span class="tb">&#x21E8;</span><span class="tb">&#x2605;</span>
   </div>
   <!-- Inner document window bar -->
-  <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;justify-content:space-between;align-items:center;font-size:10px;flex-shrink:0;">
+  <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;justify-content:space-between;align-items:center;font-size:18px;flex-shrink:0;">
     <span style="color:#000;">MisfitBeer.ppt</span>
     <div style="display:flex;gap:2px;">
       <div class="wbtn" style="width:14px;height:12px;font-size:8px;">_</div>
@@ -393,6 +392,10 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
           <div class="ppt-thumb-wrap" id="thumb2" onclick="showSlide(2)">
             <div class="ppt-thumb-inner">About &amp; Gallery</div>
           </div>
+          <div style="font-size:9px;color:#000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 3</div>
+          <div class="ppt-thumb-wrap" id="thumb3" onclick="showSlide(2)">
+            <div class="ppt-thumb-inner">Pics</div>
+          </div>
         </div>
         <!-- Main slide area — blue like reference photo -->
         <div class="ppt-slide-area">
@@ -402,7 +405,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
               <div class="ppt-main-title">Misfit Brewing Co.</div>
             </div>
             <div class="ppt-subtitle-box">
-              <div class="ppt-subtitle-text">Great beer. Great cause.</div>
+              <div class="ppt-subtitle-text">@misfitbeer</div>
             </div>
           </div>
           <!-- SLIDE 2 — content slide -->
@@ -421,6 +424,25 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
                 <div style="background:#d4cdc4;border:1px solid #808080;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:10px;color:#666;">add image</div>
                 <div style="background:#d4cdc4;border:1px solid #808080;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:10px;color:#666;">add image</div>
                 <div style="background:#d4cdc4;border:1px solid #808080;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:10px;color:#666;">add image</div>
+              </div>
+            </div>
+          </div>
+          <!-- SLIDE 3 — content slide 2 -->
+          <div class="ppt-content-slide2" id="ppt-slide3">
+            <div class="ppt-content-title">@misfitbeer — About</div>
+            <div class="ppt-content-body">
+              <p style="margin-bottom:10px;">I lead a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</p>
+              <p style="margin-bottom:10px;">I founded Misfit, a New Zealand social enterprise brewing company, fighting to restore clean water sources in NZ and the wider Pacific — donating all profits to the cause.</p>
+              <ul>
+                <li>"Here's to the crazy ones."</li>
+                <li>All profits donated to the cause</li>
+                <li>50+ stockists nationwide</li>
+              </ul>
+              <!-- ADD MISFIT IMAGES: replace ppt-img-ph divs with <img style="width:100%;aspect-ratio:4/3;object-fit:cover;" src="images/misfit1.jpg" alt=""> -->
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;width:200px;">
+                <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer1">
+                <img class="ppt-img" src="images/misfit2.jpg" alt="Misfit Beer2">
+                <img class="ppt-img" src="images/misfit3.jpg" alt="Misfit Beer3">
               </div>
             </div>
           </div>
@@ -478,31 +500,30 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
       </div>
       <div class="paint-canvas-wrap">
         <div class="paint-canvas-inner" id="paint-canvas">
-          <div class="pixel-banner">@bundipaints</div>
           <!-- Replace paint-img-ph divs with: <img class="paint-img" src="images/bundi1.jpg" alt=""> -->
           <div class="paint-row">
-            <div class="paint-img-ph">bundi1.jpg</div>
-            <div class="paint-img-ph">bundi2.jpg</div>
-            <div class="paint-img-ph">bundi3.jpg</div>
-            <div class="paint-img-ph">bundi4.jpg</div>
+            <img class="paint-img" src="images/bundi1.jpg" alt="Artwork1">
+            <img class="paint-img" src="images/bundi2.jpg" alt="Artwork2">
+            <img class="paint-img" src="images/bundi3.jpg" alt="Artwork3">
+            <img class="paint-img" src="images/bundi4.jpg" alt="Artwork4">
           </div>
           <div class="paint-row">
-            <div class="paint-img-ph">bundi5.jpg</div>
-            <div class="paint-img-ph">bundi6.jpg</div>
-            <div class="paint-img-ph">bundi7.jpg</div>
-            <div class="paint-img-ph">bundi8.jpg</div>
+            <img class="paint-img" src="images/bundi5.jpg" alt="Artwork5">
+            <img class="paint-img" src="images/bundi6.jpg" alt="Artwork6">
+            <img class="paint-img" src="images/bundi7.jpg" alt="Artwork7">
+            <img class="paint-img" src="images/bundi8.jpg" alt="Artwork8">
           </div>
           <div class="paint-row">
-            <div class="paint-img-ph">bundi9.jpg</div>
-            <div class="paint-img-ph">bundi10.jpg</div>
-            <div class="paint-img-ph">bundi11.jpg</div>
-            <div class="paint-img-ph">bundi12.jpg</div>
+            <img class="paint-img" src="images/bundi9.jpg" alt="Artwork9">
+            <img class="paint-img" src="images/bundi10.jpg" alt="Artwork10">
+            <img class="paint-img" src="images/bundi11.jpg" alt="Artwork11">
+            <img class="paint-img" src="images/bundi12.jpg" alt="Artwork12">
           </div>
           <div class="paint-row">
-            <div class="paint-img-ph">bundi13.jpg</div>
-            <div class="paint-img-ph">bundi14.jpg</div>
-            <div class="paint-img-ph">bundi15.jpg</div>
-            <div class="paint-img-ph">bundi16.jpg</div>
+            <img class="paint-img" src="images/bundi13.jpg" alt="Artwork13">
+            <img class="paint-img" src="images/bundi14.jpg" alt="Artwork14">
+            <img class="paint-img" src="images/bundi15.jpg" alt="Artwork15">
+            <img class="paint-img" src="images/bundi16.jpg" alt="Artwork16">
           </div>
         </div>
       </div>
