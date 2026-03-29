@@ -201,7 +201,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 <!-- HOME WINDOW -->
 <div class="win" id="win-home" style="width:700px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
-    <span>&#x1F4BB; brendandevoy.com</span>
+    <span>🌐; brendandevoy.com</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('home')">_</div>
       <div class="wbtn" onclick="toggleMax('home')">&#9633;</div>
@@ -234,7 +234,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 <!-- CV WINDOW -->
 <div class="win maximised hidden" id="win-cv" style="z-index:11;">
   <div class="titlebar inactive" id="tb-cv" onmousedown="startDrag(event,'cv')">
-    <span>&#x1F4C4; Brendan Devoy CV.doc &#8212; Microsoft Word</span>
+    <span>📄 Brendan Devoy CV.doc </span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('cv')">_</div>
       <div class="wbtn" onclick="toggleMax('cv')">&#10066;</div>
@@ -326,7 +326,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 <!-- MISFIT WINDOW — PPT 97 style matching reference photo -->
 <div class="win maximised hidden" id="win-misfit" style="z-index:12;">
   <div class="titlebar inactive" id="tb-misfit" onmousedown="startDrag(event,'misfit')">
-    <span>&#x1F37A; Microsoft PowerPoint &#8212; [MisfitBeer.ppt]</span>
+    <span>🍺 MisfitBeer.ppt</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('misfit')">_</div>
       <div class="wbtn" onclick="toggleMax('misfit')">&#10066;</div>
@@ -384,16 +384,16 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
       <div class="ppt-main">
         <!-- Slide panel -->
         <div class="ppt-panel">
-          <div style="font-size:9px;color:#000;margin-bottom:3px;font-weight:bold;">Slide 1</div>
+          <div style="font-size:9px;color:#ffffff;margin-bottom:3px;font-weight:bold;">Slide 1</div>
           <div class="ppt-thumb-wrap active" onclick="showSlide(1)">
             <div class="ppt-thumb-inner">Misfit Brewing Co.</div>
           </div>
-          <div style="font-size:9px;color:#000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 2</div>
+          <div style="font-size:9px;color:#ffffff;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 2</div>
           <div class="ppt-thumb-wrap" id="thumb2" onclick="showSlide(2)">
             <div class="ppt-thumb-inner">About &amp; Gallery</div>
           </div>
-          <div style="font-size:9px;color:#000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 3</div>
-          <div class="ppt-thumb-wrap" id="thumb3" onclick="showSlide(2)">
+          <div style="font-size:9px;color:#ffffff;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 3</div>
+          <div class="ppt-thumb-wrap" id="thumb3" onclick="showSlide(3)">
             <div class="ppt-thumb-inner">Pics</div>
           </div>
         </div>
@@ -421,9 +421,9 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
               </ul>
               <!-- ADD MISFIT IMAGES: replace ppt-img-ph divs with <img style="width:100%;aspect-ratio:4/3;object-fit:cover;" src="images/misfit1.jpg" alt=""> -->
               <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;">
-                <div style="background:#d4cdc4;border:1px solid #808080;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:10px;color:#666;">add image</div>
-                <div style="background:#d4cdc4;border:1px solid #808080;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:10px;color:#666;">add image</div>
-                <div style="background:#d4cdc4;border:1px solid #808080;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:10px;color:#666;">add image</div>
+                <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer1" style="width:200px;">
+                <img class="ppt-img" src="images/misfit2.jpg" alt="Misfit Beer2" style="width:200px;">
+                <img class="ppt-img" src="images/misfit3.jpg" alt="Misfit Beer3" style="width:200px;">
               </div>
             </div>
           </div>
@@ -439,10 +439,10 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
                 <li>50+ stockists nationwide</li>
               </ul>
               <!-- ADD MISFIT IMAGES: replace ppt-img-ph divs with <img style="width:100%;aspect-ratio:4/3;object-fit:cover;" src="images/misfit1.jpg" alt=""> -->
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;width:200px;">
-                <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer1">
-                <img class="ppt-img" src="images/misfit2.jpg" alt="Misfit Beer2">
-                <img class="ppt-img" src="images/misfit3.jpg" alt="Misfit Beer3">
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;">
+                <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer1" style="width:200px;">
+                <img class="ppt-img" src="images/misfit2.jpg" alt="Misfit Beer2" style="width:200px;">
+                <img class="ppt-img" src="images/misfit3.jpg" alt="Misfit Beer3" style="width:200px;">
               </div>
             </div>
           </div>
@@ -470,7 +470,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 <!-- BUNDI WINDOW — Paint reverted + two rows of 4 -->
 <div class="win maximised hidden" id="win-bundi" style="z-index:13;">
   <div class="titlebar inactive" id="tb-bundi" onmousedown="startDrag(event,'bundi')">
-    <span>&#x1F5BC;&#xFE0F; bundipaints.bmp &#8212; Paint</span>
+    <span>🎨 bundipaints.bmp </span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('bundi')">_</div>
       <div class="wbtn" onclick="toggleMax('bundi')">&#10066;</div>
@@ -552,7 +552,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 <!-- CONTACT WINDOW -->
 <div class="win hidden" id="win-contact" style="width:320px;z-index:20;">
   <div class="titlebar inactive" id="tb-contact" onmousedown="startDrag(event,'contact')">
-    <span>&#x1F4EC; Contact Brendan</span>
+    <span>📨 Contact Brendan</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('contact')">_</div>
       <div class="wbtn" onclick="closeWin('contact')">&#10005;</div>
