@@ -73,10 +73,10 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 /* main slide area — blue surround like real PPT */
 .ppt-slide-area{flex:1;background:#2b579a;display:flex;flex-direction:column;align-items:center;padding:16px;gap:16px;overflow-y:auto;}
 /* the actual slide — beige/cream like the reference photo */
-.ppt-slide{background:#020403;width:100%;max-width:700px;height:100%;max-height:525px;aspect-ratio:4/3;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;}
+.ppt-slide{background:#020403;width:100%;max-width:700px;aspect-ratio:4/3;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;}
 /* title text box — no border, centered, Times New Roman like reference */
 .ppt-title-box{text-align:center;margin-bottom:24px;width:100%;}
-.ppt-main-title{font-family:'Times New Roman',serif;font-size:65px;font-weight:normal;color:#ffffff;letter-spacing:1px;}
+.ppt-main-title{font-family:'Times New Roman',serif;font-size:65px;font-weight:normal;color:#ffffff;letter-spacing:0.75px;}
 /* subtitle — dotted border placeholder like the reference */
 .ppt-subtitle-text{font-family:'Times New Roman',serif;font-size:14px;color:#ffffff;font-style:italic;}
 /* content slide (second slide) */
@@ -220,12 +220,12 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
       <div class="inset" style="display:flex;align-items:flex-start;gap:14px;">
         <img class="profile-img" src="images/me.png" alt="Brendan Devoy">
         <div>
-          <p style="font-size:14px;font-weight:bold;margin-bottom:8px;">Kia Ora! &#x1F95D;</p>
-          <p style="font-size:12px;line-height:1.75;color:#000;">I'm a pilsner-loving, Auckland-based creative thinker, looking for opportunities to learn new things and push myself into challenging &amp; uncomfortable situations. </p>
-          <p style="font-size:12px;line-height:1.75;color:#000;">With a background in sales and marketing with liquor and FMCG, I’m passionate about driving brand success, revenue growth, and consumer connection through strategic account management and trade execution. </p>
+          <div style="font-size:14px;font-weight:bold;margin-bottom:8px;">Kia Ora! &#x1F95D;</div>
+          <div style="font-size:12px;line-height:1.75;color:#000;">I'm a pilsner-loving, Auckland-based creative thinker, looking for opportunities to learn new things and push myself into challenging &amp; uncomfortable situations. </div>
+          <div style="font-size:12px;line-height:1.75;color:#000;">With a background in sales and marketing with liquor and FMCG, I’m passionate about driving brand success, revenue growth, and consumer connection through strategic account management and trade execution. </div>
         </div>
       </div>
-      <div style="margin-top:6px;font-size:11px;color:#444;border-top:1px solid #808080;padding-top:8px;line-height:1;">
+      <div style="margin-top:6px;font-size:11px;color:#444;border-top:1px solid #808080;padding-top:8px;line-height:2.2;">
         est. 1995 &nbsp;|&nbsp; +64 21 673 125 &nbsp;|&nbsp;
         <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="472f223e0725352229232629232231283e6924282a">hey@brendandevoy.com</span></a>
       </div>
@@ -408,15 +408,15 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
           <div class="ppt-slide" id="ppt-slide1">
             <div class="ppt-title-box">
               <div class="ppt-main-title">Misfit Brewing Co.</div>
+              <div class="ppt-subtitle-text">@misfitbeer</div>
             </div>
           </div>
           <!-- SLIDE 2 — content slide -->
           <div class="ppt-content-slide" id="ppt-slide2">
-            <div class="ppt-content-title">@misfitbeer</div>
             <div class="ppt-content-grid" style="margin-top:5px;">
               <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer1" style="width:375px;">
               <div class="ppt-content-body">
-                <p style="margin-bottom:10px;max-width:300px;">I led a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</p>
+                <p style="margin-bottom:10px;max-width:300px;">I lead a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</p>
                 <p style="margin-bottom:10px;max-width:300px;">I founded Misfit, a New Zealand social enterprise brewing company, fighting to restore clean water sources in NZ and the wider Pacific — donating all profits to the cause.</p>
                 <p style="margin-bottom:10px;max-width:300px;">"Here's to the crazy ones."</p>
               </div>
@@ -429,7 +429,11 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
               <img class="ppt-img" src="images/misfit3.jpg" alt="Misfit Beer3" style="width:200px;">
               <img class="ppt-img" src="images/misfit4.jpg" alt="Misfit Beer4" style="width:200px;">
             </div>
-            <img class="ppt-img" src="images/misfit5.jpg" alt="Misfit Beer5" style="width:200px;">
+            <div class="ppt-content-grid-photo" style="margin-top:12px;">
+              <img class="ppt-img" src="images/misfit5.jpg" alt="Misfit Beer5" style="width:200px;">
+              <img class="ppt-img" src="images/misfit6.jpg" alt="Misfit Beer6" style="width:200px;">
+              <img class="ppt-img" src="images/misfit7.jpg" alt="Misfit Beer7" style="width:200px;">
+            </div>
           </div>
         </div>
       </div>
