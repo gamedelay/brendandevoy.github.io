@@ -112,7 +112,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 .paint-img-ph{background:#e8e8e8;border:2px solid;border-color:#808080 #fff #fff #808080;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888;cursor:crosshair;}
 
 /* CONTACT */
-.contact-body{padding:14px;background:#c0c0c0;}
+.contact-body{padding:14px;background:#c0c0c0;position:absolute;top:100px;width:325px;z-index:21;}
 .contact-label{font-size:11px;margin-bottom:3px;display:block;color:#000;}
 .contact-input{width:100%;border:2px solid;border-color:#808080 #fff #fff #808080;background:#fff;padding:3px 5px;font-size:11px;font-family:Arial,sans-serif;margin-bottom:8px;color:#000;}
 .contact-textarea{width:100%;border:2px solid;border-color:#808080 #fff #fff #808080;background:#fff;padding:3px 5px;font-size:11px;font-family:Arial,sans-serif;resize:vertical;height:50px;margin-bottom:8px;color:#000;}
@@ -565,10 +565,10 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
       <div class="wbtn" onclick="closeWin('contact')">&#10005;</div>
     </div>
   </div>
-  <div class="win-body" style="position:absolute;top:100px;width:325px;z-index:21;>
+  <div class="win-body">
     <div class="contact-body">
       <div style="font-size:11px;margin-bottom:12px;color:#000;"> a message to <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="96fef3efd6f4e4f3f8f2f7f8f2f3e0f9efb8f5f9fb">hey@brendandevoy.com</span></a></div>
-      <label class="contact-label">Your name:</label>
+      <label class="contact-label">Your name:</label> 
       <input class="contact-input" id="c-name" type="text" placeholder="Full name">
       <label class="contact-label">Your email:</label>
       <input class="contact-input" id="c-email" type="email" placeholder="you@email.com">
