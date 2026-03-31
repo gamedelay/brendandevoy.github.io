@@ -567,24 +567,25 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
   </div>
   <div class="win-body">
     <div class="contact-body">
-      <label class="contact-label">Your name:</label> 
+      <div style="font-size:11px;margin-bottom:12px;color:#000;">Send a message to <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="96fef3efd6f4e4f3f8f2f7f8f2f3e0f9efb8f5f9fb">hey@brendandevoy.com</span></a></div>
+      <label class="contact-label">Your name:</label>
       <input class="contact-input" id="c-name" type="text" placeholder="Full name">
       <label class="contact-label">Your email:</label>
       <input class="contact-input" id="c-email" type="email" placeholder="you@email.com">
       <label class="contact-label">Message:</label>
       <textarea class="contact-textarea" id="c-msg" placeholder="Type your message here..."></textarea>
       <div style="display:flex;gap:8px;">
-        <button class="contact-btn" onclick="submitContact()">Send</button>
+        <button class="contact-btn" onclick="submitContact()">&#x1F4E8; Send</button>
         <button class="contact-btn" onclick="closeWin('contact')">Cancel</button>
       </div>
-      <div id="c-confirm" style="display:none;margin-top:5px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:5px;font-size:11px;">
+      <div id="c-confirm" style="display:none;margin-top:10px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:10px;font-size:11px;">
         <div style="font-weight:bold;margin-bottom:4px;color:#000;">&#x2705; Message sent!</div>
         <div style="color:#000;">Thanks &#8212; Brendan will get back to you soon.</div>
         <button class="contact-btn" style="margin-top:8px;" onclick="closeWin('contact')">OK</button>
       </div>
     </div>
   </div>
-  <div class="statusbar"><span class="sstat">Ready to </span></div>
+  <div class="statusbar"><span class="sstat">Ready to send</span></div>
 </div>
 
 <!-- MINESWEEPER WINDOW -->
@@ -780,8 +781,8 @@ window.submitContact=function(){
   var msg=document.getElementById('c-msg').value.trim();
   if(!name||!email||!msg){alert('Please fill in all fields!');return;}
 
-  // Show ing state
-  var Btn=document.querySelector('#win-contact .contact-btn');
+  // Show sending state
+  var sendBtn=document.querySelector('#win-contact .contact-btn');
   sendBtn.textContent='Sending...';
   sendBtn.disabled=true;
 
@@ -800,12 +801,12 @@ window.submitContact=function(){
     } else {
       alert('Something went wrong. Please email hey@brendandevoy.com directly.');
     }
-    sendBtn.textContent='Send';
+    sendBtn.textContent='&#x1F4E8; Send';
     sendBtn.disabled=false;
   })
   .catch(function(){
     alert('Could not send. Please email hey@brendandevoy.com directly.');
-    sendBtn.textContent='Send';
+    sendBtn.textContent='&#x1F4E8; Send';
     sendBtn.disabled=false;
   });
 };
