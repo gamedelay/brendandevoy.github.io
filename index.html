@@ -57,12 +57,12 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 .cv-job-meta{font-family:'Times New Roman',serif;font-size:11px;color:#555;font-style:italic;margin-bottom:4px;}
 .cv-job-desc{font-family:'Times New Roman',serif;font-size:12px;line-height:1.8;color:#222;margin-bottom:10px;padding-left:10px;border-left:2px solid #c0c0c0;}
 .cv-li{font-family:'Times New Roman',serif;font-size:12px;margin-left:16px;line-height:1.9;color:#000;list-style-type:disc;}
-.cv-skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin:4px 0 4px 8px;}
+.cv-skill-grid{display:grid;grid-template-columns:1 1;gap:4px 16px;margin:4px 0 4px 8px;}
 .cv-skill-item{font-family:'Times New Roman',serif;font-size:12px;color:#000;line-height:1.8;}
 .cv-skill-item::before{content:'\25B8 ';color:#000080;font-size:10px;}
 .drawbar{background:#c0c0c0;border-top:1px solid #808080;padding:2px 4px;display:flex;gap:2px;font-size:10px;flex-wrap:wrap;flex-shrink:0;}
 
-/* ══ POWERPOINT — authentic PPT 97 look (from reference photo) ══ */
+/* ══ POWERPOINT — authentic PPT 97 look (om reference photo) ══ */
 .ppt-app{display:flex;flex-direction:column;height:100%;background:#c0c0c0;}
 .ppt-main{display:flex;flex:1;overflow:hidden;}
 /* left panel — slide list */
@@ -417,7 +417,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
             </div>
           </div>
           <!-- SLIDE 2 — content slide -->
-          <div class="ppt-content-slide" id="ppt-slide2">
+          <div class="ppt-content-slide" id="ppt-slide2" style="grid-template-columns:1fr 1fr;">
             <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer1" style="width:375px;">
             <div class="ppt-content-body" style="margin-bottom:10px;max-width:300px;padding-right:20px;padding-top:20px;">
               <p >I founded Misfit - a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</p>
