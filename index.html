@@ -80,7 +80,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 /* subtitle — dotted border placeholder like the reference */
 .ppt-subtitle-text{font-family:'Times New Roman',serif;font-size:14px;color:#ffffff;font-style:italic;}
 /* content slide (second slide) */
-.ppt-content-slide{background:#020403;width:100%;max-width:700px;height:525px;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;padding:0px 0px;position:relative;}
+.ppt-content-slide{background:#020403;width:100%;max-width:700px;height:525px;aspect-ration:4/3;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;padding:0px 0px;position:relative;}
 .ppt-content-title{font-family:'Times New Roman',serif;font-size:20px;font-weight:bold;color:#ffffff;border-bottom:1px solid #888;padding-bottom:8px;margin-bottom:12px;}
 .ppt-content-body{font-family:'Times New Roman',serif;font-size:13px;color:#ffffff;line-height:1.9;}
 .ppt-content-body li{margin-left:20px;list-style:disc;}
@@ -393,15 +393,15 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
         <div class="ppt-panel">
           <div style="font-size:9px;color:#000000;margin-bottom:3px;font-weight:bold;">Slide 1</div>
           <div class="ppt-thumb-wrap active" onclick="showSlide(1)">
-            <div class="ppt-thumb-inner">Misfit Brewing Co.</div>
+            <div class="ppt-thumb-inner">@misfitbeer</div>
           </div>
           <div style="font-size:9px;color:#000000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 2</div>
           <div class="ppt-thumb-wrap" id="thumb2" onclick="showSlide(2)">
-            <div class="ppt-thumb-inner">About</div>
+            <div class="ppt-thumb-inner">@misfitbeer</div>
           </div>
           <div style="font-size:9px;color:#000000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 3</div>
           <div class="ppt-thumb-wrap" id="thumb3" onclick="showSlide(3)">
-            <div class="ppt-thumb-inner">Beers</div>
+            <div class="ppt-thumb-inner">@misfitbeer</div>
           </div>
           <div style="font-size:9px;color:#000000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 3</div>
           <div class="ppt-thumb-wrap" id="thumb4" onclick="showSlide(4)">
@@ -425,7 +425,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
               </div>
               <!-- Right: text -->
               <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;">
-                <div class="ppt-content-title" style="margin-bottom:6px;">About Misfit</div>
+                <div class="ppt-content-title" style="margin-bottom:6px;">@misfitbeer</div>
                 <p class="ppt-content-body">I founded Misfit — a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</p>
                 <p class="ppt-content-body">A New Zealand social enterprise brewing company, we fought to restore clean water sources in NZ and the wider Pacific by donating all profits to the cause.</p>
                 <ul style="padding-left:18px;margin-top:4px;">
