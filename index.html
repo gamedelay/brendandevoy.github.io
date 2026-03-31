@@ -780,8 +780,35 @@ window.submitContact=function(){
   var email=document.getElementById('c-email').value.trim();
   var msg=document.getElementById('c-msg').value.trim();
   if(!name||!email||!msg){alert('Please fill in all fields!');return;}
-  window.location.href='mailto:hey@brendandevoy.com?subject='+encodeURIComponent('Message from '+name)+'&body='+encodeURIComponent('From: '+name+'\nEmail: '+email+'\n\n'+msg);
-  document.getElementById('c-confirm').style.display='block';
+
+  // Show sending state
+  var sendBtn=document.querySelector('#win-contact .contact-btn');
+  sendBtn.textContent='Sending...';
+  sendBtn.disabled=true;
+
+  fetch('https://formspree.io/f/mojpwzan', {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({name:name,email:email,message:msg})
+  })
+  .then(function(r){return r.json();})
+  .then(function(data){
+    if(data.ok){
+      document.getElementById('c-confirm').style.display='block';
+      document.getElementById('c-name').value='';
+      document.getElementById('c-email').value='';
+      document.getElementById('c-msg').value='';
+    } else {
+      alert('Something went wrong. Please email hey@brendandevoy.com directly.');
+    }
+    sendBtn.textContent='&#x1F4E8; Send';
+    sendBtn.disabled=false;
+  })
+  .catch(function(){
+    alert('Could not send. Please email hey@brendandevoy.com directly.');
+    sendBtn.textContent='&#x1F4E8; Send';
+    sendBtn.disabled=false;
+  });
 };
 
 /* DRAG */
