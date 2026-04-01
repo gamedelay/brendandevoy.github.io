@@ -773,10 +773,6 @@ select:focus { border-color: var(--accent); }
   <!-- ══ SIDEBAR (always visible — the form) ══ -->
   <aside id="sidebar">
 
-    <div id="api-key-warning" class="warning-banner hidden">
-      ⚠️ No API key. <button id="btn-go-settings">Set one in Settings →</button>
-    </div>
-
     <!-- Servings -->
     <div class="card">
       <label class="section-label">Servings</label>
@@ -964,17 +960,6 @@ select:focus { border-color: var(--accent); }
     <div id="view-settings" class="view">
       <div class="view-header"><h2>⚙️ Settings</h2></div>
       <div class="settings-grid">
-
-        <div class="card">
-          <label class="section-label">Anthropic API Key</label>
-          <p class="hint" style="margin-bottom:10px;">Get yours at <strong>console.anthropic.com</strong>. Your key is stored only in your browser's localStorage.</p>
-          <div class="api-key-row">
-            <input id="api-key-input" type="password" placeholder="sk-ant-…" autocomplete="off"/>
-            <button id="btn-toggle-key" class="icon-btn" title="Show/hide">👁</button>
-          </div>
-          <button id="btn-save-key" class="cta-btn" style="margin-top:12px;">Save API Key</button>
-          <p id="key-status" class="hint" style="margin-top:8px;text-align:center;"></p>
-        </div>
 
         <div class="card">
           <label class="section-label">Default Season</label>
@@ -1284,8 +1269,6 @@ function makePill(label, active, onClick) {
   el.onclick = onClick;
   return el;
 }
-
-function checkApiKeyWarning() { $('api-key-warning').classList.toggle('hidden', !!apiKey); }
 
 // ── Events ────────────────────────────────────
 function bindEvents() {
@@ -1752,14 +1735,6 @@ function showAddToPlannerModal(preselectedDay) {
 }
 
 // ── Settings ──────────────────────────────────
-function saveApiKey() {
-  const val=$('api-key-input').value.trim();
-  if(!val){$('key-status').textContent='Please enter a key.';return;}
-  apiKey=val; persist();
-  $('key-status').textContent='✅ Key saved!'; $('key-status').style.color='var(--success)';
-  checkApiKeyWarning();
-  setTimeout(()=>{$('key-status').textContent='';},3000);
-}
 function toggleKeyVisibility() { const i=$('api-key-input'); i.type=i.type==='password'?'text':'password'; }
 function clearAllData() {
   if(!confirm('Delete all saved recipes and planner? This cannot be undone.'))return;
