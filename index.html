@@ -186,10 +186,10 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
   <span class="icon-img">📄</span><span class="icon-label">CV.doc</span>
 </div>
 <div class="icon" id="ico-misfit" style="top:194px;left:14px;" ondblclick="openWin('misfit')" onclick="selIcon('misfit')">
-  <span class="icon-img">🍺</span><span class="icon-label">MisfitBeer.ppt</span>
+  <span class="icon-img">🍺</span><span class="icon-label">@misfitbeer.ppt</span>
 </div>
 <div class="icon" id="ico-bundi" style="top:284px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
-  <span class="icon-img">🎨</span><span class="icon-label">bundipaints.bmp</span>
+  <span class="icon-img">🎨</span><span class="icon-label">@bundipaints.bmp</span>
 </div>
 <div class="icon" id="ico-contact" style="top:374px;left:14px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
   <span class="icon-img">📨</span><span class="icon-label">Contact.msg</span>
@@ -333,7 +333,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 <!-- MISFIT WINDOW — PPT 97 style matching reference photo -->
 <div class="win maximised hidden" id="win-misfit" style="z-index:12;">
   <div class="titlebar inactive" id="tb-misfit" onmousedown="startDrag(event,'misfit')">
-    <span>🍺 MisfitBeer.ppt</span>
+    <span>🍺 @misfitBeer.ppt</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('misfit')">_</div>
       <div class="wbtn" onclick="toggleMax('misfit')">&#10066;</div>
@@ -379,7 +379,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
   </div>
   <!-- Inner document window bar -->
   <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;justify-content:space-between;align-items:center;font-size:12px;flex-shrink:0;">
-    <span style="color:#000;">MisfitBeer.ppt</span>
+    <span style="color:#000;">@misfitbeer.ppt</span>
     <div style="display:flex;gap:2px;">
       <div class="wbtn" style="width:14px;height:12px;font-size:8px;">_</div>
       <div class="wbtn" style="width:14px;height:12px;font-size:8px;">&#9633;</div>
@@ -477,7 +477,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
 <!-- BUNDI WINDOW — Paint reverted + two rows of 4 -->
 <div class="win maximised hidden" id="win-bundi" style="z-index:13;">
   <div class="titlebar inactive" id="tb-bundi" onmousedown="startDrag(event,'bundi')">
-    <span>🎨 bundipaints.bmp </span>
+    <span>🎨 @bundipaints.bmp </span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('bundi')">_</div>
       <div class="wbtn" onclick="toggleMax('bundi')">&#10066;</div>
@@ -694,8 +694,8 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#008080;overflow:hid
     <div class="start-menu-inner">
       <div class="start-item" onclick="startOpen('home')"><span class="start-item-icon">🌐</span>My Site</div>
       <div class="start-item" onclick="startOpen('cv')"><span class="start-item-icon">📄</span>CV.doc</div>
-      <div class="start-item" onclick="startOpen('misfit')"><span class="start-item-icon">🍺</span>MisfitBeer.ppt</div>
-      <div class="start-item" onclick="startOpen('bundi')"><span class="start-item-icon">🎨</span>bundipaints.bmp</div>
+      <div class="start-item" onclick="startOpen('misfit')"><span class="start-item-icon">🍺</span>@misfitbeer.ppt</div>
+      <div class="start-item" onclick="startOpen('bundi')"><span class="start-item-icon">🎨</span>@bundipaints.bmp</div>
       <div class="start-item" onclick="startOpen('mines')"><span class="start-item-icon">&#x1F4A3;</span>Minesweeper</div>
       <div class="start-item" onclick="startOpen('contact')"><span class="start-item-icon">📨</span>Contact.msg</div>
       <hr class="start-sep">
@@ -722,7 +722,7 @@ var WINS=['home','cv','misfit','bundi','contact','mines'];
 var zTop=20,state={};
 WINS.forEach(function(w){state[w]={min:false,closed:true};});
 state['home'].closed=false;
-var LABELS={home:'🌐 brendandevoy.com',cv:'📄 CV.doc',misfit:'🍺 MisfitBeer.ppt',bundi:'🎨 bundipaints.bmp',contact:'📨 Contact',mines:'&#x1F4A3; Minesweeper'};
+var LABELS={home:'🌐 brendandevoy.com',cv:'📄 CV.doc',misfit:'🍺 @misfitbeer.ppt',bundi:'🎨 @bundipaints.bmp',contact:'📨 Contact',mines:'&#x1F4A3; Minesweeper'};
 var isMax={home:false,cv:true,misfit:true,bundi:true,contact:false,mines:false};
 var savedPos={};
 
