@@ -1439,14 +1439,11 @@ async function generateRecipe() {
   const prompt = buildPrompt(allergens);
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true',
-      },
+    const response = await fetch('https://ouichef-proxy.bundi-devoy.workers.dev', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json',
+     },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 4000,
