@@ -163,6 +163,17 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 @keyframes clippy-idle{0%,100%{transform:rotate(-2deg);}50%{transform:rotate(3deg);}}
 #clippy-wrap.hidden-clippy{}
 
+/* START MENU */
+#start-menu{display:none;position:fixed;bottom:30px;left:0;width:220px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;z-index:99990;flex-direction:column;}
+#start-menu.open{display:flex;}
+.start-sidebar{background:#808080;width:24px;flex-shrink:0;display:flex;align-items:flex-end;padding-bottom:4px;}
+.start-sidebar-text{color:#c0c0c0;font-size:11px;font-weight:bold;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:2px;white-space:nowrap;font-family:Arial,sans-serif;}
+.start-menu-inner{flex:1;display:flex;flex-direction:column;}
+.start-item{display:flex;align-items:center;gap:10px;padding:5px 8px;cursor:pointer;font-size:12px;color:#000;font-family:Arial,sans-serif;}
+.start-item:hover{background:#000080;color:#fff;}
+.start-item-icon{font-size:18px;width:22px;text-align:center;flex-shrink:0;}
+.start-sep{border:none;border-top:1px solid #808080;border-bottom:1px solid #fff;margin:2px 4px;}
+
 /* ══ MOBILE ══ */
 #mobile-site{display:none;}
 @media(max-width:768px){
@@ -1175,10 +1186,6 @@ setTimeout(function(){
       <div class="m-img-4">
         <img src="images/bundi9.jpg" alt="Art"><img src="images/bundi10.jpg" alt="Art">
         <img src="images/bundi11.jpg" alt="Art"><img src="images/bundi12.jpg" alt="Art">
-      </div>
-      <div class="m-img-4">
-        <img src="images/bundi13.jpg" alt="Art"><img src="images/bundi14.jpg" alt="Art">
-        <img src="images/bundi15.jpg" alt="Art"><img src="images/bundi16.jpg" alt="Art">
       </div>
     </div>
     <div class="m-sbar">For Help, click Help Topics on the Help Menu.</div>
