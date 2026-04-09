@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,9 +56,9 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 .cv-section-title{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#000080;padding:3px 8px;margin-top:22px;margin-bottom:8px;display:block;}
 .cv-job-title{font-family:'Times New Roman',serif;font-size:13px;font-weight:bold;color:#000;margin-bottom:1px;}
 .cv-job-meta{font-family:'Times New Roman',serif;font-size:11px;color:#555;font-style:italic;margin-bottom:4px;}
-.cv-job-desc{font-family:'Times New Roman',serif;font-size:12px;line-height:1.8;color:#222;margin-bottom:10px;padding-left:10px;border-left:2px solid #c0c0c0;}
+.cv-job-desc{font-family:'Times New Roman',serif;font-size:12px;line-height:1.8;color:#222;font-style:italic;margin-bottom:10px;padding-left:10px;border-left:2px solid #c0c0c0;}
 .cv-li{font-family:'Times New Roman',serif;font-size:12px;margin-left:16px;line-height:1.9;color:#000;list-style-type:disc;}
-.cv-skill-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 16px;margin:4px 0 4px 8px;}
+.cv-skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin:4px 0 4px 8px;}
 .cv-skill-item{font-family:'Times New Roman',serif;font-size:12px;color:#000;line-height:1.8;}
 .cv-skill-item::before{content:'\25B8 ';color:#000080;font-size:10px;}
 .drawbar{background:#c0c0c0;border-top:1px solid #808080;padding:2px 4px;display:flex;gap:2px;font-size:10px;flex-wrap:wrap;flex-shrink:0;}
@@ -166,13 +167,95 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 /* START MENU */
 #start-menu{display:none;position:fixed;bottom:30px;left:0;width:220px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;z-index:99990;flex-direction:column;}
 #start-menu.open{display:flex;}
-.start-sidebar{background:#808080;width:24px;flex-shrink:0;display:flex;align-items:flex-end;padding-bottom:4px;}
-.start-sidebar-text{color:#c0c0c0;font-size:11px;font-weight:bold;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:2px;white-space:nowrap;font-family:Arial,sans-serif;}
+.start-sidebar{background:#000080;width:24px;flex-shrink:0;display:flex;align-items:flex-end;padding-bottom:4px;}
+.start-sidebar-text{color:#fff;font-size:11px;font-weight:bold;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:2px;white-space:nowrap;font-family:Arial,sans-serif;}
 .start-menu-inner{flex:1;display:flex;flex-direction:column;}
 .start-item{display:flex;align-items:center;gap:10px;padding:5px 8px;cursor:pointer;font-size:12px;color:#000;font-family:Arial,sans-serif;}
 .start-item:hover{background:#000080;color:#fff;}
 .start-item-icon{font-size:18px;width:22px;text-align:center;flex-shrink:0;}
 .start-sep{border:none;border-top:1px solid #808080;border-bottom:1px solid #fff;margin:2px 4px;}
+
+/* ══ MOBILE ══ */
+#mobile-site{display:none;}
+@media(max-width:768px){
+  body{overflow:auto;height:auto;cursor:default;}
+  #desktop,#taskbar,#screensaver,#start-menu,#clippy-wrap{display:none!important;}
+  /* Centre windows vertically and horizontally */
+  #mobile-site{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#2b579a;max-height:100vh;padding:30px 30px 30px;}
+  .m-win{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;margin-bottom:14px;display:none;width:100%;max-width:480px;}
+  .m-win.m-active{display:block;}
+  /* Title bars */
+  .m-tb{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:12px;font-weight:bold;padding:4px 8px;font-family:Arial,sans-serif;display:flex;justify-content:space-between;align-items:center;}
+  .m-tb-btns{display:flex;gap:2px;}
+  .m-tb-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:16px;height:14px;font-size:9px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:bold;}
+  .m-body{padding:12px;font-family:Arial,sans-serif;font-size:12px;color:#000;}
+  .m-h1{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:13px;font-weight:bold;padding:3px 8px;margin-bottom:8px;}
+  .m-inset{border:2px solid;border-color:#808080 #fff #fff #808080;padding:10px;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;}
+  .m-profile{width:300px;height:300px;object-fit:cover;object-position:top;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0;align-items:center;}
+  .m-footer{font-size:11px;color:#444;border-top:1px solid #808080;padding-top:6px;margin-top:6px;line-height:1;}
+  .m-sec{font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#000080;padding:2px 8px;margin:12px 0 6px;display:block;}
+  .m-job-t{font-family:'Times New Roman',serif;font-size:11px;font-weight:bold;color:#000;}
+  .m-job-m{font-family:'Times New Roman',serif;font-size:10px;color:#555;font-style:italic;margin-bottom:3px;}
+  .m-job-d{font-family:'Times New Roman',serif;font-size:11px;line-height:1.2;color:#222;font-style:italic;margin-bottom:8px;padding-left:8px;border-left:2px solid #c0c0c0;}
+  .m-skill{font-family:'Times New Roman',serif;font-size:11px;line-height:1.2;color:#000;}
+  .m-dl-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:4px 14px;font-size:11px;font-family:Arial,sans-serif;color:#000;text-decoration:none;display:inline-block;margin-top:8px;}
+  /* Word doc — white background with scrollbar */
+  .m-word-outer{background:#c0c0c0;padding:8px;}
+  .m-word-doc{background:#fff;padding:20px 24px;border:1px solid #666;box-shadow:2px 2px 6px rgba(0,0,0,0.4);max-height:65vh;overflow-y:scroll;}
+  .m-word-doc::-webkit-scrollbar{width:16px;}
+  .m-word-doc::-webkit-scrollbar-track{background:#c0c0c0;}
+  .m-word-doc::-webkit-scrollbar-thumb{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;}
+  .m-word-doc::-webkit-scrollbar-button{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;height:16px;}
+  /* PPT mobile */
+  .m-ppt-outer{background:#c0c0c0;padding:8px;max-height:70vh;overflow-y:scroll;}
+  .m-ppt-slide{background:#020403;padding:16px;margin-bottom:8px;border:1px solid #555;}
+  .m-ppt-h{font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:#fff;border-bottom:1px solid #555;padding-bottom:4px;margin-bottom:8px;}
+  .m-ppt-p{font-family:Arial,sans-serif;font-size:12px;color:#ccc;line-height:1.7;margin-bottom:6px;}
+  .m-ppt-li{font-family:Arial,sans-serif;font-size:12px;color:#ccc;line-height:1.8;padding-left:12px;position:relative;}
+  .m-ppt-li::before{content:'\2013';position:absolute;left:0;color:#aaa;}
+  .m-img-2{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px;}
+  .m-img-2 img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid #555;display:block;}
+  .m-img-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:8px;}
+  .m-img-3 img{width:100%;aspect-ratio:1;object-fit:cover;display:block;}
+  /* Paint mobile — with toolbox and palette */
+  .m-paint-outer{display:flex;background:#808080;max-height:75vh;}
+  .m-paint-toolbox{background:#c0c0c0;border-right:2px solid;border-color:#808080 #fff #fff #808080;padding:3px;display:grid;grid-template-columns:1fr 1fr;gap:2px;align-content:start;width:50px;flex-shrink:0;}
+  .m-pt{width:22px;height:22px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .m-pt.on{border-color:#808080 #fff #fff #808080;}
+  .m-paint-canvas{flex:1;padding:6px;overflow-y:auto;max-height:65vh;}
+  .m-pixel-banner{font-family:'Courier New',monospace;font-size:14px;font-weight:bold;color:#000080;letter-spacing:2px;text-shadow:1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000;margin-bottom:8px;display:block;-webkit-font-smoothing:none;}
+  .m-img-4{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-bottom:3px;}
+  .m-img-4 img{width:100%;aspect-ratio:1;object-fit:cover;border:2px solid;border-color:#808080 #fff #fff #808080;display:block;}
+  /* Paint palette */
+  .m-palette{background:#c0c0c0;border-top:2px solid;border-color:#808080 #fff #fff #808080;padding:3px 4px;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .m-pal-active{border:2px solid;border-color:#808080 #fff #fff #808080;width:28px;height:24px;position:relative;flex-shrink:0;margin-right:3px;}
+  .m-pal-fg{position:absolute;top:0;left:0;width:17px;height:15px;background:#000;border:1px solid #808080;}
+  .m-pal-bg{position:absolute;bottom:0;right:0;width:17px;height:15px;background:#fff;border:1px solid #808080;}
+  .m-pc{width:13px;height:13px;border:1px solid #000;display:inline-block;flex-shrink:0;}
+  /* Contact mobile */
+  .m-input{width:100%;border:2px solid;border-color:#808080 #fff #fff #808080;background:#fff;padding:4px 6px;font-size:12px;font-family:Arial,sans-serif;margin-bottom:8px;color:#000;box-sizing:border-box;}
+  .m-textarea{height:75px;resize:vertical;}
+  .m-send-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:5px 18px;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;color:#000;}
+  .m-send-btn:active{border-color:#808080 #fff #fff #808080;}
+  /* Status bar */
+  .m-sbar{background:#c0c0c0;border-top:1px solid #808080;padding:1px 6px;font-size:10px;color:#000;font-family:Arial,sans-serif;}
+  /* Mobile taskbar */
+  #m-taskbar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#c0c0c0;border-top:2px solid #fff;height:32px;align-items:center;padding:0 6px;gap:4px;z-index:9999;}
+  #m-start-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:2px 10px;font-weight:bold;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;}
+  #m-start-btn:active{border-color:#808080 #fff #fff #808080;}
+  #m-clock{margin-left:auto;border:1px solid;border-color:#808080 #fff #fff #808080;padding:2px 8px;font-size:11px;font-family:Arial,sans-serif;}
+  /* Mobile start menu */
+  #m-start-menu{display:none;position:fixed;bottom:32px;left:0;width:220px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;z-index:99990;flex-direction:row;}
+  #m-start-menu.open{display:flex;}
+  .m-sidebar{background:#000080;width:24px;flex-shrink:0;display:flex;align-items:flex-end;padding-bottom:4px;}
+  .m-sidebar-text{color:#fff;font-size:11px;font-weight:bold;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:2px;white-space:nowrap;font-family:Arial,sans-serif;}
+  .m-menu-inner{flex:1;display:flex;flex-direction:column;}
+  .m-menu-item{display:flex;align-items:center;gap:10px;padding:8px 8px;cursor:pointer;font-size:13px;color:#000;font-family:Arial,sans-serif;border-bottom:1px solid #d0d0d0;}
+  .m-menu-item:active{background:#000080;color:#fff;}
+  .m-menu-icon{font-size:18px;width:22px;text-align:center;flex-shrink:0;}
+  .m-menu-sep{border:none;border-top:1px solid #808080;border-bottom:1px solid #fff;margin:2px 4px;}
+}
+
 </style>
 </head>
 <body>
@@ -199,7 +282,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 </div>
 
 <!-- HOME WINDOW -->
-<div class="win" id="win-home" style="position:relative;width:700px;z-index:10;">
+<div class="win" id="win-home" style="width:700px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
     <span>🌐 brendandevoy.com</span>
     <div class="titlebar-btns">
@@ -229,7 +312,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
       </div>
       <div style="margin-top:6px;font-size:11px;color:#444;border-top:1px solid #808080;padding-top:8px;line-height:1;">
         est. 1995 &nbsp;|&nbsp; +64 21 673 125 &nbsp;|&nbsp;
-        <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="472f223e0725352229232629232231283e6924282a">hey@brendandevoy.com</span></a>
+        <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;">hey@brendandevoy.com</a>
       </div>
     </div>
   </div>
@@ -320,7 +403,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
           <li class="cv-li">Managed a portfolio equating to $2m+ in annual revenue</li>
         </ul>
         <div style="margin-top:24px;padding-top:12px;border-top:1px solid #c0c0c0;text-align:center;">
-          <a href="Brendan_Devoy_CV_2026.pdf" target="_blank" rel="noopener noreferrer" style="font-family:'Times New Roman',serif;font-size:12px;color:#000080;text-decoration:underline;">&#x1F4C4; Download CV (PDF)</a>
+           <a href="Brendan_Devoy_CV_2026.pdf" target="_blank" rel="noopener noreferrer" style="font-family:'Times New Roman',serif;font-size:12px;color:#000080;text-decoration:underline;">&#x1F4C4; Download CV (PDF)</a>
         </div>
       </div>
     </div>
@@ -560,7 +643,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 </div>
 
 <!-- CONTACT WINDOW -->
-<div class="win hidden" id="win-contact" style="position:absolute;top:100px;width:325px;z-index:21;">
+<div class="win hidden" id="win-contact" style="width:325px;z-index:21;">
   <div class="titlebar inactive" id="tb-contact" onmousedown="startDrag(event,'contact')">
     <span>📨 Contact Brendan</span>
     <div class="titlebar-btns">
@@ -719,7 +802,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   <canvas id="ss-canvas"></canvas>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function(){
 var WINS=['home','cv','misfit','bundi','contact','mines'];
 var zTop=20,state={};
@@ -1017,6 +1100,285 @@ setTimeout(function(){
   focusWin('home');
   updateClippy();
 },80);
+})();
+</script>
+
+<!-- ══ MOBILE SITE ══ -->
+<div id="mobile-site">
+
+  <!-- Home -->
+  <div class="m-win m-active" id="m-win-home" style="width:100%;align:center;">
+    <div class="m-tb">
+      <span>🌐 brendandevoy.com</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">□</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div class="m-body">
+      <div class="m-h1">BRENDAN DEVOY</div>
+      <div class="m-inset" style="display:block;"> 
+        <img class="m-profile" src="images/me.png" alt="Brendan Devoy" style="margin-bottom:10px;">
+        <br>
+        <div>
+          <p style="font-weight:bold;margin-bottom:6px;font-size:12px;">Kia Ora! 🥝</p>
+          <p style="font-size:11px;line-height:1.2;color:#000;">I'm a pilsner-loving, Auckland-based creative thinker, looking for opportunities to learn new things and push myself into challenging &amp; uncomfortable situations.</p>
+          <br>
+          <p style="font-size:11px;line-height:1.2;color:#000;">With a sales and marketing background in liquor and FMCG, I'm passionate about driving brand success and consumer connection.</p>
+          <br>
+          <p style="font-size:11px;line-height:1.2;color:#000;">Oh, and I like to paint.</p>
+        </div>
+      </div>
+      <div class="m-footer">
+        est. 1995 &nbsp;|&nbsp; 021 673 125 &nbsp;|&nbsp; <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;">hey@brendandevoy.com</a>
+      </div>
+    </div>
+    <div class="m-sbar">Ready | brendandevoy.com</div>
+  </div>
+
+  <!-- CV -->
+  <div class="m-win" id="m-win-cv">
+    <div class="m-tb">
+      <span>📄 CV.doc — Microsoft Word</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">□</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div class="m-word-outer">
+      <div class="m-word-doc">
+        <img src="images/BrendanDevoy.png" alt="Brendan Devoy" style="max-width:100%;margin-bottom:6px;display:block;">
+        <div style="text-align:center;font-size:10px;letter-spacing:4px;color:#555;margin-bottom:12px;text-transform:uppercase;font-family:'Times New Roman',serif;">Curriculum Vitae</div>
+        <hr style="border:none;border-top:2px solid #000;margin-bottom:12px;">
+        <p style="font-family:'Times New Roman',serif;font-size:11px;font-style:italic;line-height:1.2;color:#111;margin-bottom:8px;">I am a results-driven sales and marketing professional with expertise in liquor and FMCG. Skilled in relationship management, stakeholder engagement, and data-driven decision-making, I thrive in fast-paced environments. I’m passionate about driving brand success, revenue growth, and consumer connection through strategic account management and trade execution.</p>
+        <span class="m-sec">Experience</span>
+        <div class="m-job-t">Atomic Coffee &#8212; Account Manager</div>
+        <div class="m-job-m">Mar 2023 &#8211; Jul 2025</div>
+        <br>
+        <div class="m-job-d">Managed key accounts, ensuring optimal sales performance and brand visibility. Developed and executed promotional strategies, driving increased distribution and revenue growth. Strengthened customer relationships, ensuring a symbiotic alignment of their ambitions with wider business and marketing goals.</div>
+        <br>
+        <div class="m-job-t">Futurity &#8212; Sales Manager</div>
+        <div class="m-job-m">Jun 2021 &#8211; Dec 2022</div>
+        <br>
+        <div class="m-job-d">Brought to market NZ’s first 100% commercially compostable bottled water product. Led strategic sales planning, and managed customer relationships, ensuring high satisfaction, repeat business, and market share growth. Utilised CRM tools and data insights to enhance targeting and brand engagement strategies.</div>
+        <br>
+        <div class="m-job-t">Misfit Brewing Co. &#8212; Founder &amp; Sales Lead</div>
+        <div class="m-job-m">Jan 2018 &#8211; Jun 2021</div>
+        <br>
+        <div class="m-job-d">Developed and managed the brand from inception to national distribution, ensuring a strong market presence (50+ stockists). Built and nurtured relationships with distributors and consumers, enhancing brand loyalty and engagement. Leveraged consumer insights and sales data to refine marketing and product strategies.</div>
+        <br>
+        <div class="m-job-t">Lion NZ &#8212; Order Management Executive</div>
+        <div class="m-job-m">Jul 2016 &#8211; Jan 2018</div>
+        <br>
+        <div class="m-job-d">Liaised with various stakeholders, from supply-chain to brand management, to mitigate the effect of changing stock levels. Responsibility and trust were integral, with each department reliant on you to ensure a free-flowing sales channel.</div>
+        <span class="m-sec">Skills</span>
+        <div class="m-skill">▸ Project Management &nbsp; ▸ Commercial Acumen<br>▸ Marketing Strategy &nbsp; ▸ Sales Strategy<br>▸ Stakeholder Management &nbsp; ▸ Data-driven Decisions</div>
+        <span class="m-sec">Education</span>
+        <div class="m-job-t">University of Auckland</div><div class="m-job-m">BCom Marketing — 2013–2015</div>
+        <div class="m-job-t">Live The Dream</div><div class="m-job-m">Enterprise Accelerator 2015–16</div>
+        <div class="m-job-t">Toastmasters International</div><div class="m-job-m">Ponsonby Club 2022–2023</div>
+        <span class="m-sec">Achievements</span>
+        <div class="m-skill">▸ Self-appointed Employee of the Month — record 13 times<br>▸ Nationwide brand expansion across 50+ stockists<br>▸ Managed portfolio equating to $2m+ in annual revenue</div>
+        <div style="margin-top:16px;padding-top:10px;border-top:1px solid #c0c0c0;">
+          <a class="m-dl-btn" href="Brendan_Devoy_CV_2026.pdf" target="_blank">📄 Download CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+    <div class="m-sbar">Page 1 | Sec 1 | 1/1 | REC | OVR</div>
+  </div>
+
+  <!-- Misfit -->
+  <div class="m-win" id="m-win-misfit">
+    <div class="m-tb">
+      <span>🍺 @misfitBeer.ppt — PowerPoint</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">□</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div class="m-ppt-outer">
+      <div class="m-ppt-slide">
+        <img src="images/White.png" alt="Misfit Beer Logo" style="max-width:100%;display:block;margin:0 auto 12px;">
+      </div>
+      <div class="m-ppt-slide">
+        <img src="images/misfit6.jpg" alt="Misfit" style="width:100%;display:block;">
+      </div>
+      <div class="m-ppt-slide">
+        <p class="m-ppt-p">I founded Misfit — a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising approach to crafting the perfect beer.</p>
+        <p class="m-ppt-p">A New Zealand social enterprise brewing company, we fought to restore clean water sources in NZ and the wider Pacific by donating all profits to the cause.</p>
+        <div class="m-ppt-li">50+ stockists nationwide</div>
+        <div class="m-ppt-li">7 SKUs</div>
+        <div class="m-ppt-li" style="font-style:italic;">"Here's to the crazy ones."</div>
+      </div>
+      <div class="m-ppt-slide">
+        <div class="m-img-3">
+          <img src="images/misfit2.jpg" alt="Misfit"><img src="images/misfit3.jpg" alt="Misfit"><img src="images/misfit4.jpg" alt="Misfit">
+          <img src="images/misfit5.jpg" alt="Misfit"><img src="images/misfit7.jpg" alt="Misfit"><img src="images/misfit8.jpg" alt="Misfit">
+        </div>
+      </div>
+    </div>
+    <div class="m-sbar">Slide 1–4 | @misfitbeer | Normal View</div>
+  </div>
+
+  <!-- Bundi / Paint -->
+  <div class="m-win" id="m-win-bundi">
+    <div class="m-tb">
+      <span>🎨 bundipaints.bmp — Paint</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">□</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div class="m-paint-outer">
+      <div class="m-paint-toolbox">
+        <div class="m-pt on">✏️</div><div class="m-pt">🪣</div>
+        <div class="m-pt">⬜</div><div class="m-pt">💉</div>
+        <div class="m-pt">🔍</div><div class="m-pt">A</div>
+        <div class="m-pt">╱</div><div class="m-pt">▭</div>
+        <div class="m-pt">⬭</div><div class="m-pt">⬠</div>
+      </div>
+      <div class="m-paint-canvas">
+        <div class="m-img-4">
+          <img src="images/bundi1.jpg" alt="Art"><img src="images/bundi2.jpg" alt="Art">
+          <img src="images/bundi3.jpg" alt="Art"><img src="images/bundi4.jpg" alt="Art">
+        </div>
+        <div class="m-img-4">
+          <img src="images/bundi5.jpg" alt="Art"><img src="images/bundi6.jpg" alt="Art">
+          <img src="images/bundi7.jpg" alt="Art"><img src="images/bundi8.jpg" alt="Art">
+        </div>
+        <div class="m-img-4">
+          <img src="images/bundi9.jpg" alt="Art"><img src="images/bundi10.jpg" alt="Art">
+          <img src="images/bundi11.jpg" alt="Art"><img src="images/bundi12.jpg" alt="Art">
+        </div>
+      </div>
+    </div>
+    <div class="m-palette">
+      <div class="m-pal-active"><div class="m-pal-fg"></div><div class="m-pal-bg"></div></div>
+      <div class="m-pc" style="background:#000"></div><div class="m-pc" style="background:#808080"></div>
+      <div class="m-pc" style="background:#800000"></div><div class="m-pc" style="background:#808000"></div>
+      <div class="m-pc" style="background:#008000"></div><div class="m-pc" style="background:#008080"></div>
+      <div class="m-pc" style="background:#000080"></div><div class="m-pc" style="background:#800080"></div>
+      <div class="m-pc" style="background:#fff"></div><div class="m-pc" style="background:#c0c0c0"></div>
+      <div class="m-pc" style="background:#f00"></div><div class="m-pc" style="background:#ff0"></div>
+      <div class="m-pc" style="background:#0f0"></div><div class="m-pc" style="background:#0ff"></div>
+      <div class="m-pc" style="background:#00f"></div><div class="m-pc" style="background:#f0f"></div>
+      <div class="m-pc" style="background:#ff8000"></div><div class="m-pc" style="background:#00ff80"></div>
+    </div>
+    <div class="m-sbar">For Help, click Help Topics on the Help Menu.</div>
+  </div>
+
+  <!-- Contact -->
+  <div class="m-win" id="m-win-contact">
+    <div class="m-tb">
+      <span>📨 Contact Brendan</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div class="m-body">
+      <div style="font-size:11px;margin-bottom:10px;color:#000;">Send a message to <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;">hey@brendandevoy.com</a></div>
+      <label style="font-size:11px;display:block;margin-bottom:3px;">Your name:</label>
+      <input class="m-input" id="m-name" type="text" placeholder="Full name">
+      <label style="font-size:11px;display:block;margin-bottom:3px;">Your email:</label>
+      <input class="m-input" id="m-email" type="email" placeholder="you@email.com">
+      <label style="font-size:11px;display:block;margin-bottom:3px;">Message:</label>
+      <textarea class="m-input m-textarea" id="m-msg" placeholder="Type your message here..."></textarea>
+      <button class="m-send-btn" onclick="mobileSubmit()">✉️ Send</button>
+      <div id="m-confirm" style="display:none;margin-top:10px;font-size:11px;font-family:Arial,sans-serif;color:#000;">✅ Sent! Brendan will get back to you soon.</div>
+    </div>
+    <div class="m-sbar">Ready to send</div>
+  </div>
+</div><!-- end mobile-site -->
+
+<!-- MOBILE TASKBAR -->
+<div id="m-taskbar" style="display:none;">
+  <button id="m-start-btn" onclick="mToggleStart()">🪟 <strong>Start</strong></button>
+  <div id="m-clock" style="margin-left:auto;border:1px solid;border-color:#808080 #fff #fff #808080;padding:2px 8px;font-size:11px;font-family:Arial,sans-serif;"></div>
+</div>
+
+<!-- MOBILE START MENU -->
+<div id="m-start-menu" style="display:none;">
+  <div class="m-sidebar"><span class="m-sidebar-text">Windows 95</span></div>
+  <div class="m-menu-inner">
+    <div class="m-menu-item" onclick="mOpenPage('home')"><span class="m-menu-icon">🌐</span>My Site</div>
+    <div class="m-menu-item" onclick="mOpenPage('cv')"><span class="m-menu-icon">📄</span>CV.doc</div>
+    <div class="m-menu-item" onclick="mOpenPage('misfit')"><span class="m-menu-icon">🍺</span>@misfitbeer.ppt</div>
+    <div class="m-menu-item" onclick="mOpenPage('bundi')"><span class="m-menu-icon">🎨</span>@bundipaints.bmp</div>
+    <div class="m-menu-item" onclick="mOpenPage('contact')"><span class="m-menu-icon">📨</span>Contact.msg</div>
+    <hr class="m-menu-sep">
+    <div class="m-menu-item" onclick="mCloseStart()"><span class="m-menu-icon">🚪</span>Close Menu</div>
+  </div>
+</div>
+
+<script>
+/* MOBILE LOGIC — only runs on mobile */
+(function(){
+  var isMobile=window.innerWidth<=768;
+  function checkMobile(){return window.innerWidth<=768;}
+
+  /* Show correct layout */
+  function applyLayout(){
+    var mobile=checkMobile();
+    document.getElementById('mobile-site').style.display=mobile?'block':'none';
+    document.getElementById('m-taskbar').style.display=mobile?'flex':'none';
+    document.getElementById('m-start-menu').style.display='none';
+    mStartOpen=false;
+  }
+  applyLayout();
+  window.addEventListener('resize',applyLayout);
+
+  /* Mobile clock */
+  function mTick(){
+    var el=document.getElementById('m-clock');
+    if(!el)return;
+    var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';
+    h=h%12||12;el.textContent=h+':'+(m<10?'0':'')+m+' '+ap;
+  }
+  mTick();setInterval(mTick,10000);
+
+  /* Mobile start menu */
+  var mStartOpen=false;
+  window.mToggleStart=function(){
+    if(!checkMobile())return;
+    mStartOpen=!mStartOpen;
+    document.getElementById('m-start-menu').style.display=mStartOpen?'flex':'none';
+  };
+  window.mCloseStart=function(){
+    mStartOpen=false;
+    document.getElementById('m-start-menu').style.display='none';
+  };
+
+  /* Mobile page switching */
+  var mPages=['home','cv','misfit','bundi','contact'];
+  window.mOpenPage=function(id){
+    mPages.forEach(function(p){
+      var w=document.getElementById('m-win-'+p);
+      if(w)w.classList.remove('m-active');
+    });
+    var target=document.getElementById('m-win-'+id);
+    if(target){
+      target.classList.add('m-active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    window.mCloseStart();
+  };
+
+  /* Mobile contact form */
+  window.mobileSubmit=function(){
+    var name=document.getElementById('m-name').value.trim();
+    var email=document.getElementById('m-email').value.trim();
+    var msg=document.getElementById('m-msg').value.trim();
+    if(!name||!email||!msg){alert('Please fill in all fields!');return;}
+    var btn=document.querySelector('#m-win-contact .m-send-btn');
+    btn.textContent='Sending...';btn.disabled=true;
+    fetch('https://formspree.io/f/mojpwzan',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name:name,email:email,message:msg})
+    })
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.ok){
+        document.getElementById('m-confirm').style.display='block';
+        document.getElementById('m-name').value='';
+        document.getElementById('m-email').value='';
+        document.getElementById('m-msg').value='';
+      } else {
+        alert('Something went wrong. Please email hey@brendandevoy.com directly.');
+      }
+      btn.textContent='✉️ Send';btn.disabled=false;
+    })
+    .catch(function(){
+      alert('Could not send. Please email hey@brendandevoy.com directly.');
+      btn.textContent='✉️ Send';btn.disabled=false;
+    });
+  };
 })();
 </script>
 </body>
