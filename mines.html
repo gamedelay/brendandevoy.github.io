@@ -1450,4 +1450,20 @@ setTimeout(function(){
     .then(function(d){
       if(d.ok){
         document.getElementById('m-confirm').style.display='block';
-        document.getElementById('m-n
+        document.getElementById('m-name').value='';
+        document.getElementById('m-email').value='';
+        document.getElementById('m-msg').value='';
+      } else {
+        alert('Something went wrong. Please email hey@brendandevoy.com directly.');
+      }
+      btn.textContent='✉️ Send';btn.disabled=false;
+    })
+    .catch(function(){
+      alert('Could not send. Please email hey@brendandevoy.com directly.');
+      btn.textContent='✉️ Send';btn.disabled=false;
+    });
+  };
+})();
+</script>
+</body>
+</html>
