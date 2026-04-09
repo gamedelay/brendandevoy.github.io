@@ -1334,7 +1334,7 @@ setTimeout(function(){
         <div class="m-face-btn" id="m-face-btn" onclick="mInitMines()">🙂</div>
         <div class="m-mines-counter" id="m-mine-timer">000</div>
       </div>
-      <div style="overflow-x:auto;width:80%;">
+      <div style="overflow-x:auto;width:100%;">
         <div class="m-mines-grid" id="m-mines-grid"></div>
       </div>
     </div>
@@ -1403,7 +1403,7 @@ setTimeout(function(){
   };
 
   /* Mobile page switching */
-  var mPages=['home','cv','misfit','bundi','contact'];
+  var mPages=['home','cv','misfit','bundi','contact','mines'];
   window.mOpenPage=function(id){
     mPages.forEach(function(p){
       var w=document.getElementById('m-win-'+p);
@@ -1418,7 +1418,7 @@ setTimeout(function(){
   };
 
   /* Mobile Minesweeper */
-  var mMCfg={beginner:{rows:9,cols:9,mines:10},intermediate:{rows:13,cols:13,mines:25}};
+  var mMCfg={beginner:{rows:12,cols:12,mines:10},intermediate:{rows:13,cols:13,mines:25}};
   var mMDiff='beginner',mMBoard=[],mMRevealed=[],mMFlagged=[],mMMines=[],mMOver=false,mMFirst=true;
   var mMTimer=0,mMTI=null,mMRows,mMCols,mMCount;
   function mPad3(n){return('000'+Math.max(0,n)).slice(-3);}
