@@ -109,8 +109,21 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 .pixel-banner{text-align:center;padding:10px 0 4px;font-family:'Courier New',monospace;font-size:18px;font-weight:bold;color:#000080;letter-spacing:3px;text-shadow:2px 0 #000,-2px 0 #000,0 2px #000,0 -2px #000,1px 1px #000,-1px 1px #000,1px -1px #000,-1px -1px #000;-webkit-font-smoothing:none;margin-bottom:8px;}
 /* two fixed rows of 4 */
 .paint-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px;}
-.paint-img{width:100%;aspect-ratio:1;object-fit:cover;border:2px solid;border-color:#808080 #fff #fff #808080;display:block;cursor:crosshair;}
-.paint-img-ph{background:#e8e8e8;border:2px solid;border-color:#808080 #fff #fff #808080;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:10px;color:#888;cursor:crosshair;}
+.paint-img{width:100%;aspect-ratio:1;object-fit:cover;border:2px solid;border-color:#808080 #fff #fff #808080;display:block;cursor:zoom-in;}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.9);z-index:999999;align-items:center;justify-content:center;cursor:zoom-out;}
+#lightbox.lb-open{display:flex;}
+#lb-img{max-width:100vw;max-height:90vh;object-fit:contain;border:3px solid;border-color:#fff #808080 #808080 #fff;box-shadow:4px 4px 0 #000;display:block;cursor:default;align-items:center;}
+#lb-close{position:fixed;top:10px;right:12px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:28px;height:24px;font-size:13px;font-weight:bold;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;font-family:Arial,sans-serif;z-index:1000000;}
+#lb-close:active{border-color:#808080 #fff #fff #808080;}
+#lb-prev,#lb-next{position:fixed;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:32px;height:48px;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;z-index:1000000;}
+#lb-prev:active,#lb-next:active{border-color:#808080 #fff #fff #808080;}
+#lb-prev{left:10px;}
+#lb-next{right:10px;}
+#lb-counter{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:2px 12px;font-size:11px;font-family:Arial,sans-serif;color:#000;z-index:1000000;}
+
+.paint-img-ph{background:#e8e8e8;border:2px solid;border-color:#808080 #fff #fff #808080;aspect-ratio:1;display:relative;align-items:center;justify-content:center;font-size:10px;color:#888;cursor:crosshair;}
 
 /* CONTACT */
 .contact-body{padding:14px;background:#c0c0c0;}
@@ -181,7 +194,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   body{overflow:auto;height:auto;cursor:default;}
   #desktop,#taskbar,#screensaver,#start-menu,#clippy-wrap{display:none!important;}
   /* Centre windows vertically and horizontally */
-  #mobile-site{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#2b579a;max-height:100vh;padding:30px 30px 30px;}
+  #mobile-site{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#2b579a;max-height:100vh;padding:30px 30px 30px 30px;}
   .m-win{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;margin-bottom:14px;display:none;width:100%;max-width:480px;}
   .m-win.m-active{display:block;}
   /* Title bars */
@@ -218,14 +231,14 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   .m-img-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:8px;}
   .m-img-3 img{width:100%;aspect-ratio:1;object-fit:cover;display:block;}
   /* Paint mobile — with toolbox and palette */
-  .m-paint-outer{display:flex;background:#808080;max-height:73vh;}
+  .m-paint-outer{display:flex;background:#808080;max-height:67vh;}
   .m-paint-toolbox{background:#c0c0c0;border-right:2px solid;border-color:#808080 #fff #fff #808080;padding:3px;display:grid;grid-template-columns:1fr 1fr;gap:2px;align-content:start;width:50px;flex-shrink:0;}
   .m-pt{width:22px;height:22px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;display:flex;align-items:center;justify-content:center;font-size:11px;}
   .m-pt.on{border-color:#808080 #fff #fff #808080;}
   .m-paint-canvas{flex:1;padding:6px;overflow-y:auto;max-height:65vh;}
   .m-pixel-banner{font-family:'Courier New',monospace;font-size:14px;font-weight:bold;color:#000080;letter-spacing:2px;text-shadow:1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000;margin-bottom:8px;display:block;-webkit-font-smoothing:none;}
   .m-img-4{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-bottom:3px;}
-  .m-img-4 img{width:100%;aspect-ratio:1;object-fit:cover;border:2px solid;border-color:#808080 #fff #fff #808080;display:block;}
+  .m-img-4 img{width:100%;aspect-ratio:1;object-fit:cover;border:2px solid;border-color:#808080 #fff #fff #808080;display:block;cursor:zoom-in;}
   /* Paint palette */
   .m-palette{background:#c0c0c0;border-top:2px solid;border-color:#808080 #fff #fff #808080;padding:3px 4px;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
   .m-pal-active{border:2px solid;border-color:#808080 #fff #fff #808080;width:28px;height:24px;position:relative;flex-shrink:0;margin-right:3px;}
@@ -277,14 +290,14 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 <div class="icon" id="ico-home" style="top:14px;left:14px;" ondblclick="openWin('home')" onclick="selIcon('home')">
   <span class="icon-img">🌐</span><span class="icon-label">About.me</span>
 </div>
-<div class="icon" id="ico-cv" style="top:104px;left:14px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
-  <span class="icon-img">📄</span><span class="icon-label">CV.doc</span>
-</div>
-<div class="icon" id="ico-misfit" style="top:194px;left:14px;" ondblclick="openWin('misfit')" onclick="selIcon('misfit')">
+<div class="icon" id="ico-misfit" style="top:104px;left:14px;" ondblclick="openWin('misfit')" onclick="selIcon('misfit')">
   <span class="icon-img">🍺</span><span class="icon-label">misfitbeer.ppt</span>
 </div>
-<div class="icon" id="ico-bundi" style="top:284px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
+<div class="icon" id="ico-bundi" style="top:194px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
   <span class="icon-img">🎨</span><span class="icon-label">bundipaints.bmp</span>
+</div>
+<div class="icon" id="ico-cv" style="top:284px;left:14px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
+  <span class="icon-img">📄</span><span class="icon-label">CV.doc</span>
 </div>
 <div class="icon" id="ico-contact" style="top:374px;left:14px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
   <span class="icon-img">📨</span><span class="icon-label">Contact.msg</span>
@@ -791,9 +804,9 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
     <div class="start-sidebar"><span class="start-sidebar-text">Windows 95</span></div>
     <div class="start-menu-inner">
       <div class="start-item" onclick="startOpen('home')"><span class="start-item-icon">🌐</span>About.me</div>
-      <div class="start-item" onclick="startOpen('cv')"><span class="start-item-icon">📄</span>CV.doc</div>
       <div class="start-item" onclick="startOpen('misfit')"><span class="start-item-icon">🍺</span>@misfitbeer.ppt</div>
       <div class="start-item" onclick="startOpen('bundi')"><span class="start-item-icon">🎨</span>@bundipaints.bmp</div>
+      <div class="start-item" onclick="startOpen('cv')"><span class="start-item-icon">📄</span>CV.doc</div>
       <div class="start-item" onclick="startOpen('mines')"><span class="start-item-icon">&#x1F4A3;</span>Minesweeper</div>
       <div class="start-item" onclick="startOpen('contact')"><span class="start-item-icon">📨</span>Contact.msg</div>
       <hr class="start-sep">
@@ -810,11 +823,20 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 </div>
 
 <!-- SCREENSAVER -->
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="lbClose()">
+  <div id="lb-close" onclick="lbClose()">✕</div>
+  <div id="lb-prev" onclick="lbPrev(event)">&#9664;</div>
+  <img id="lb-img" src="" alt="" onclick="event.stopPropagation()">
+  <div id="lb-next" onclick="lbNext(event)">&#9654;</div>
+  <div id="lb-counter">1 / 1</div>
+</div>
+
 <div id="screensaver" onclick="dismissSS()" onmousemove="dismissSS()">
   <canvas id="ss-canvas"></canvas>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
 var WINS=['home','cv','misfit','bundi','contact','mines'];
 var zTop=20,state={};
@@ -1102,6 +1124,66 @@ document.addEventListener('click',function(e){
   }
 });
 
+/* LIGHTBOX */
+var lbSrcs=[], lbIdx=0;
+
+function lbCollect(){
+  var imgs=[];
+  // Collect from desktop paint window
+  document.querySelectorAll('#paint-canvas .paint-img').forEach(function(img){
+    if(img.src) imgs.push(img.src);
+  });
+  // Collect from mobile paint window
+  document.querySelectorAll('#m-win-bundi .m-img-4 img').forEach(function(img){
+    if(img.src) imgs.push(img.src);
+  });
+  // Deduplicate
+  var seen={}, unique=[];
+  imgs.forEach(function(s){ if(!seen[s]){seen[s]=true;unique.push(s);} });
+  return unique;
+}
+
+window.lbOpen=function(src){
+  lbSrcs=lbCollect();
+  lbIdx=lbSrcs.indexOf(src);
+  if(lbIdx<0) lbIdx=0;
+  lbShow();
+};
+function lbShow(){
+  document.getElementById('lb-img').src=lbSrcs[lbIdx];
+  document.getElementById('lb-counter').textContent=(lbIdx+1)+' / '+lbSrcs.length;
+  document.getElementById('lightbox').classList.add('lb-open');
+}
+window.lbClose=function(){
+  document.getElementById('lightbox').classList.remove('lb-open');
+};
+window.lbPrev=function(e){
+  e.stopPropagation();
+  lbIdx=(lbIdx-1+lbSrcs.length)%lbSrcs.length;
+  lbShow();
+};
+window.lbNext=function(e){
+  e.stopPropagation();
+  lbIdx=(lbIdx+1)%lbSrcs.length;
+  lbShow();
+};
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('lightbox').classList.contains('lb-open')) return;
+  if(e.key==='Escape') window.lbClose();
+  if(e.key==='ArrowLeft') window.lbPrev(e);
+  if(e.key==='ArrowRight') window.lbNext(e);
+});
+
+// Wire up all paint images (desktop + mobile) after DOM is ready
+setTimeout(function(){
+  document.querySelectorAll('#paint-canvas .paint-img, #m-win-bundi .m-img-4 img').forEach(function(img){
+    img.addEventListener('click',function(e){
+      e.stopPropagation();
+      window.lbOpen(img.src);
+    });
+  });
+},300);
+
 /* INIT */
 updateTaskbar();
 focusWin('home');
@@ -1267,7 +1349,10 @@ setTimeout(function(){
       </div>
       <div class="m-paint-canvas">
         <div class="m-img-4">
-          <img src="images/bundi1.jpg" alt="Art"><img src="images/bundi2.jpg" alt="Art">
+          <a href="https://open.spotify.com/album/4gylHoAp7UM7oEQuPzJsMM?si=oa1c4eNOTNq5g_hLd2tvPQ" target="_blank">
+             <img class="paint-img" src="images/bundi1.jpg" alt="Artwork1" style="cursor:pointer;">
+            </a>
+          <img src="images/bundi2.jpg" alt="Art">
           <img src="images/bundi3.jpg" alt="Art"><img src="images/bundi4.jpg" alt="Art">
         </div>
         <div class="m-img-4">
@@ -1307,7 +1392,7 @@ setTimeout(function(){
      <span style="padding:2px 8px;color:#000;"><u>H</u>elp</span>
     </div>
     <div class="m-body">
-      <div style="font-size:11px;margin-bottom:10px;color:#000;">Send a message to <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;">hey@brendandevoy.com</a></div>
+      <div style="font-size:11px;margin-bottom:10px;color:#000;">Send a message to <a href="/cdn-cgi/l/email-protection#d3bbb6aa93b1a1b6bdb7b2bdb7b6a5bcaafdb0bcbe" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="3f575a467f5d4d5a515b5e515b5a495046115c5052">[email&#160;protected]</span></a></div>
       <label style="font-size:11px;display:block;margin-bottom:3px;">Your name:</label>
       <input class="m-input" id="m-name" type="text" placeholder="Full name">
       <label style="font-size:11px;display:block;margin-bottom:3px;">Your email:</label>
@@ -1352,9 +1437,9 @@ setTimeout(function(){
   <div class="m-sidebar"><span class="m-sidebar-text">Windows 95</span></div>
   <div class="m-menu-inner">
     <div class="m-menu-item" onclick="mOpenPage('home')"><span class="m-menu-icon">🌐</span>About.me</div>
-    <div class="m-menu-item" onclick="mOpenPage('cv')"><span class="m-menu-icon">📄</span>CV.doc</div>
     <div class="m-menu-item" onclick="mOpenPage('misfit')"><span class="m-menu-icon">🍺</span>@misfitbeer.ppt</div>
     <div class="m-menu-item" onclick="mOpenPage('bundi')"><span class="m-menu-icon">🎨</span>@bundipaints.bmp</div>
+    <div class="m-menu-item" onclick="mOpenPage('cv')"><span class="m-menu-icon">📄</span>CV.doc</div>
     <div class="m-menu-item" onclick="mOpenPage('contact')"><span class="m-menu-icon">📨</span>Contact.msg</div>
     <div class="m-menu-item" onclick="mOpenPage('mines')"><span class="m-menu-icon">💣</span>Minesweeper</div>
     <hr class="m-menu-sep">
@@ -1362,7 +1447,7 @@ setTimeout(function(){
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* MOBILE LOGIC — only runs on mobile */
 (function(){
   var isMobile=window.innerWidth<=768;
