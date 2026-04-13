@@ -1280,7 +1280,7 @@ function init() {
 function setSeasonDefault() {
   if (defaultSeason !== 'auto') { state.season = defaultSeason; $('season-select').value = defaultSeason; return; }
   const m = new Date().getMonth();
-  const s = m>=2&&m<=4?'Spring':m>=5&&m<=7?'Summer':m>=8&&m<=10?'Autumn':'Winter';
+  const s = m>=8&&m<=10?'Spring':m>=5&&m<=7?'Winter':m>=2&&m<=4?'Autumn':'Summer';
   state.season = s; $('season-select').value = s;
 }
 
