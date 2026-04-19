@@ -166,8 +166,8 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 
 /* TASKBAR */
 #taskbar{position:fixed;bottom:0;left:0;right:0;background:#c0c0c0;border-top:2px solid #fff;height:30px;display:flex;align-items:center;padding:0 4px;gap:3px;z-index:9999;}
-.start-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:1px 10px;font-weight:bold;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;display:flex;align-items:center;gap:4px;}
-.start-btn:active{border-color:#808080 #fff #fff #808080;}
+.start-btn{background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;height:28px;}
+.start-btn:active img{filter:brightness(0.85);}
 .tb-divider{width:1px;height:20px;background:#808080;margin:0 2px;}
 .taskbar-btn{border:1px solid;border-color:#808080 #fff #fff #808080;padding:2px 10px;font-size:11px;background:#c0c0c0;cursor:pointer;font-family:Arial,sans-serif;max-width:150px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;height:22px;display:flex;align-items:center;}
 .taskbar-btn.active{border-color:#808080 #fff #fff #808080;background:#b0b0b0;font-weight:bold;}
@@ -827,7 +827,8 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 
 <!-- TASKBAR -->
 <div id="taskbar">
-  <button class="start-btn" onclick="toggleStartMenu()">&#x1FA9F; <strong>Start</strong></button>
+  <button class="start-btn" onclick="toggleStartMenu()" style="background:none;border:none;padding:0;cursor:pointer;">
+  <img src="images/start.png" style="height:22px;image-rendering:pixelated;display:block;"></button>
   <div class="tb-divider"></div>
   <div id="tb-clock"></div>
 </div>
