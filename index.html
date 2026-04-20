@@ -17,7 +17,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hidden;height:100vh;user-select:none;cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24"><polygon points="0,0 0,18 5,13 9,22 12,21 8,12 14,12" fill="white" stroke="black" stroke-width="1.5"/></svg>') 0 0,default;-webkit-font-smoothing: none;font-smoothing: none;}
-#desktop{width:100vw;height:calc(100vh - 30px);position:relative;background: #008080 url('images/back.jpeg') center center/cover no-repeat;overflow:hidden;transform-origin:top left;filter: contrast(1.05) brightness(0.98);} 
+#desktop{width:100vw;height:calc(100vh - 30px);position:relative;background: #008080 url('images/back.jpeg') center center/cover no-repeat;overflow:hidden;transform-origin:top left;filter: contrast(1.15) brightness(0.98);} 
 
 img {image-rendering: pixelated;image-rendering: crisp-edges;}
 
@@ -33,7 +33,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .win.maximised{left:0!important;top:0!important;width:100%!important;height:calc(100vh - 30px)!important;}
 
 /* TITLEBAR */
-.titlebar{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:12px;font-weight:bold;padding:2px 3px 0px;display:flex;justify-content:space-between;align-items:center;cursor:move;flex-shrink:1;}
+.titlebar{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:13px;font-weight:bold;padding:2px 3px 2px;display:flex;justify-content:space-between;align-items:center;cursor:move;flex-shrink:0;}
 .titlebar.inactive{background:linear-gradient(90deg,#707070,#a0a0a0);}
 .titlebar-btns{display:flex;gap:2px;}
 .wbtn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:16px;height:14px;font-size:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;font-weight:bold;flex-shrink:0;}
@@ -320,7 +320,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <!-- HOME WINDOW -->
 <div class="win" id="win-home" style="width:700px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
-    <span><img src="images/home.png" style="height:17px;image-rendering:pixelated;">&nbsp;&nbsp;brendandevoy.com</span>
+    <span><img src="images/home.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;brendandevoy.com</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('home')">_</div>
       <div class="wbtn" onclick="toggleMax('home')">&#10066;</div>
@@ -358,7 +358,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <!-- CV WINDOW -->
 <div class="win maximised hidden" id="win-cv" style="z-index:11;">
   <div class="titlebar inactive" id="tb-cv" onmousedown="startDrag(event,'cv')">
-    <span> <img src="images/word.png" style="width:15px;height:15px;image-rendering:pixelated;">&nbsp;&nbsp;Brendan Devoy CV.doc </span>
+    <span> <img src="images/word.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Brendan Devoy CV.doc </span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('cv')">_</div>
       <div class="wbtn" onclick="toggleMax('cv')">&#10066;</div>
@@ -459,7 +459,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <!-- MISFIT WINDOW — PPT 97 style matching reference photo -->
 <div class="win maximised hidden" id="win-misfit" style="z-index:12;">
   <div class="titlebar inactive" id="tb-misfit" onmousedown="startDrag(event,'misfit')">
-    <span><img src="images/power.png" style="width:15px;height:15px;image-rendering:pixelated;">&nbsp;&nbsp;misfitbeer.ppt</span>
+    <span><img src="images/power.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;misfitbeer.ppt</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('misfit')">_</div>
       <div class="wbtn" onclick="toggleMax('misfit')">&#10066;</div>
@@ -603,7 +603,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <!-- BUNDI WINDOW — Paint reverted + two rows of 4 -->
 <div class="win maximised hidden" id="win-bundi" style="z-index:13;">
   <div class="titlebar inactive" id="tb-bundi" onmousedown="startDrag(event,'bundi')">
-    <span><img src="images/paint.png" style="width:15px;height:15px;image-rendering:pixelated;">&nbsp;&nbsp;bundipaints.bmp </span>
+    <span><img src="images/paint.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;bundipaints.bmp </span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('bundi')">_</div>
       <div class="wbtn" onclick="toggleMax('bundi')">&#10066;</div>
@@ -681,7 +681,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <!-- CONTACT WINDOW -->
 <div class="win hidden" id="win-contact" style="width:325px;z-index:21;">
   <div class="titlebar inactive" id="tb-contact" onmousedown="startDrag(event,'contact')">
-    <span><img src="images/contact.png" style="width:15px;height:15px;image-rendering:pixelated;">&nbsp;&nbsp;Contact Brendan</span>
+    <span><img src="images/contact.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Contact Brendan</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('contact')">_</div>
       <div class="wbtn" onclick="closeWin('contact')">&#10005;</div>
@@ -711,7 +711,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <!-- MINESWEEPER WINDOW -->
 <div class="win hidden" id="win-mines" style="position:absolute;top:200px;left:200px;z-index:21;">
   <div class="titlebar inactive" id="tb-mines" onmousedown="startDrag(event,'mines')">
-    <span><img src="images/mine.png" style="width:15px;height:15px;image-rendering:pixelated;">&nbsp;&nbsp;Minesweeper</span>
+    <span><img src="images/mine.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Minesweeper</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('mines')">_</div>
       <div class="wbtn" onclick="closeWin('mines')">&#10005;</div>
