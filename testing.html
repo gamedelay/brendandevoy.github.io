@@ -33,7 +33,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .win.maximised{left:0!important;top:0!important;width:100%!important;height:calc(100vh - 30px)!important;}
 
 /* TITLEBAR */
-.titlebar{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:14px;font-weight:bold;padding:3px 3px 6px;display:flex;justify-content:space-between;align-items:center;cursor:move;flex-shrink:0;}
+.titlebar{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:12px;font-weight:bold;padding:3px 3px 6px;display:flex;justify-content:space-between;align-items:center;cursor:move;flex-shrink:0;}
 .titlebar.inactive{background:linear-gradient(90deg,#707070,#a0a0a0);}
 .titlebar-btns{display:flex;gap:2px;}
 .wbtn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:16px;height:14px;font-size:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;font-weight:bold;flex-shrink:0;}
@@ -851,7 +851,7 @@ var WINS=['home','cv','misfit','bundi','contact','mines'];
 var zTop=20,state={};
 WINS.forEach(function(w){state[w]={min:false,closed:true};});
 state['home'].closed=false;
-var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper'};
+var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;brendandevoy.com',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;misfitbeer.ppt',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;bundipaints.bmp',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper'};
 var isMax={home:false,cv:true,misfit:true,bundi:true,contact:false,mines:false};
 var savedPos={};
 
