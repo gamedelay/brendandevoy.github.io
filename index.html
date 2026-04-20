@@ -16,10 +16,13 @@
 <title>Brendan Devoy</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hidden;height:100vh;user-select:none;cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24"><polygon points="0,0 0,18 5,13 9,22 12,21 8,12 14,12" fill="white" stroke="black" stroke-width="1.5"/></svg>') 0 0,default;-webkit-font-smoothing: none;font-smoothing: none;}
-#desktop{width:100vw;height:calc(100vh - 30px);position:relative;background: #008080 url('images/back.jpeg') center center/cover no-repeat;overflow:hidden;transform-origin:top left;filter: contrast(1.05) brightness(0.98);} 
+body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hidden;height:100vh;user-select:none;cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24"><polygon points="0,0 0,18 5,13 9,22 12,21 8,12 14,12" fill="white" stroke="black" stroke-width="1.5"/></svg>') 0 0,default;}
+#desktop{width:100vw;height:calc(100vh - 30px);position:relative;background:#2b579a;overflow:hidden;}
 
-img {image-rendering: pixelated;image-rendering: crisp-edges;}
+img {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
 
 /* ICONS */
 .icon{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:6px;width:80px;}
@@ -28,7 +31,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .icon.sel .icon-label{background:#000080;outline:1px dotted #fff;}
 
 /* WINDOWS */
-.win{position:absolute;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:3px 3px 0 #000;display:flex;flex-direction:column;min-width:200px;}
+.win{position:absolute;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;display:flex;flex-direction:column;min-width:200px;}
 .win.hidden{display:none;bottom:250px}
 .win.maximised{left:0!important;top:0!important;width:100%!important;height:calc(100vh - 30px)!important;}
 
@@ -166,8 +169,8 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 
 /* TASKBAR */
 #taskbar{position:fixed;bottom:0;left:0;right:0;background:#c0c0c0;border-top:2px solid #fff;height:30px;display:flex;align-items:center;padding:0 4px;gap:3px;z-index:9999;}
-.start-btn{background:none;border:none;padding:0;cursor:pointer;display:flex;align-items:center;height:28px;}
-.start-btn:active img{filter:brightness(0.85);}
+.start-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:1px 10px;font-weight:bold;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;display:flex;align-items:center;gap:4px;}
+.start-btn:active{border-color:#808080 #fff #fff #808080;}
 .tb-divider{width:1px;height:20px;background:#808080;margin:0 2px;}
 .taskbar-btn{border:1px solid;border-color:#808080 #fff #fff #808080;padding:2px 10px;font-size:11px;background:#c0c0c0;cursor:pointer;font-family:Arial,sans-serif;max-width:150px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;height:22px;display:flex;align-items:center;}
 .taskbar-btn.active{border-color:#808080 #fff #fff #808080;background:#b0b0b0;font-weight:bold;}
@@ -299,22 +302,22 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 
 <!-- ICONS — left side -->
 <div class="icon" id="ico-home" style="top:14px;left:14px;" ondblclick="openWin('home')" onclick="selIcon('home')">
-   <img src="images/home.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Home</span>
+  <span class="icon-img">🌐</span><span class="icon-label">About.me</span>
 </div>
 <div class="icon" id="ico-misfit" style="top:104px;left:14px;" ondblclick="openWin('misfit')" onclick="selIcon('misfit')">
   <span class="icon-img">🍺</span><span class="icon-label">misfitbeer.ppt</span>
 </div>
 <div class="icon" id="ico-bundi" style="top:194px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
-  <img src="images/paint.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">bundipaints.bmp</span>
+  <span class="icon-img">🎨</span><span class="icon-label">bundipaints.bmp</span>
 </div>
 <div class="icon" id="ico-cv" style="top:284px;left:14px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
-  <img src="images/cv.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">CV.doc</span>
+  <span class="icon-img">📄</span><span class="icon-label">CV.doc</span>
 </div>
 <div class="icon" id="ico-contact" style="top:374px;left:14px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
-  <img src="images/contact.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Contact.msg</span>
+  <span class="icon-img">📨</span><span class="icon-label">Contact.msg</span>
 </div>
 <div class="icon" id="ico-mines" style="top:464px;left:14px;" ondblclick="openWin('mines')" onclick="selIcon('mines')">
- <img src="images/mine.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Minesweeper</span>
+  <span class="icon-img">&#x1F4A3;</span><span class="icon-label">Minesweeper</span>
 </div>
 
 <!-- HOME WINDOW -->
@@ -323,7 +326,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
     <span>🌐 brendandevoy.com</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('home')">_</div>
-      <div class="wbtn" onclick="toggleMax('home')">&#10066;</div>
+      <div class="wbtn" onclick="toggleMax('home')">&#9633;</div>
       <div class="wbtn" onclick="closeWin('home')">&#10005;</div>
     </div>
   </div>
@@ -619,7 +622,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
     <div class="paint-outer">
       <div class="paint-toolbox">
         <div class="pt on" title="Pencil">&#x270F;&#xFE0F;</div>
-        <div class="pt" title="Fill"><img src="images/paint.png" style="width:16px;height:16px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Fill">&#x1FAA3;</div>
         <div class="pt" title="Eraser">&#x2B1C;</div>
         <div class="pt" title="Pick colour">&#x1F489;</div>
         <div class="pt" title="Zoom">&#x1F50D;</div>
@@ -814,8 +817,8 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
   <div style="display:flex;flex-direction:row;width:100%;">
     <div class="start-sidebar"><span class="start-sidebar-text">Windows 95</span></div>
     <div class="start-menu-inner">
-      <div class="start-item" onclick="startOpen('misfit')"><span class="start-item-icon">🍺</span>@misfitbeer</div>
-      <div class="start-item" onclick="startOpen('bundi')"><img src="images/paint.png" style="width:16px;height:16px;image-rendering:pixelated;"><span class="icon-label">bundipaints.bmp</span></div>
+      <div class="start-item" onclick="startOpen('misfit')"><span class="start-item-icon">🍺</span>@misfitbeer.ppt</div>
+      <div class="start-item" onclick="startOpen('bundi')"><span class="start-item-icon">🎨</span>@bundipaints.bmp</div>
       <div class="start-item" onclick="startOpen('cv')"><span class="start-item-icon">📄</span>CV.doc</div>
       <div class="start-item" onclick="startOpen('mines')"><span class="start-item-icon">&#x1F4A3;</span>Minesweeper</div>
       <div class="start-item" onclick="startOpen('contact')"><span class="start-item-icon">📨</span>Contact.msg</div>
@@ -827,8 +830,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 
 <!-- TASKBAR -->
 <div id="taskbar">
-  <button class="start-btn" onclick="toggleStartMenu()" style="background:none;border:none;padding:0;cursor:pointer;">
-  <img src="images/start.png" style="height:22px;image-rendering:pixelated;display:block;"></button>
+  <button class="start-btn" onclick="toggleStartMenu()">&#x1FA9F; <strong>Start</strong></button>
   <div class="tb-divider"></div>
   <div id="tb-clock"></div>
 </div>
