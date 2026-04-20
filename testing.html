@@ -33,7 +33,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .win.maximised{left:0!important;top:0!important;width:100%!important;height:calc(100vh - 30px)!important;}
 
 /* TITLEBAR */
-.titlebar{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:13px;font-weight:bold;padding:1px 3px 1px;display:flex;justify-content:space-between;align-items:center;cursor:move;flex-shrink:0;}
+.titlebar{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:13px;font-weight:bold;padding:2px 3px 1px;display:flex;justify-content:space-between;align-items:center;cursor:move;flex-shrink:0;}
 .titlebar.inactive{background:linear-gradient(90deg,#707070,#a0a0a0);}
 .titlebar-btns{display:flex;gap:2px;}
 .wbtn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:16px;height:14px;font-size:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;font-weight:bold;flex-shrink:0;}
@@ -320,7 +320,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <!-- HOME WINDOW -->
 <div class="win" id="win-home" style="width:700px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
-    <span><img src="images/home.png" style="height:14px;image-rendering:pixelated;">&nbsp;&nbsp;brendandevoy.com</span>
+    <span><img src="images/home.png" style="height:16px;image-rendering:pixelated;">&nbsp;&nbsp;brendandevoy.com</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('home')">_</div>
       <div class="wbtn" onclick="toggleMax('home')">&#10066;</div>
