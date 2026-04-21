@@ -973,6 +973,7 @@ window.toggleMax=function(id){
   }
   focusWin(id);
   updateClippy();
+  if(id==='cv') positionClippy();
 };
 function updateTaskbar(){
   var tb=document.getElementById('taskbar'),clock=document.getElementById('tb-clock');
@@ -1034,8 +1035,12 @@ window.startDrag=function(e,id){
 document.addEventListener('mousemove',function(e){
   if(!drag)return;
   var dr=document.getElementById('desktop').getBoundingClientRect();
-  drag.style.left=Math.max(0,Math.min(dr.width-drag.offsetWidth,e.clientX-dr.left-ox))+'px';
-  drag.style.top=Math.max(0,Math.min(dr.height-drag.offsetHeight,e.clientY-dr.top-oy))+'px';
+  var x=Math.max(0,Math.min(dr.width-drag.offsetWidth,e.clientX-dr.left-ox));
+  var y=Math.max(0,Math.min(dr.height-drag.offsetHeight,e.clientY-dr.top-oy));
+  drag.style.left=x+'px';
+  drag.style.top=y+'px';
+  // Keep Clippy anchored to CV window while dragging
+  if(drag.id==='win-cv') positionClippy();
 });
 document.addEventListener('mouseup',function(){drag=null;});
 WINS.forEach(function(w){var el=document.getElementById('win-'+w);if(el)el.addEventListener('mousedown',function(){focusWin(w);});});
@@ -1183,19 +1188,43 @@ window.clippyClose=function(){
   document.getElementById('clippy-bubble').style.display='none';
 };
 function updateClippy(){
-  var cvMaximised=(state['cv'].closed===false)&&(state['cv'].min===false);
-  if(cvMaximised) clippyEverMaximised=true;
+  var cvOpen=(state['cv'].closed===false)&&(state['cv'].min===false);
+  if(cvOpen) clippyEverMaximised=true;
   var wrap=document.getElementById('clippy-wrap');
   var bubble=document.getElementById('clippy-bubble');
-  if(clippyEverMaximised&&cvMaximised){
+  if(clippyEverMaximised&&cvOpen){
     wrap.style.display='flex';
     if(!clippyClosed){
       document.getElementById('clippy-text').textContent=clippyMsgs[clippyIdx];
       bubble.style.display='block';
     }
+    positionClippy();
   } else {
     wrap.style.display='none';
     bubble.style.display='none';
+  }
+}
+
+function positionClippy(){
+  var cvEl=document.getElementById('win-cv');
+  var wrap=document.getElementById('clippy-wrap');
+  if(!cvEl||!wrap) return;
+  if(isMax['cv']){
+    // Maximised — fix to bottom right of screen above taskbar
+    wrap.style.position='fixed';
+    wrap.style.bottom='40px';
+    wrap.style.right='12px';
+    wrap.style.left='';
+    wrap.style.top='';
+  } else {
+    // Restored — anchor to bottom right corner of CV window
+    var desk=document.getElementById('desktop').getBoundingClientRect();
+    var r=cvEl.getBoundingClientRect();
+    wrap.style.position='fixed';
+    wrap.style.left=(r.right - desk.left - 70)+'px';
+    wrap.style.top=(r.bottom - desk.top - 140)+'px';
+    wrap.style.bottom='';
+    wrap.style.right='';
   }
 }
 
