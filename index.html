@@ -939,7 +939,7 @@ window.toggleMax=function(id){
       el.style.width=savedPos[id].w;
     }
     // Set a sensible restored height so content scrolls
-    el.style.height=Math.round(desk.offsetHeight*0.75)+'px';
+    el.style.height=Math.round(desk.offsetHeight*0.90)+'px';
     isMax[id]=false;
   } else {
     savedPos[id]={l:el.style.left,t:el.style.top,w:el.style.width,h:el.style.height};
