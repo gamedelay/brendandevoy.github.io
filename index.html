@@ -927,13 +927,13 @@ window.openWin=function(id){
   el.style.width='800px';
   el.style.height=Math.round(desk.offsetHeight*0.95)+'px';
   el.style.left='160px';
-  el.style.top='40px';
+  el.style.top='20px';
 }
 if(id==='misfit'){
-  el.style.width='900px';
+  el.style.width='860px';
   el.style.height=Math.round(desk.offsetHeight*0.90)+'px';
   el.style.left='470px';
-  el.style.top='20px';
+  el.style.top='30px';
 }
   }
   focusWin(id);
@@ -944,7 +944,7 @@ window.minimiseWin=function(id){state[id].min=true;document.getElementById('win-
 window.closeWin=function(id){
   state[id].closed=true;state[id].min=false;
   document.getElementById('win-'+id).classList.add('hidden');
-  updateTaskbar();if(id==='mines')clearInterval(mTimerInterval);
+  updateTaskbar();if('mines')clearInterval(mTimerInterval);
   updateClippy();
 };
 window.toggleMax=function(id){
@@ -1645,7 +1645,7 @@ setTimeout(function(){
   var origMOpen=window.mOpenPage;
   window.mOpenPage=function(id){
     origMOpen(id);
-    if(id==='mines')mInitMines();
+    if('mines')mInitMines();
   };
   document.addEventListener('click',function(e){
     if(mStartOpen&&!e.target.closest('#m-start-menu')&&!e.target.closest('#m-start-btn')){
