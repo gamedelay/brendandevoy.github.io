@@ -1269,7 +1269,7 @@ function init() {
 function setSeasonDefault() {
   if (defaultSeason !== 'auto') { state.season = defaultSeason; $('season-select').value = defaultSeason; return; }
   const m = new Date().getMonth();
-  const s = m>=2&&m<=4?'Spring':m>=5&&m<=7?'Summer':m>=8&&m<=10?'Autumn':'Winter';
+  const s = m>=2&&m<=4?'Autumn':m>=5&&m<=7?'Winter':m>=8&&m<=10?'Spring':'Summer';
   state.season = s; $('season-select').value = s;
 }
 
@@ -1447,7 +1447,7 @@ function makeTag(text, isAllergen, onRemove) {
 
 // ── Generate ──────────────────────────────────
 // PROXY: update the URL below to your Cloudflare Worker address
-const PROXY_URL = 'https://ouichef-proxy.YOUR-SUBDOMAIN.workers.dev';
+const PROXY_URL = 'https://ouichef-proxy.bundi-devoy.workers.dev';
 async function generateRecipe() {
   showLoading();
 
