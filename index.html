@@ -924,10 +924,10 @@ window.openWin=function(id){
     el.classList.remove('maximised');
     // Give CV and Misfit a sensible default size when first opened
     if(id==='cv'||id==='misfit'){
-      el.style.width='750px';
+      el.style.width='900px';
       el.style.height=Math.round(desk.offsetHeight*0.90)+'px';
       // Centre on screen
-      el.style.left=Math.max(0,Math.round((desk.offsetWidth-750)/2))+'px';
+      el.style.left=Math.max(0,Math.round((desk.offsetWidth-900)/2))+'px';
       el.style.top=Math.max(0,Math.round((desk.offsetHeight*0.90)/10))+'px';
     }
   }
