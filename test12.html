@@ -316,7 +316,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <div class="icon" id="ico-mines" style="top:464px;left:14px;" ondblclick="openWin('mines')" onclick="selIcon('mines')">
  <img src="images/mine.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Minesweeper</span>
 </div>
-<div class="icon" id="ico-folder" style="top:554px;left:14px;" ondblclick="openWin('folder')" onclick="selIcon('folder')">
+<div class="icon" id="ico-" style="top:554px;left:14px;" ondblclick="openWin('folder')" onclick="selIcon('folder')">
   <img src="images/folder.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Random Stuff</span>
 </div>
 
@@ -683,7 +683,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 <!-- FOLDER WINDOW -->
 <div class="win hidden" id="win-folder" style="width:420px;position:absolute;top:200px;left:200px;z-index:22;">
   <div class="titlebar inactive" id="tb-folder" onmousedown="startDrag(event,'folder')">
-    <span>📁 My Folder</span>
+    <span><img src="images/folder.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Random Stuff</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('folder')">_</div>
       <div class="wbtn" onclick="toggleMax('folder')">□</div>
@@ -864,7 +864,6 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
       <div class="start-item" onclick="startOpen('bundi')"><img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">@bundipaints</div>
       <div class="start-item" onclick="startOpen('cv')"><img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">CV.doc</div>
       <div class="start-item" onclick="startOpen('mines')"><img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">Minesweeper</div>
-      <div class="start-item" onclick="startOpen('folder')">📁 My Folder</div>
       <div class="start-item" onclick="startOpen('contact')"><img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">Contact.msg</div>
     </div>
   </div>
@@ -898,7 +897,7 @@ var WINS=['home','cv','misfit','bundi','contact','mines','folder'];
 var zTop=20,state={};
 WINS.forEach(function(w){state[w]={min:false,closed:true};});
 state['home'].closed=false;
-var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper',folder:'📁 My Folder'};
+var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper',folder:'<img src="images/folder.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Random Stuff'};
 var isMax={home:false,cv:true,misfit:true,bundi:true,contact:false,mines:false,folder:false};
 var savedPos={};
 
