@@ -1208,20 +1208,20 @@ function updateClippy(){
 function positionClippy(){
   var cvEl=document.getElementById('win-cv');
   var wrap=document.getElementById('clippy-wrap');
-  if(!cvEl||!wrap)return;
+  var svg=document.getElementById('clippy-svg');
+  if(!cvEl||!wrap||!svg)return;
   if(isMax['cv']){
     wrap.style.bottom='40px';
     wrap.style.right='12px';
     wrap.style.top='auto';
     wrap.style.left='auto';
   } else {
-    // Get CV window position relative to viewport
     var r=cvEl.getBoundingClientRect();
-    var clippyWidth=80;
-    var clippyHeight=130;
-    // Anchor to bottom-right corner of CV window
-    wrap.style.left=(r.right - clippyWidth - 150)+'px';
-    wrap.style.top=(r.bottom - clippyHeight - 50)+'px';
+    var svgHeight=svg.offsetHeight||80;
+    var svgWidth=svg.offsetWidth||80;
+    // Anchor based on SVG size only, ignoring bubble
+    wrap.style.left=(r.right - svgWidth - 50)+'px';
+    wrap.style.top=(r.bottom - svgHeight - 150)+'px';
     wrap.style.bottom='auto';
     wrap.style.right='auto';
   }
