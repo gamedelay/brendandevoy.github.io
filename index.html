@@ -47,7 +47,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .tb{border:1px solid transparent;padding:1px 4px;font-size:10px;cursor:pointer;}
 .tb:hover{border-color:#fff #808080 #808080 #fff;}
 .tbsep{width:1px;background:#808080;height:14px;margin:0 2px;}
-.win-body{overflow-y:auto;flex:1;}
+.win-body{overflow-y:auto;flex:1;min-height:0;}
 .statusbar{background:#c0c0c0;border-top:1px solid #808080;padding:1px 4px;display:flex;font-size:10px;flex-shrink:0;}
 .sstat{border-right:1px solid #808080;padding:0 6px;}
 
@@ -58,7 +58,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .profile-img{width:215px;height:215px;object-fit:cover;object-position:top center;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0;display:block;}
 
 /* CV */
-.word-outer{background:#2b579a;padding:16px;min-height:100%;}
+.word-outer{background:#2b579a;padding:16px;}
 .word-doc{background:#fff;padding:54px 80px;border:1px solid #666;box-shadow:3px 3px 8px rgba(0,0,0,0.5);max-width:760px;margin:0 auto;background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(0,0,80,0.03) 28px);}
 .wordart{display:block;text-align:center;font-size:54px;font-weight:900;font-family:'Arial Black',Impact,sans-serif;color:#00bcd4;text-shadow:5px 5px 0 #1a237e;transform:skewX(-6deg) skewY(-1deg);margin-bottom:6px;letter-spacing:-1px;}
 .cv-subtitle{font-family:'Times New Roman',serif;font-size:11px;letter-spacing:4px;text-align:center;color:#555;margin-bottom:20px;text-transform:uppercase;}
@@ -930,8 +930,23 @@ window.closeWin=function(id){
 };
 window.toggleMax=function(id){
   var el=document.getElementById('win-'+id);
-  if(isMax[id]){el.classList.remove('maximised');if(savedPos[id]){el.style.left=savedPos[id].l;el.style.top=savedPos[id].t;el.style.width=savedPos[id].w;}isMax[id]=false;}
-  else{savedPos[id]={l:el.style.left,t:el.style.top,w:el.style.width};el.classList.add('maximised');isMax[id]=true;}
+  var desk=document.getElementById('desktop');
+  if(isMax[id]){
+    el.classList.remove('maximised');
+    if(savedPos[id]){
+      el.style.left=savedPos[id].l;
+      el.style.top=savedPos[id].t;
+      el.style.width=savedPos[id].w;
+    }
+    // Set a sensible restored height so content scrolls
+    el.style.height=Math.round(desk.offsetHeight*0.75)+'px';
+    isMax[id]=false;
+  } else {
+    savedPos[id]={l:el.style.left,t:el.style.top,w:el.style.width,h:el.style.height};
+    el.classList.add('maximised');
+    el.style.height='';
+    isMax[id]=true;
+  }
   focusWin(id);
   updateClippy();
 };
