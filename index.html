@@ -31,6 +31,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .win{position:absolute;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:3px 3px 0 #000;display:flex;flex-direction:column;min-width:200px;}
 .win.hidden{display:none;bottom:250px}
 .win.maximised{left:0!important;top:0!important;width:100%!important;height:calc(100vh - 30px)!important;}
+.win.half{left:250!important;top:50!important;width:50%!important;height:70%!important;}
 
 /* TITLEBAR */
 .titlebar{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:13px;font-weight:bold;padding:2px 3px 2px;display:flex;justify-content:space-between;align-items:center;cursor:move;flex-shrink:0;}
@@ -358,7 +359,7 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 </div>
 
 <!-- CV WINDOW -->
-<div class="win maximised hidden" id="win-cv" style="z-index:11;">
+<div class="win half hidden" id="win-cv" style="z-index:11;">
   <div class="titlebar inactive" id="tb-cv" onmousedown="startDrag(event,'cv')">
     <span> <img src="images/word.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Brendan Devoy CV.doc </span>
     <div class="titlebar-btns">
