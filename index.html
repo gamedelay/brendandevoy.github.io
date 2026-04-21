@@ -923,13 +923,18 @@ window.openWin=function(id){
   } else {
     el.classList.remove('maximised');
     // Give CV and Misfit a sensible default size when first opened
-    if(id==='cv'||id==='misfit'){
-      el.style.width='900px';
-      el.style.height=Math.round(desk.offsetHeight*0.90)+'px';
-      // Centre on screen
-      el.style.left=Math.max(0,Math.round((desk.offsetWidth-900)/2))+'px';
-      el.style.top=Math.max(0,Math.round((desk.offsetHeight*0.9)/10))+'px';
-    }
+    if(id==='cv'){
+  el.style.width='800px';
+  el.style.height=Math.round(desk.offsetHeight*0.90)+'px';
+  el.style.left='160px';
+  el.style.top='40px';
+}
+if(id==='misfit'){
+  el.style.width='900px';
+  el.style.height=Math.round(desk.offsetHeight*0.90)+'px';
+  el.style.left='470px';
+  el.style.top='20px';
+}
   }
   focusWin(id);
   if(id==='mines')initMines();
