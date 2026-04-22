@@ -915,30 +915,46 @@ window.openWin=function(id){
   state[id].closed=false;state[id].min=false;
   var el=document.getElementById('win-'+id);
   var desk=document.getElementById('desktop');
+  var dw=desk.offsetWidth;
+  var dh=desk.offsetHeight;
   el.classList.remove('hidden');
   if(isMax[id]){
     el.classList.add('maximised');
     el.style.height='';
   } else {
     el.classList.remove('maximised');
-    // Give CV and Misfit a sensible default size when first opened
     if(id==='cv'){
-  el.style.width='950px';
-  el.style.height=Math.round(desk.offsetHeight*0.95)+'px';
-  el.style.left='120px';
-  el.style.top='20px';
-}
-if(id==='misfit'){
-  el.style.width='910px';
-  el.style.height=Math.round(desk.offsetHeight*0.90)+'px';
-  el.style.left='470px';
-  el.style.top='30px';
-}
-if(id==='contact'){
-  el.style.width='325px';
-  el.style.left='550px';
-  el.style.top='230px';
-}
+      el.style.width=Math.round(dw*0.55)+'px';
+      el.style.height=Math.round(dh*0.80)+'px';
+      el.style.left=Math.round(dw*0.10)+'px';
+      el.style.top=Math.round(dh*0.03)+'px';
+    }
+    if(id==='misfit'){
+      el.style.width=Math.round(dw*0.55)+'px';
+      el.style.height=Math.round(dh*0.80)+'px';
+      el.style.left=Math.round(dw*0.15)+'px';
+      el.style.top=Math.round(dh*0.05)+'px';
+    }
+    if(id==='bundi'){
+      el.style.width=Math.round(dw*0.58)+'px';
+      el.style.height=Math.round(dh*0.80)+'px';
+      el.style.left=Math.round(dw*0.12)+'px';
+      el.style.top=Math.round(dh*0.03)+'px';
+    }
+    if(id==='contact'){
+      el.style.width=Math.round(dw*0.22)+'px';
+      el.style.left=Math.round(dw*0.38)+'px';
+      el.style.top=Math.round(dh*0.12)+'px';
+    }
+    if(id==='mines'){
+      el.style.left=Math.round(dw*0.65)+'px';
+      el.style.top=Math.round(dh*0.08)+'px';
+    }
+    if(id==='folder'){
+      el.style.width=Math.round(dw*0.30)+'px';
+      el.style.left=Math.round(dw*0.35)+'px';
+      el.style.top=Math.round(dh*0.25)+'px';
+    }
   }
   focusWin(id);
   if(id==='mines')initMines();
