@@ -911,6 +911,7 @@ function focusWin(id){
   var el=document.getElementById('win-'+id);if(el)el.style.zIndex=++zTop;
   var t=document.getElementById('tb-'+id);if(t)t.classList.remove('inactive');
   updateTaskbar();
+  updateClippy();
 }
 window.openWin=function(id){
   state[id].closed=false;state[id].min=false;
@@ -1190,13 +1191,30 @@ function updateClippy(){
   if(cvOpen) clippyEverMaximised=true;
   var wrap=document.getElementById('clippy-wrap');
   var bubble=document.getElementById('clippy-bubble');
+  var cvEl=document.getElementById('win-cv');
   if(clippyEverMaximised&&cvOpen){
-    wrap.style.display='flex';
-    if(!clippyClosed){
-      document.getElementById('clippy-text').textContent=clippyMsgs[clippyIdx];
-      bubble.style.display='block';
+    // Only show Clippy if CV is the focused window
+    var cvZ=parseInt(cvEl.style.zIndex||0);
+    var isCvFocused=true;
+    document.querySelectorAll('.win').forEach(function(w){
+      if(w.id!=='win-cv'&&!w.classList.contains('hidden')){
+        var wZ=parseInt(w.style.zIndex||0);
+        if(wZ>cvZ) isCvFocused=false;
+      }
+    });
+    if(isCvFocused){
+      wrap.style.display='flex';
+      // Set Clippy z-index just above CV window
+      wrap.style.zIndex=cvZ+1;
+      if(!clippyClosed){
+        document.getElementById('clippy-text').textContent=clippyMsgs[clippyIdx];
+        bubble.style.display='block';
+      }
+      positionClippy();
+    } else {
+      wrap.style.display='none';
+      bubble.style.display='none';
     }
-    positionClippy();
   } else {
     wrap.style.display='none';
     bubble.style.display='none';
