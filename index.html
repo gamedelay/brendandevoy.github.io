@@ -178,8 +178,8 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 #ss-canvas{width:100%;height:100%;}
 
 /* CLIPPY */
-#clippy-wrap{position:fixed;bottom:auto;right:auto;z-index:9000;display:none;flex-direction:column;align-items:flex-end;gap:6px;pointer-events:none;}
-#clippy-bubble{background:#ffffe1;border:1px solid #000;padding:8px 10px;max-width:200px;position:relative;box-shadow:2px 2px 0 #808080;line-height:1.5;font-size:11px;display:none;pointer-events:all;font-family:Arial,sans-serif;}
+#clippy-wrap{position:fixed;bottom:auto;right:auto;z-index:9000;display:none;align-items:flex-end;gap:6px;pointer-events:none;width:80px;height:80px;}
+#clippy-bubble{background:#ffffe1;border:1px solid #000;padding:8px 10px;max-width:200px;position:absolute;bottom:100%;right:0;margin-bottom:8px;box-shadow:2px 2px 0 #808080;line-height:1.5;font-size:11px;display:none;pointer-events:all;font-family:Arial,sans-serif;}
 #clippy-bubble::after{content:'';position:absolute;bottom:-8px;right:22px;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #000;}
 #clippy-bubble::before{content:'';position:absolute;bottom:-6px;right:23px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid #ffffe1;z-index:1;}
 #clippy-close{float:right;cursor:pointer;font-weight:bold;font-size:10px;margin-left:6px;background:none;border:none;color:#000;padding:0;line-height:1;pointer-events:all;}
