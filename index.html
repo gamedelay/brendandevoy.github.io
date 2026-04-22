@@ -1211,8 +1211,8 @@ function positionClippy(){
   var svg=document.getElementById('clippy-svg');
   if(!cvEl||!wrap||!svg)return;
   if(isMax['cv']){
-    wrap.style.bottom='40px';
-    wrap.style.right='12px';
+    wrap.style.bottom='75px';
+    wrap.style.right='25px';
     wrap.style.top='auto';
     wrap.style.left='auto';
   } else {
@@ -1220,7 +1220,7 @@ function positionClippy(){
     var svgHeight=svg.offsetHeight||80;
     var svgWidth=svg.offsetWidth||80;
     // Anchor based on SVG size only, ignoring bubble
-    wrap.style.left=(r.right - svgWidth - 50)+'px';
+    wrap.style.left=(r.right - svgWidth - 40)+'px';
     wrap.style.top=(r.bottom - svgHeight - 50)+'px';
     wrap.style.bottom='auto';
     wrap.style.right='auto';
