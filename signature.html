@@ -21,6 +21,12 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 
 img {image-rendering: pixelated;image-rendering: crisp-edges;}
 
+/* ICONS */
+.icon{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:6px;width:80px;}
+.icon-img{font-size:32px;text-align:center;line-height:1;}
+.icon-label{color:#000;font-size:11px;text-align:center;padding:1px 4px;line-height:1.3;}
+.icon.sel .icon-label{background:#000080;outline:1px dotted #fff;color:#fff;font-size:11px;text-align:center;padding:1px 4px;line-height:1.3;}
+
 /* WINDOWS */
 .win{position:absolute;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:3px 3px 0 #000;display:flex;flex-direction:column;min-width:200px;}
 .win.hidden{display:none;bottom:250px}
@@ -33,11 +39,124 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .wbtn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:16px;height:14px;font-size:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;font-weight:bold;flex-shrink:0;}
 .wbtn:active{border-color:#808080 #fff #fff #808080;}
 
+/* MENUS */
+.menubar{background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;font-size:11px;flex-shrink:0;}
+.mitem{padding:2px 8px;cursor:pointer;color:#000;}
+.mitem:hover{background:#000080;color:#fff;}
+.toolbar{background:#c0c0c0;border-bottom:1px solid #808080;padding:2px 4px;display:flex;align-items:center;gap:2px;flex-wrap:wrap;flex-shrink:0;}
+.tb{border:1px solid transparent;padding:1px 4px;font-size:10px;cursor:pointer;}
+.tb:hover{border-color:#fff #808080 #808080 #fff;}
+.tbsep{width:1px;background:#808080;height:14px;margin:0 2px;}
+.win-body{overflow-y:auto;flex:1;min-height:0;}
+.statusbar{background:#c0c0c0;border-top:1px solid #808080;padding:1px 4px;display:flex;font-size:10px;flex-shrink:0;}
+.sstat{border-right:1px solid #808080;padding:0 6px;}
+
 /* HOME */
 .home-body{padding:12px;background:#c0c0c0;}
 .inset{border:2px solid;border-color:#808080 #fff #fff #808080;padding:12px;margin-bottom:10px;}
 .win95-h1{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:14px;font-weight:bold;padding:4px 10px;margin-bottom:8px;}
 .profile-img{width:450px;height:450px;object-fit:cover;object-position:top center;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0;display:block;}
+
+/* CV */
+.word-outer{background:#2b579a;padding:16px;}
+.word-doc{background:#fff;padding:54px 80px;border:1px solid #666;box-shadow:3px 3px 8px rgba(0,0,0,0.5);max-width:760px;margin:0 auto;background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,rgba(0,0,80,0.03) 28px);}
+.wordart{display:block;text-align:center;font-size:54px;font-weight:900;font-family:'Arial Black',Impact,sans-serif;color:#00bcd4;text-shadow:5px 5px 0 #1a237e;transform:skewX(-6deg) skewY(-1deg);margin-bottom:6px;letter-spacing:-1px;}
+.cv-subtitle{font-family:'Times New Roman',serif;font-size:11px;letter-spacing:4px;text-align:center;color:#555;margin-bottom:20px;text-transform:uppercase;}
+.cv-rule{border:none;border-top:2px solid #000;margin:4px 0 16px;}
+.cv-summary{font-family:'Times New Roman',serif;font-size:12.5px;line-height:1.85;color:#111;margin-bottom:4px;font-style:italic;}
+.cv-section-title{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#000080;padding:3px 8px;margin-top:22px;margin-bottom:8px;display:block;}
+.cv-job-title{font-family:'Times New Roman',serif;font-size:13px;font-weight:bold;color:#000;margin-bottom:1px;}
+.cv-job-meta{font-family:'Times New Roman',serif;font-size:11px;color:#555;font-style:italic;margin-bottom:4px;}
+.cv-job-desc{font-family:'Times New Roman',serif;font-size:12px;line-height:1.8;color:#222;font-style:italic;margin-bottom:10px;padding-left:10px;border-left:2px solid #c0c0c0;}
+.cv-li{font-family:'Times New Roman',serif;font-size:12px;margin-left:16px;line-height:1.9;color:#000;list-style-type:disc;}
+.cv-skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;margin:4px 0 4px 8px;}
+.cv-skill-item{font-family:'Times New Roman',serif;font-size:12px;color:#000;line-height:1.8;}
+.cv-skill-item::before{content:'\25B8 ';color:#000080;font-size:10px;}
+.drawbar{background:#c0c0c0;border-top:1px solid #808080;padding:2px 4px;display:flex;gap:2px;font-size:10px;flex-wrap:wrap;flex-shrink:0;}
+
+/* ══ POWERPOINT — authentic PPT 97 look (om reference photo) ══ */
+.ppt-app{display:flex;flex-direction:column;height:100%;background:#c0c0c0;}
+.ppt-main{display:flex;flex:1;overflow:hidden;}
+/* left panel — slide list */
+.ppt-panel{width:130px;background:#c0c0c0;border-right:1px solid #808080;padding:4px;overflow-y:auto;flex-shrink:0;}
+.ppt-thumb-wrap{border:2px solid;border-color:#808080 #fff #fff #808080;padding:2px;margin-bottom:4px;cursor:pointer;}
+.ppt-thumb-wrap.active{border-color:#000080;}
+.ppt-thumb-inner{background:#020403;width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',serif;font-size:8px;color:#ffffff;text-align:center;padding:4px;}
+/* main slide area — blue surround like real PPT */
+.ppt-slide-area{flex:1;background:#656970;display:flex;flex-direction:column;align-items:center;padding:16px;gap:16px;overflow-y:auto;}
+/* the actual slide — beige/cream like the reference photo */
+.ppt-slide{background:#020403;width:100%;max-width:700px;height:525px;aspect-ratio:4/3;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;}
+/* title text box — no border, centered, Times New Roman like reference */
+.ppt-title-box{text-align:center;margin-bottom:24px;width:100%;}
+.ppt-main-title{font-family:'Times New Roman',serif;font-size:50px;font-weight:normal;color:#ffffff;letter-spacing:0.5px;}
+/* subtitle — dotted border placeholder like the reference */
+.ppt-subtitle-text{font-family:'Times New Roman',serif;font-size:14px;color:#ffffff;font-style:italic;}
+/* content slide (second slide) */
+.ppt-content-slide{background:#020403;width:100%;max-width:700px;height:525px;aspect-ration:4/3;border:1px solid #888;box-shadow:3px 3px 6px rgba(0,0,0,0.5);display:flex;flex-direction:column;padding:0px 0px;position:relative;}
+.ppt-content-title{font-family:'Times New Roman',serif;font-size:20px;font-weight:bold;color:#ffffff;border-bottom:1px solid #888;padding-bottom:8px;margin-bottom:12px;}
+.ppt-content-body{font-family:'Times New Roman',serif;font-size:13px;color:#ffffff;line-height:1.9;}
+.ppt-content-body li{margin-left:20px;list-style:disc;}
+/* notes bar at bottom */
+.ppt-notes-bar{background:#c0c0c0;border-top:1px solid #808080;height:28px;display:flex;align-items:center;padding:0 8px;font-size:10px;color:#555;flex-shrink:0;}
+/* bottom status strip */
+.ppt-status-strip{background:#c0c0c0;border-top:1px solid #808080;padding:2px 4px;display:flex;font-size:10px;flex-shrink:0;}
+.ppt-stat{border-right:1px solid #808080;padding:0 8px;}
+/* view buttons at very bottom left (like real PPT) */
+.ppt-view-btns{display:flex;gap:2px;align-items:center;}
+.ppt-vbtn{width:16px;height:14px;background:#c0c0c0;border:1px solid #808080;font-size:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+
+/* ══ PAINT — Win95 style with canvas bg + pixel text ══ */
+.paint-outer{display:flex;flex:1;overflow:hidden;}
+.paint-toolbox{background:#c0c0c0;border-right:2px solid;border-color:#808080 #fff #fff #808080;padding:4px;display:grid;grid-template-columns:1fr 1fr;gap:2px;align-content:start;width:60px;flex-shrink:0;}
+.pt{width:26px;height:26px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;}
+.pt.on,.pt:active{border-color:#808080 #fff #fff #808080;background:#b8b8b8;}
+.pc{width:16px;height:16px;border:1px solid #000;display:inline-block;cursor:pointer;flex-shrink:0;}
+.paint-palette{background:#c0c0c0;border-top:2px solid;border-color:#808080 #fff #fff #808080;padding:3px 6px;display:flex;align-items:center;gap:3px;flex-shrink:0;flex-wrap:wrap;}
+.paint-active-colors{border:2px solid;border-color:#808080 #fff #fff #808080;width:32px;height:28px;position:relative;flex-shrink:0;margin-right:4px;}
+.paint-fg{position:absolute;top:0;left:0;width:20px;height:18px;background:#000;border:1px solid #808080;}
+.paint-bg-swatch{position:absolute;bottom:0;right:0;width:20px;height:18px;background:#fff;border:1px solid #808080;}
+.paint-canvas-wrap{flex:1;overflow:auto;background:#808080;padding:8px;}
+.paint-canvas-inner{background:#fff;background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:20px 20px;border:2px solid;border-color:#808080 #fff #fff #808080;padding:8px;}
+.pixel-banner{text-align:center;padding:10px 0 4px;font-family:'Courier New',monospace;font-size:18px;font-weight:bold;color:#000080;letter-spacing:3px;text-shadow:2px 0 #000,-2px 0 #000,0 2px #000,0 -2px #000,1px 1px #000,-1px 1px #000,1px -1px #000,-1px -1px #000;-webkit-font-smoothing:none;margin-bottom:8px;}
+/* two fixed rows of 4 */
+.paint-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px;}
+.paint-img{width:100%;aspect-ratio:1;object-fit:cover;border:2px solid;border-color:#808080 #fff #fff #808080;display:block;cursor:zoom-in;}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;top:0;left:0;width:100vw;height:100%;background:rgba(0,0,0,0.9);z-index:999999;align-items:center;justify-content:center;cursor:zoom-out;}
+#lightbox.lb-open{display:flex;}
+#lb-img{max-width:100vw;max-height:90vh;object-fit:contain;border:3px solid;border-color:#fff #808080 #808080 #fff;box-shadow:4px 4px 0 #000;display:fixed;cursor:default;align-items:center;}
+#lb-close{position:fixed;top:10px;right:12px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:28px;height:24px;font-size:13px;font-weight:bold;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;font-family:Arial,sans-serif;z-index:1000000;}
+#lb-close:active{border-color:#808080 #fff #fff #808080;}
+#lb-prev,#lb-next{position:fixed;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:32px;height:48px;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;z-index:1000000;}
+#lb-prev:active,#lb-next:active{border-color:#808080 #fff #fff #808080;}
+#lb-prev{left:10px;}
+#lb-next{right:10px;}
+#lb-counter{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:2px 12px;font-size:11px;font-family:Arial,sans-serif;color:#000;z-index:1000000;}
+
+.paint-img-ph{background:#e8e8e8;border:2px solid;border-color:#808080 #fff #fff #808080;aspect-ratio:1;display:relative;align-items:center;justify-content:center;font-size:10px;color:#888;cursor:crosshair;}
+
+/* CONTACT */
+.contact-body{padding:14px;background:#c0c0c0;}
+.contact-label{font-size:11px;margin-bottom:3px;display:block;color:#000;}
+.contact-input{width:100%;border:2px solid;border-color:#808080 #fff #fff #808080;background:#fff;padding:3px 5px;font-size:11px;font-family:Arial,sans-serif;margin-bottom:8px;color:#000;}
+.contact-textarea{width:100%;border:2px solid;border-color:#808080 #fff #fff #808080;background:#fff;padding:3px 5px;font-size:11px;font-family:Arial,sans-serif;resize:vertical;height:50px;margin-bottom:8px;color:#000;}
+.contact-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:4px 18px;font-size:11px;cursor:pointer;font-family:Arial,sans-serif;color:#000;}
+.contact-btn:active{border-color:#808080 #fff #fff #808080;transform:translate(1px,1px);}
+
+/* MINESWEEPER */
+.mines-body{padding:8px;background:#c0c0c0;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.mines-panel{background:#c0c0c0;border:2px solid;border-color:#808080 #fff #fff #808080;padding:6px 10px;display:flex;align-items:center;justify-content:space-between;width:100%;}
+.mines-counter{background:#000;color:#f00;font-family:'Courier New',monospace;font-size:22px;font-weight:bold;padding:2px 6px;letter-spacing:2px;min-width:52px;text-align:center;}
+.mines-face-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:32px;height:28px;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.mines-face-btn:active{border-color:#808080 #fff #fff #808080;}
+.mines-grid{display:grid;gap:0;}
+.mine-cell{width:22px;height:22px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;cursor:pointer;font-family:Arial,sans-serif;}
+.mine-cell.revealed{border:1px solid #808080;background:#c0c0c0;}
+.mine-cell.boom{background:#f00;}
+.mines-diff{display:flex;gap:4px;}
+.diff-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:2px 8px;font-size:11px;cursor:pointer;font-family:Arial,sans-serif;}
+.diff-btn.active{border-color:#808080 #fff #fff #808080;font-weight:bold;}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:16px;}
@@ -54,6 +173,21 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .taskbar-btn.active{border-color:#808080 #fff #fff #808080;background:#b0b0b0;font-weight:bold;}
 #tb-clock{margin-left:auto;border:1px solid;border-color:#808080 #fff #fff #808080;padding:2px 10px;font-size:11px;white-space:nowrap;}
 
+/* SCREENSAVER */
+#screensaver{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000;z-index:99999;cursor:none;}
+#ss-canvas{width:100%;height:100%;}
+
+/* CLIPPY */
+#clippy-wrap{position:fixed;bottom:auto;right:auto;z-index:9000;display:none;align-items:flex-end;gap:6px;pointer-events:none;width:80px;height:80px;}
+#clippy-bubble{background:#ffffe1;border:1px solid #000;padding:8px 10px;width:80px;position:absolute;bottom:100%;right:0;margin-bottom:40px;box-shadow:2px 2px 0 #808080;line-height:1.5;font-size:11px;display:none;pointer-events:all;font-family:Arial,sans-serif;}
+#clippy-bubble::after{content:'';position:absolute;bottom:-8px;right:22px;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #000;}
+#clippy-bubble::before{content:'';position:absolute;bottom:-6px;right:23px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid #ffffe1;z-index:1;}
+#clippy-close{float:right;cursor:pointer;font-weight:bold;font-size:10px;margin-left:6px;background:none;border:none;color:#000;padding:0;line-height:1;pointer-events:all;}
+#clippy-svg{cursor:pointer;width:80px;filter:drop-shadow(1px 1px 0 #808080);pointer-events:all;transition:transform 0.1s;animation:clippy-idle 3s ease-in-out infinite;}
+#clippy-svg:hover{animation:none;transform:scale(1.1) rotate(-5deg);}
+@keyframes clippy-idle{0%,100%{transform:rotate(-2deg);}50%{transform:rotate(3deg);}}
+#clippy-wrap.hidden-clippy{}
+
 /* START MENU */
 #start-menu{display:none;position:fixed;bottom:30px;left:0;width:220px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;z-index:99990;flex-direction:column;}
 #start-menu.open{display:flex;}
@@ -64,16 +198,132 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
 .start-item:hover{background:#000080;color:#fff;}
 .start-item-icon{font-size:18px;width:22px;text-align:center;flex-shrink:0;}
 .start-sep{border:none;border-top:1px solid #808080;border-bottom:1px solid #fff;margin:2px 4px;}
-  
+
+/* ══ MOBILE ══ */
+#mobile-site{display:none;}
+@media(max-width:768px){
+  body{overflow:auto;height:auto;cursor:default;}
+  #desktop,#taskbar,#screensaver,#start-menu,#clippy-wrap{display:none!important;}
+  /* Centre windows vertically and horizontally */
+  #mobile-site{display:flex;flex-direction:column;align-items:center;justify-content:center;background: #2b579a url('images/back.jpeg') center center/cover no-repeat;overflow:hidden;transform-origin:top left;filter: contrast(1.10) brightness(0.98);height:100vh;padding:30px 30px 30px 30px;}
+  .m-win{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;margin-bottom:14px;display:none;width:100%;max-width:480px;}
+  .m-win.m-active{display:block;}
+  /* Title bars */
+  .m-tb{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:12px;font-weight:bold;padding:4px 8px;font-family:Arial,sans-serif;display:flex;justify-content:space-between;align-items:center;}
+  .m-tb-btns{display:flex;gap:2px;}
+  .m-tb-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:16px;height:14px;font-size:9px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:bold;}
+  .m-body{padding:12px;font-family:Arial,sans-serif;font-size:12px;color:#000;}
+  .m-h1{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:13px;font-weight:bold;padding:3px 8px;margin-bottom:8px;}
+  .m-inset{border:2px solid;border-color:#808080 #fff #fff #808080;padding:10px;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;}
+  .m-profile{width:300px;height:300px;object-fit:cover;object-position:top;border:2px solid;border-color:#808080 #fff #fff #808080;flex-shrink:0;align-items:center;}
+  .m-footer{font-size:11px;color:#444;border-top:1px solid #808080;padding-top:6px;margin-top:6px;line-height:1;}
+  .m-sec{font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#fff;background:#000080;padding:2px 8px;margin:12px 0 6px;display:block;}
+  .m-job-t{font-family:'Times New Roman',serif;font-size:11px;font-weight:bold;color:#000;}
+  .m-job-m{font-family:'Times New Roman',serif;font-size:10px;color:#555;font-style:italic;margin-bottom:3px;}
+  .m-job-d{font-family:'Times New Roman',serif;font-size:11px;line-height:1.2;color:#222;font-style:italic;margin-bottom:8px;padding-left:8px;border-left:2px solid #c0c0c0;}
+  .m-skill{font-family:'Times New Roman',serif;font-size:11px;line-height:1.2;color:#000;}
+  .m-dl-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:4px 14px;font-size:11px;font-family:Arial,sans-serif;color:#000;text-decoration:none;display:inline-block;margin-top:8px;}
+  /* Word doc — white background with scrollbar */
+  .m-word-outer{background:#c0c0c0;padding:8px;}
+  .m-word-doc{background:#fff;padding:20px 24px;border:1px solid #666;box-shadow:2px 2px 6px rgba(0,0,0,0.4);max-height:65vh;overflow-y:scroll;}
+  .m-word-doc::-webkit-scrollbar{width:16px;}
+  .m-word-doc::-webkit-scrollbar-track{background:#c0c0c0;}
+  .m-word-doc::-webkit-scrollbar-thumb{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;}
+  .m-word-doc::-webkit-scrollbar-button{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;height:16px;}
+  /* PPT mobile */
+  .m-ppt-outer{background:#c0c0c0;padding:8px;max-height:67vh;overflow-y:scroll;}
+  .m-ppt-slide{background:#020403;padding:16px;margin-bottom:8px;border:1px solid #555;}
+  .m-ppt-h{font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:#fff;border-bottom:1px solid #555;padding-bottom:4px;margin-bottom:8px;}
+  .m-ppt-p{font-family:Arial,sans-serif;font-size:12px;color:#ccc;line-height:1.7;margin-bottom:6px;}
+  .m-ppt-li{font-family:Arial,sans-serif;font-size:12px;color:#ccc;line-height:1.8;padding-left:12px;position:relative;}
+  .m-ppt-li::before{content:'\2013';position:absolute;left:0;color:#aaa;}
+  .m-img-2{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px;}
+  .m-img-2 img{width:100%;aspect-ratio:1;object-fit:cover;border:1px solid #555;display:block;}
+  .m-img-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:8px;}
+  .m-img-3 img{width:100%;aspect-ratio:1;object-fit:cover;display:block;}
+  /* Paint mobile — with toolbox and palette */
+  .m-paint-outer{display:flex;background:#808080;max-height:67vh;}
+  .m-paint-toolbox{background:#c0c0c0;border-right:2px solid;border-color:#808080 #fff #fff #808080;padding:3px;display:grid;grid-template-columns:1fr 1fr;gap:2px;align-content:start;width:50px;flex-shrink:0;}
+  .m-pt{width:22px;height:22px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .m-pt.on{border-color:#808080 #fff #fff #808080;}
+  .m-paint-canvas{flex:1;padding:6px;overflow-y:auto;max-height:65vh;}
+  .m-pixel-banner{font-family:'Courier New',monospace;font-size:14px;font-weight:bold;color:#000080;letter-spacing:2px;text-shadow:1px 0 #000,-1px 0 #000,0 1px #000,0 -1px #000;margin-bottom:8px;display:block;-webkit-font-smoothing:none;}
+  .m-img-4{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-bottom:3px;}
+  .m-img-4 img{width:100%;aspect-ratio:1;object-fit:cover;border:2px solid;border-color:#808080 #fff #fff #808080;display:block;cursor:zoom-in;}
+  /* Paint palette */
+  .m-palette{background:#c0c0c0;border-top:2px solid;border-color:#808080 #fff #fff #808080;padding:3px 4px;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .m-pal-active{border:2px solid;border-color:#808080 #fff #fff #808080;width:28px;height:24px;position:relative;flex-shrink:0;margin-right:3px;}
+  .m-pal-fg{position:absolute;top:0;left:0;width:17px;height:15px;background:#000;border:1px solid #808080;}
+  .m-pal-bg{position:absolute;bottom:0;right:0;width:17px;height:15px;background:#fff;border:1px solid #808080;}
+  .m-pc{width:13px;height:13px;border:1px solid #000;display:inline-block;flex-shrink:0;}
+  /* Contact mobile */
+  .m-input{width:100%;border:2px solid;border-color:#808080 #fff #fff #808080;background:#fff;padding:4px 6px;font-size:12px;font-family:Arial,sans-serif;margin-bottom:8px;color:#000;box-sizing:border-box;}
+  .m-textarea{height:75px;resize:vertical;}
+  .m-send-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:5px 18px;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;color:#000;}
+  .m-send-btn:active{border-color:#808080 #fff #fff #808080;}
+  /* Status bar */
+  .m-sbar{background:#c0c0c0;border-top:1px solid #808080;padding:1px 6px;font-size:10px;color:#000;font-family:Arial,sans-serif;}
+  /* Minesweeper mobile */
+  .m-mines-body{padding:8px;background:#c0c0c0;display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .m-mines-panel{background:#c0c0c0;border:2px solid;border-color:#808080 #fff #fff #808080;padding:4px 8px;display:flex;align-items:center;justify-content:space-between;width:100%;}
+  .m-mines-counter{background:#000;color:#f00;font-family:'Courier New',monospace;font-size:18px;font-weight:bold;padding:2px 5px;letter-spacing:2px;min-width:46px;text-align:center;}
+  .m-face-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:28px;height:24px;font-size:16px;display:flex;align-items:center;justify-content:center;}
+  .m-mines-grid{display:grid;gap:0;overflow-x:auto;}
+  .m-mine-cell{width:20px;height:20px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:bold;font-family:Arial,sans-serif;}
+  .m-mine-cell.revealed{border:1px solid #808080;}
+  .m-mine-cell.boom{background:#f00;}
+  .m-diff{display:flex;gap:3px;}
+  .m-diff-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:2px 7px;font-size:11px;font-family:Arial,sans-serif;}
+  .m-diff-btn.active{border-color:#808080 #fff #fff #808080;font-weight:bold;}
+  /* Mobile taskbar */
+  #m-taskbar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#c0c0c0;border-top:2px solid #fff;height:35px;align-items:center;padding:0 6px;gap:4px;z-index:9999;}
+  #m-start-btn{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:2px 1px;font-weight:bold;font-size:12px;cursor:pointer;font-family:Arial,sans-serif;}
+  #m-start-btn:active{border-color:#808080 #fff #fff #808080;}
+  #m-clock{margin-left:auto;border:1px solid;border-color:#808080 #fff #fff #808080;padding:2px 1px;font-size:15px;font-family:Arial,sans-serif;align-items:center;}
+  /* Mobile start menu */
+  #m-start-menu{display:none;position:fixed;bottom:32px;left:0;width:220px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;z-index:99990;flex-direction:row;}
+  #m-start-menu.open{display:flex;}
+  .m-sidebar{background:#000080;width:24px;flex-shrink:0;display:flex;align-items:flex-end;padding-bottom:4px;}
+  .m-sidebar-text{color:#fff;font-size:15px;font-weight:bold;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:2px;white-space:nowrap;font-family:Arial,sans-serif;}
+  .m-menu-inner{flex:1;display:flex;flex-direction:column;}
+  .m-menu-item{display:flex;align-items:center;gap:10px;padding:8px 8px;cursor:pointer;font-size:13px;color:#000;font-family:Arial,sans-serif;border-bottom:1px solid #d0d0d0;}
+  .m-menu-item:active{background:#000080;color:#fff;}
+  .m-menu-icon{font-size:18px;width:22px;text-align:center;flex-shrink:0;}
+  .m-menu-sep{border:none;border-top:1px solid #808080;border-bottom:1px solid #fff;margin:2px 4px;}
+}
+
 </style>
 </head>
 <body>
 <div id="desktop">
 
+<!-- ICONS — left side -->
+<div class="icon" id="ico-home" style="top:14px;left:14px;" ondblclick="openWin('home')" onclick="selIcon('home')">
+   <img src="images/home.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Home</span>
+</div>
+<div class="icon" id="ico-misfit" style="top:104px;left:14px;" ondblclick="openWin('misfit')" onclick="selIcon('misfit')">
+  <img src="images/power.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">misfitbeer.ppt</span>
+</div>
+<div class="icon" id="ico-bundi" style="top:194px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
+  <img src="images/paint.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">bundipaints.bmp</span>
+</div>
+<div class="icon" id="ico-cv" style="top:284px;left:14px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
+  <img src="images/word.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">CV.doc</span>
+</div>
+<div class="icon" id="ico-contact" style="top:374px;left:14px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
+  <img src="images/contact.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Contact.msg</span>
+</div>
+<div class="icon" id="ico-mines" style="top:464px;left:14px;" ondblclick="openWin('mines')" onclick="selIcon('mines')">
+ <img src="images/mine.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Minesweeper</span>
+</div>
+<div class="icon" id="ico-" style="top:554px;left:14px;" ondblclick="openWin('folder')" onclick="selIcon('folder')">
+  <img src="images/folder.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Random Stuff</span>
+</div>
+
 <!-- HOME WINDOW -->
 <div class="win" id="win-home" style="width:477px;height:520px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
-    <span><img src="images/paint.jpg" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;brendandevoy.com</span>
+    <span><img src="images/paint.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;brendandevoy.com</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('home')">_</div>
       <div class="wbtn" onclick="toggleMax('home')">&#10066;</div>
@@ -91,7 +341,537 @@ img {image-rendering: pixelated;image-rendering: crisp-edges;}
   </div>
 </div>
 
+<!-- CV WINDOW -->
+<div class="win maximised hidden" id="win-cv" style="z-index:11;">
+  <div class="titlebar inactive" id="tb-cv" onmousedown="startDrag(event,'cv')">
+    <span> <img src="images/word.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Brendan Devoy CV.doc </span>
+    <div class="titlebar-btns">
+      <div class="wbtn" onclick="minimiseWin('cv')">_</div>
+      <div class="wbtn" onclick="toggleMax('cv')">&#10066;</div>
+      <div class="wbtn" onclick="closeWin('cv')">&#10005;</div>
+    </div>
+  </div>
+  <div class="menubar">
+    <span class="mitem"><u>F</u>ile</span><span class="mitem"><u>E</u>dit</span><span class="mitem"><u>V</u>iew</span>
+    <span class="mitem"><u>I</u>nsert</span><span class="mitem">F<u>o</u>rmat</span><span class="mitem"><u>T</u>ools</span>
+    <span class="mitem">T<u>a</u>ble</span><span class="mitem"><u>H</u>elp</span>
+  </div>
+  <div class="toolbar">
+    <span class="tb">&#x1F5CB;</span><span class="tb">&#x1F4C2;</span><span class="tb">&#x1F4BE;</span>
+    <div class="tbsep"></div><span class="tb">&#x1F5A8;</span>
+    <div class="tbsep"></div><span class="tb">&#x2702;</span><span class="tb">&#x1F4CB;</span>
+    <div class="tbsep"></div><span class="tb">&#x21A9;</span><span class="tb">&#x21AA;</span>
+    <div class="tbsep"></div><span class="tb" style="min-width:38px;">100% &#x25BE;</span><span class="tb">?</span>
+  </div>
+  <div class="toolbar">
+    <span class="tb" style="min-width:56px;">Normal &#x25BE;</span>
+    <div class="tbsep"></div>
+    <span class="tb" style="min-width:120px;">Times New Roman &#x25BE;</span>
+    <div class="tbsep"></div>
+    <span class="tb">12 &#x25BE;</span>
+    <div class="tbsep"></div>
+    <span class="tb"><b>B</b></span><span class="tb"><i>I</i></span><span class="tb"><u>U</u></span>
+    <div class="tbsep"></div>
+    <span class="tb">&#x2261;</span><span class="tb">&#x2261;</span><span class="tb">&#x2261;</span>
+    <div class="tbsep"></div><span class="tb">A &#x25BE;</span>
+  </div>
+  <div class="win-body">
+    <div class="word-outer">
+      <div class="word-doc">
+        <img class="ppt-img" src="images/BrendanDevoy.png" alt="Name" style="width:550px;">
+        <div class="cv-subtitle">Curriculum Vitae</div>
+        <hr class="cv-rule">
+        <p class="cv-summary">I am a results-driven sales and marketing professional with expertise in liquor and FMCG. Skilled in relationship management, stakeholder engagement, business development, and data-driven decision-making, I thrive in fast-paced environments. I’m passionate about driving brand success, revenue growth, and consumer connection through strategic account management and trade execution.</p>
+        <span class="cv-section-title">Experience</span>
+        <div class="cv-job-title">Atomic Coffee &#8212; Account Manager</div>
+        <div class="cv-job-meta">Mar 2023 &#8211; Jul 2025</div>
+        <br>
+        <div class="cv-job-desc">Managed key accounts, ensuring optimal sales performance and brand visibility. Developed and executed promotional strategies, driving increased distribution and revenue growth. Strengthened customer relationships, ensuring a symbiotic alignment of their ambitions with wider business and marketing goals.</div>
+        <br>
+        <div class="cv-job-title">Futurity &#8212; Sales Manager</div>
+        <div class="cv-job-meta">Jun 2021 &#8211; Dec 2022</div>
+        <br>
+        <div class="cv-job-desc">Brought to market NZ’s first 100% commercially compostable bottled water product. Led strategic sales planning, and managed customer relationships, ensuring high satisfaction, repeat business, and market share growth. Utilised CRM tools and data insights to enhance targeting and brand engagement strategies.</div>
+        <br>
+        <div class="cv-job-title">Misfit Brewing Co. &#8212; Founder &amp; Sales Lead</div>
+        <div class="cv-job-meta">Jan 2018 &#8211; Jun 2021</div>
+        <br>
+        <div class="cv-job-desc">Developed and managed the brand from inception to national distribution, ensuring a strong market presence (50+ stockists). Built and nurtured relationships with distributors and consumers, enhancing brand loyalty and engagement. Leveraged consumer insights and sales data to refine marketing and product strategies.</div>
+        <br>
+        <div class="cv-job-title">Lion NZ &#8212; Order Management Executive</div>
+        <div class="cv-job-meta">Jul 2016 &#8211; Jan 2018</div>
+        <br>
+        <div class="cv-job-desc">Liaised with various stakeholders, from supply-chain to brand management, to mitigate the effect of changing stock levels. Responsibility and trust were integral, with each department reliant on you to ensure a free-flowing sales channel.</div>
+        <span class="cv-section-title">Skills</span>
+        <div class="cv-skill-grid">
+          <div class="cv-skill-item">Project Management</div>
+          <div class="cv-skill-item">Commercial Acumen</div>
+          <div class="cv-skill-item">Marketing Strategy &amp; Execution</div>
+          <div class="cv-skill-item">Sales Strategy &amp; Positioning</div>
+          <div class="cv-skill-item">Stakeholder Management</div>
+          <div class="cv-skill-item">Data-driven Decision Making</div>
+        </div>
+        <span class="cv-section-title">Education</span>
+        <div class="cv-job-title">University of Auckland</div>
+        <div class="cv-job-meta">Bachelor of Commerce, Marketing &#8212; 2013&#8211;2015</div>
+        <div class="cv-job-title">Live The Dream</div>
+        <div class="cv-job-meta">Enterprise Accelerator 2015&#8211;16</div>
+        <div class="cv-job-title">Toastmasters International</div>
+        <div class="cv-job-meta">Ponsonby Club 2022&#8211;2023</div>
+        <span class="cv-section-title">Achievements</span>
+        <ul style="list-style:none;padding:0;margin:4px 0;">
+          <li class="cv-li">Self-appointed Misfit Employee of the Month &#8212; record 13 times in 2021</li>
+          <li class="cv-li">Spearheaded nationwide brand expansion across 50+ stockists</li>
+          <li class="cv-li">Managed a portfolio equating to $2m+ in annual revenue</li>
+        </ul>
+        <div style="margin-top:24px;padding-top:12px;border-top:1px solid #c0c0c0;text-align:center;">
+           <a href="Brendan_Devoy_CV_2026.pdf" target="_blank" rel="noopener noreferrer" style="font-family:'Times New Roman',serif;font-size:12px;color:#000080;text-decoration:underline;">&#x1F4C4; Download CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="statusbar">
+    <span class="sstat">Page 1</span><span class="sstat">Sec 1</span><span class="sstat">1/1</span>
+    <span class="sstat">Ln 1</span><span class="sstat">Col 1</span><span class="sstat">REC</span><span class="sstat">OVR</span>
+  </div>
+  <div class="drawbar">
+    <span class="tb">Draw &#x25BE;</span><span class="tb">AutoShapes &#x25BE;</span>
+    <div class="tbsep"></div>
+    <span class="tb">&#x25A1;</span><span class="tb">&#x25CB;</span><span class="tb">&#x2192;</span>
+    <div class="tbsep"></div><span class="tb">A &#x25BE;</span>
+  </div>
+</div>
 
+<!-- MISFIT WINDOW — PPT 97 style matching reference photo -->
+<div class="win maximised hidden" id="win-misfit" style="z-index:12;">
+  <div class="titlebar inactive" id="tb-misfit" onmousedown="startDrag(event,'misfit')">
+    <span><img src="images/power.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;misfitbeer.ppt</span>
+    <div class="titlebar-btns">
+      <div class="wbtn" onclick="minimiseWin('misfit')">_</div>
+      <div class="wbtn" onclick="toggleMax('misfit')">&#10066;</div>
+      <div class="wbtn" onclick="closeWin('misfit')">&#10005;</div>
+    </div>
+  </div>
+  <!-- Outer app menubar -->
+  <div class="menubar" style="border-bottom:2px solid #808080;">
+    <span class="mitem">&#x1F4C8;</span>
+    <span class="mitem"><u>F</u>ile</span><span class="mitem"><u>E</u>dit</span><span class="mitem"><u>V</u>iew</span>
+    <span class="mitem"><u>I</u>nsert</span><span class="mitem">F<u>o</u>rmat</span><span class="mitem"><u>T</u>ools</span>
+    <span class="mitem">Slide <u>S</u>how</span><span class="mitem"><u>W</u>indow</span><span class="mitem"><u>H</u>elp</span>
+  </div>
+  <!-- Standard toolbar -->
+  <div class="toolbar">
+    <span class="tb">&#x1F5CB;</span><span class="tb">&#x1F4C2;</span><span class="tb">&#x1F4BE;</span><span class="tb">&#x1F5A8;</span>
+    <div class="tbsep"></div>
+    <span class="tb">&#x2702;</span><span class="tb">&#x1F4CB;</span><span class="tb">&#x1F4C4;</span>
+    <div class="tbsep"></div>
+    <span class="tb">&#x21A9;</span><span class="tb">&#x21AA;</span>
+    <div class="tbsep"></div>
+    <span class="tb">&#x1F4CA;</span><span class="tb">&#x1F4C8;</span><span class="tb">&#x1F5BA;</span>
+    <div class="tbsep"></div>
+    <span class="tb" style="min-width:38px;">56% &#x25BE;</span>
+    <div class="tbsep"></div>
+    <span class="tb">?</span>
+  </div>
+  <!-- Formatting toolbar — matching reference photo exactly -->
+  <div class="toolbar" style="border-bottom:2px solid #808080;">
+    <span class="tb" style="min-width:110px;">Times New Roman &#x25BE;</span>
+    <div class="tbsep"></div>
+    <span class="tb" style="min-width:32px;">24 &#x25BE;</span>
+    <div class="tbsep"></div>
+    <span class="tb"><b>B</b></span><span class="tb"><i>I</i></span><span class="tb"><u>U</u></span><span class="tb"><s>S</s></span>
+    <div class="tbsep"></div>
+    <span class="tb">&#x2261;</span><span class="tb">&#x2261;</span><span class="tb">&#x2261;</span>
+    <div class="tbsep"></div>
+    <span class="tb">&#x2630;</span><span class="tb">&#x2631;</span>
+    <div class="tbsep"></div>
+    <span class="tb">A&#x2191;</span><span class="tb">A&#x2193;</span>
+    <div class="tbsep"></div>
+    <span class="tb">&#x21E6;</span><span class="tb">&#x21E8;</span><span class="tb">&#x2605;</span>
+  </div>
+  <!-- Inner document window bar -->
+  <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;justify-content:space-between;align-items:center;font-size:12px;flex-shrink:0;">
+    <span style="color:#000;">@misfitbeer.ppt</span>
+    <div style="display:flex;gap:2px;">
+      <div class="wbtn" style="width:14px;height:12px;font-size:8px;">_</div>
+      <div class="wbtn" style="width:14px;height:12px;font-size:8px;">&#9633;</div>
+      <div class="wbtn" style="width:14px;height:12px;font-size:8px;">&#10005;</div>
+    </div>
+  </div>
+  <div class="win-body" style="overflow:hidden;">
+    <div class="ppt-app">
+      <div class="ppt-main">
+        <!-- Slide panel -->
+        <div class="ppt-panel">
+          <div style="font-size:9px;color:#000000;margin-bottom:3px;font-weight:bold;">Slide 1</div>
+          <div class="ppt-thumb-wrap active" onclick="showSlide(1)">
+            <div class="ppt-thumb-inner">Misfit Brewing Co.</div>
+          </div>
+          <div style="font-size:9px;color:#000000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 2</div>
+          <div class="ppt-thumb-wrap" id="thumb2" onclick="showSlide(2)">
+            <div class="ppt-thumb-inner">About Misfit</div>
+          </div>
+          <div style="font-size:9px;color:#000000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 3</div>
+          <div class="ppt-thumb-wrap" id="thumb3" onclick="showSlide(3)">
+            <div class="ppt-thumb-inner">Beer Range</div>
+          </div>
+          <div style="font-size:9px;color:#000000;margin-bottom:3px;margin-top:4px;font-weight:bold;">Slide 3</div>
+          <div class="ppt-thumb-wrap" id="thumb4" onclick="showSlide(4)">
+            <div class="ppt-thumb-inner">@misfitbeer</div>
+          </div>
+        </div>
+        <!-- Main slide area — blue like reference photo -->
+        <div class="ppt-slide-area">
+          <!-- SLIDE 1 — title slide, plain cream, centered text, dotted subtitle box -->
+          <div class="ppt-content-slide" id="ppt-slide1">
+            <img class="ppt-img" src="images/Mlogo.JPG" alt="Misfit Logo" style="width:700px;">
+          </div>
+          <!-- SLIDE 2 — content slide -->
+          <div class="ppt-content-slide" id="ppt-slide2">
+            <div style="display:flex;flex-direction:row;gap:24px;align-items:flex-start;padding:20px;height:450px;">
+              <!-- Left: image -->
+              <div style="flex:0 0 auto;">
+                <img class="ppt-img" src="images/misfit1.jpg" alt="Misfit Beer" style="width:400px;height:auto;display:block;">
+              </div>
+              <!-- Right: text -->
+              <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;">
+                <div class="ppt-content-title" style="margin-bottom:6px;">@misfitbeer</div>
+                <p class="ppt-content-body">I founded Misfit — a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising and meticulous approach to crafting the perfect beer.</p>
+                <p class="ppt-content-body">A New Zealand social enterprise brewing company, we fought to restore clean water sources in NZ and the wider Pacific by donating all profits to the cause.</p>
+                <ul style="padding-left:18px;margin-top:4px;">
+                  <li class="ppt-content-body">50+ stockists nationwide</li>
+                  <li class="ppt-content-body">7 SKUs</li>
+                </ul>
+                <p class="ppt-content-body" style="margin-top:8px;font-style:italic;">"Here's to the crazy ones."</p>
+              </div>
+            </div>
+          </div>
+          <!-- SLIDE 3 — content slide 2 -->
+          <div class="ppt-content-slide" id="ppt-slide3">
+            <img class="ppt-img" src="images/misfit6.jpg" alt="Misfit Beer5" style="width:700px;">
+          </div>
+          <!-- SLIDE 4 — content slide 3 -->
+          <div class="ppt-content-slide" id="ppt-slide4">
+            <div class="ppt-content-grid-photo" style="padding:0px;">
+              <img class="ppt-img" src="images/misfit2.jpg" alt="Misfit Beer2" style="width:230px;">
+              <img class="ppt-img" src="images/misfit3.jpg" alt="Misfit Beer3" style="width:230px;">
+              <img class="ppt-img" src="images/misfit4.jpg" alt="Misfit Beer4" style="width:230px;">
+            </div>
+            <div class="ppt-content-grid-photo" style="padding:0px;">
+              <img class="ppt-img" src="images/misfit5.jpg" alt="Misfit Beer5" style="width:230px;">
+              <img class="ppt-img" src="images/misfit7.jpg" alt="Misfit Beer7" style="width:230px;">
+              <img class="ppt-img" src="images/misfit8.jpg" alt="Misfit Beer8" style="width:230px;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ppt-notes-bar">
+        <span style="color:#808080;font-size:10px;">Click to add speaker notes</span>
+      </div>
+    </div>
+  </div>
+  <!-- Status strip matching reference photo -->
+  <div style="background:#c0c0c0;border-top:1px solid #808080;padding:2px 4px;display:flex;align-items:center;font-size:10px;flex-shrink:0;gap:0;">
+    <span style="border-right:1px solid #808080;padding:0 8px;">Slide 1 of 2</span>
+    <span style="border-right:1px solid #808080;padding:0 8px;">Default Design</span>
+    <div style="display:flex;gap:2px;padding:0 6px;">
+      <div class="ppt-vbtn" onclick="showSlide(1)" title="Normal">&#x22A1;</div>
+      <div class="ppt-vbtn" onclick="showSlide(1)" title="Outline">&#x2261;</div>
+      <div class="ppt-vbtn" title="Slide Sorter">&#x2610;</div>
+      <div class="ppt-vbtn" title="Notes">&#x1F4CB;</div>
+      <div class="ppt-vbtn" title="Slide Show" style="color:#000080;">&#x25B6;</div>
+    </div>
+  </div>
+</div>
+
+<!-- BUNDI WINDOW — Paint reverted + two rows of 4 -->
+<div class="win maximised hidden" id="win-bundi" style="z-index:13;">
+  <div class="titlebar inactive" id="tb-bundi" onmousedown="startDrag(event,'bundi')">
+    <span><img src="images/paint.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;bundipaints.bmp </span>
+    <div class="titlebar-btns">
+      <div class="wbtn" onclick="minimiseWin('bundi')">_</div>
+      <div class="wbtn" onclick="toggleMax('bundi')">&#10066;</div>
+      <div class="wbtn" onclick="closeWin('bundi')">&#10005;</div>
+    </div>
+  </div>
+  <div class="menubar">
+    <span class="mitem"><u>F</u>ile</span><span class="mitem"><u>E</u>dit</span>
+    <span class="mitem"><u>V</u>iew</span><span class="mitem"><u>I</u>mage</span>
+    <span class="mitem">C<u>o</u>lours</span><span class="mitem"><u>H</u>elp</span>
+  </div>
+  <div class="win-body" style="overflow:hidden;display:flex;flex-direction:column;">
+    <div class="paint-outer">
+      <div class="paint-toolbox">
+        <div class="pt on" title="Pencil"><img src="images/paint7.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Fill"><img src="images/paint8.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Eraser"><img src="images/paint3.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Pick colour"><img src="images/paint4.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Zoom"><img src="images/paint5.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Text"><img src="images/paint6.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Line"><img src="images/paint9.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Curve"><img src="images/paint10.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Rectangle"><img src="images/paint1.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Ellipse"><img src="images/paint12.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="pt" title="Rounded rect">&#x25A2;</div>
+        <div class="pt" title="Polygon">&#x2B20;</div>
+      </div>
+      <div class="paint-canvas-wrap">
+        <div class="paint-canvas-inner" id="paint-canvas">
+          <!-- Replace paint-img-ph divs with: <img class="paint-img" src="images/bundi1.jpg" alt=""> -->
+          <div class="paint-row">
+            <a href="https://open.spotify.com/album/4gylHoAp7UM7oEQuPzJsMM?si=oa1c4eNOTNq5g_hLd2tvPQ" target="_blank">
+             <img class="paint-img" src="images/bundi1.jpg" alt="Artwork1" style="cursor:pointer;">
+            </a>
+            <img class="paint-img" src="images/bundi2.jpg" alt="Artwork2">
+            <img class="paint-img" src="images/bundi3.jpg" alt="Artwork3">
+            <img class="paint-img" src="images/bundi4.jpg" alt="Artwork4">
+          </div>
+          <div class="paint-row">
+            <img class="paint-img" src="images/bundi10.jpg" alt="Artwork5">
+            <img class="paint-img" src="images/bundi5.jpg" alt="Artwork6">
+            <img class="paint-img" src="images/bundi6.jpg" alt="Artwork7">
+            <img class="paint-img" src="images/bundi7.jpg" alt="Artwork8">
+          </div>
+          <div class="paint-row">
+            <img class="paint-img" src="images/bundi9.jpg" alt="Artwork9">
+            <img class="paint-img" src="images/bundi11.jpg" alt="Artwork10">
+            <img class="paint-img" src="images/bundi8.jpg" alt="Artwork11">
+            <img class="paint-img" src="images/bundi12.jpg" alt="Artwork12">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="paint-palette">
+      <div class="paint-active-colors"><div class="paint-fg"></div><div class="paint-bg-swatch"></div></div>
+      <div class="pc" style="background:#000"></div><div class="pc" style="background:#808080"></div>
+      <div class="pc" style="background:#800000"></div><div class="pc" style="background:#808000"></div>
+      <div class="pc" style="background:#008000"></div><div class="pc" style="background:#008080"></div>
+      <div class="pc" style="background:#000080"></div><div class="pc" style="background:#800080"></div>
+      <div class="pc" style="background:#fff"></div><div class="pc" style="background:#c0c0c0"></div>
+      <div class="pc" style="background:#f00"></div><div class="pc" style="background:#ff0"></div>
+      <div class="pc" style="background:#0f0"></div><div class="pc" style="background:#0ff"></div>
+      <div class="pc" style="background:#00f"></div><div class="pc" style="background:#f0f"></div>
+      <div class="pc" style="background:#ff8000"></div><div class="pc" style="background:#80ff00"></div>
+      <div class="pc" style="background:#00ff80"></div><div class="pc" style="background:#0080ff"></div>
+      <div class="pc" style="background:#8000ff"></div><div class="pc" style="background:#ff0080"></div>
+    </div>
+  </div>
+  <div class="statusbar">
+    <span class="sstat">For Help, click Help Topics on the Help Menu.</span>
+    <span class="sstat" id="paint-coords">0,0</span>
+  </div>
+</div>
+
+<!-- FOLDER WINDOW -->
+<div class="win hidden" id="win-folder" style="width:420px;position:absolute;top:250px;left:300px;z-index:22;">
+  <div class="titlebar inactive" id="tb-folder" onmousedown="startDrag(event,'folder')">
+    <span><img src="images/folder.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Random Stuff</span>
+    <div class="titlebar-btns">
+      <div class="wbtn" onclick="minimiseWin('folder')">_</div>
+      <div class="wbtn" onclick="toggleMax('folder')">&#10066;</div>
+      <div class="wbtn" onclick="closeWin('folder')">&#10005;</div>
+    </div>
+  </div>
+  <div class="menubar">
+    <span class="mitem"><u>F</u>ile</span>
+    <span class="mitem"><u>E</u>dit</span>
+    <span class="mitem"><u>V</u>iew</span>
+    <span class="mitem"><u>H</u>elp</span>
+  </div>
+  <!-- Address bar -->
+  <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:2px 6px;display:flex;align-items:center;gap:6px;font-size:11px;font-family:Arial,sans-serif;">
+    <span style="color:#000;">Address</span>
+    <div style="flex:1;background:#fff;border:2px solid;border-color:#808080 #fff #fff #808080;padding:1px 4px;font-size:11px;color:#000;">C:\Random Stuff</div>
+  </div>
+  <div class="win-body" style="background:#fff;padding:12px;min-height:160px;">
+    <!-- File 1 -->
+    <div onclick="window.open('https://chromewebstore.google.com/detail/klnchidnhhkcpojbdokilheijadeeeek?utm_source=item-share-cb','_blank')"
+         style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;width:80px;padding:6px;cursor:pointer;margin-right:8px;vertical-align:top;"
+         onmouseover="this.style.background='#000080';this.querySelectorAll('span').forEach(function(s){s.style.color='#fff';})"
+         onmouseout="this.style.background='transparent';this.querySelectorAll('span').forEach(function(s){s.style.color='#000';})">
+      <span style="font-size:28px;line-height:1;">📄</span>
+      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">Game Delay.ext</span>
+    </div>
+    <!-- File 2 -->
+    <div onclick="window.open('https://brendandevoy.com/ouichef','_blank')"
+         style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;width:80px;padding:6px;cursor:pointer;vertical-align:top;"
+         onmouseover="this.style.background='#000080';this.querySelectorAll('span').forEach(function(s){s.style.color='#fff';})"
+         onmouseout="this.style.background='transparent';this.querySelectorAll('span').forEach(function(s){s.style.color='#000';})">
+      <span style="font-size:28px;line-height:1;">📄</span>
+      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">Oui, Chef.app</span>
+    </div>
+  </div>
+  <div class="statusbar">
+    <span class="sstat">2 object(s)</span>
+  </div>
+</div>
+
+<!-- CONTACT WINDOW -->
+<div class="win hidden" id="win-contact" style="width:325px;position:absolute;top:200px;left:600px;z-index:21;">
+  <div class="titlebar inactive" id="tb-contact" onmousedown="startDrag(event,'contact')">
+    <span><img src="images/contact.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Contact Brendan</span>
+    <div class="titlebar-btns">
+      <div class="wbtn" onclick="minimiseWin('contact')">_</div>
+      <div class="wbtn" onclick="closeWin('contact')">&#10005;</div>
+    </div>
+  </div>
+  <div class="win-body">
+    <div class="contact-body">
+      <label class="contact-label">Your name:</label>
+      <input class="contact-input" id="c-name" type="text" placeholder="Full name">
+      <label class="contact-label">Your email:</label>
+      <input class="contact-input" id="c-email" type="email" placeholder="you@email.com">
+      <label class="contact-label">Message:</label>
+      <textarea class="contact-textarea" id="c-msg" placeholder="Type your message here..."></textarea>
+      <div style="display:flex;gap:8px;">
+        <button class="contact-btn" onclick="submitContact()">✉️ Send</button>
+        <button class="contact-btn" onclick="closeWin('contact')">Cancel</button>
+      </div>
+      <div id="c-confirm" style="display:none;margin-top:10px;background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;padding:10px;font-size:11px;">
+        <div style="font-weight:bold;margin-bottom:4px;color:#000;">&#x2705; Sent! I'll get back to you soon.</div>
+        <button class="contact-btn" style="margin-top:8px;" onclick="closeWin('contact')">OK</button>
+      </div>
+    </div>
+  </div>
+  <div class="statusbar"><span class="sstat">Ready to send</span></div>
+</div>
+
+<!-- MINESWEEPER WINDOW -->
+<div class="win hidden" id="win-mines" style="position:absolute;top:200px;left:200px;z-index:21;">
+  <div class="titlebar inactive" id="tb-mines" onmousedown="startDrag(event,'mines')">
+    <span><img src="images/mine.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Minesweeper</span>
+    <div class="titlebar-btns">
+      <div class="wbtn" onclick="minimiseWin('mines')">_</div>
+      <div class="wbtn" onclick="closeWin('mines')">&#10005;</div>
+    </div>
+  </div>
+  <div class="menubar">
+    <span class="mitem"><u>G</u>ame</span><span class="mitem"><u>H</u>elp</span>
+  </div>
+  <div class="win-body">
+    <div class="mines-body">
+      <div class="mines-diff">
+        <button class="diff-btn active" id="diff-beg" onclick="setDiff('beginner')">Beginner</button>
+        <button class="diff-btn" id="diff-int" onclick="setDiff('intermediate')">Intermediate</button>
+        <button class="diff-btn" id="diff-exp" onclick="setDiff('expert')">Expert</button>
+      </div>
+      <div class="mines-panel">
+        <div class="mines-counter" id="mine-count">010</div>
+        <div class="mines-face-btn" id="face-btn" onclick="initMines()">&#x1F642;</div>
+        <div class="mines-counter" id="mine-timer">000</div>
+      </div>
+      <div class="mines-grid" id="mines-grid"></div>
+    </div>
+  </div>
+  <div class="statusbar"><span class="sstat" id="mines-status">Left-click to reveal. Right-click to flag.</span></div>
+</div>
+
+</div><!-- end desktop -->
+
+<!-- CLIPPY — fixed to lower right, visible only when CV is maximised -->
+<div id="clippy-wrap" style="display:none;">
+  <div id="clippy-bubble" style="display:none;">
+    <button id="clippy-close" onclick="clippyClose()">&#10005;</button>
+    <span id="clippy-text">Wow, that looks like a great CV!</span>
+  </div>
+  <svg id="clippy-svg" viewBox="0 0 90 120" xmlns="http://www.w3.org/2000/svg" onclick="clippyClick()">
+    <!-- Paperclip body — silver bent wire shape -->
+    <!-- Outer loop of clip -->
+    <path d="M 58 100
+             L 58 28
+             Q 58 10 42 10
+             Q 26 10 26 28
+             L 26 88
+             Q 26 108 45 108
+             Q 64 108 64 88
+             L 64 34"
+          fill="none" stroke="#a0a8b0" stroke-width="9"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Inner loop highlight -->
+    <path d="M 58 100
+             L 58 28
+             Q 58 10 42 10
+             Q 26 10 26 28
+             L 26 88
+             Q 26 108 45 108
+             Q 64 108 64 88
+             L 64 34"
+          fill="none" stroke="#d8dde2" stroke-width="5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Second inner wire pass -->
+    <path d="M 45 100
+             L 45 34
+             Q 45 22 38 22
+             Q 32 22 32 30
+             L 32 88
+             Q 32 100 45 100"
+          fill="none" stroke="#b0b8c0" stroke-width="6"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 45 100
+             L 45 34
+             Q 45 22 38 22
+             Q 32 22 32 30
+             L 32 88
+             Q 32 100 45 100"
+          fill="none" stroke="#e0e5ea" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Face — sits on the upper bend of the clip -->
+    <!-- Left eye white -->
+    <ellipse cx="36" cy="44" rx="5.5" ry="6.5" fill="#fff" stroke="#555" stroke-width="1"/>
+    <!-- Right eye white -->
+    <ellipse cx="54" cy="44" rx="5.5" ry="6.5" fill="#fff" stroke="#555" stroke-width="1"/>
+    <!-- Left pupil -->
+    <circle cx="37" cy="45" r="2.8" fill="#1a1a1a"/>
+    <!-- Right pupil -->
+    <circle cx="55" cy="45" r="2.8" fill="#1a1a1a"/>
+    <!-- Eye shine left -->
+    <circle cx="38" cy="43.5" r="1" fill="#fff"/>
+    <!-- Eye shine right -->
+    <circle cx="56" cy="43.5" r="1" fill="#fff"/>
+    <!-- Eyebrows -->
+    <path d="M 31 38 Q 36 35 41 38" fill="none" stroke="#444" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 49 38 Q 54 35 59 38" fill="none" stroke="#444" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Smile -->
+    <path d="M 34 52 Q 45 60 56 52" fill="none" stroke="#444" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- START MENU -->
+<div id="start-menu">
+  <div style="display:flex;flex-direction:row;width:100%;">
+    <div class="start-sidebar"><span class="start-sidebar-text">Windows 95</span></div>
+    <div class="start-menu-inner">
+      <div class="start-item" onclick="startOpen('cv')"><img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">CV.doc</div>
+      <div class="start-item" onclick="startOpen('misfit')"><img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">@misfitbeer</div>
+      <div class="start-item" onclick="startOpen('bundi')"><img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">@bundipaints</div>
+      <div class="start-item" onclick="startOpen('contact')"><img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">Contact.msg</div>
+      <div class="start-item" onclick="startOpen('mines')"><img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">Minesweeper</div>
+    </div>
+  </div>
+</div>
+
+<!-- TASKBAR -->
+<div id="taskbar">
+  <button class="start-btn" onclick="toggleStartMenu()" style="background:none;border:none;padding:0;cursor:pointer;">
+  <img src="images/start.png" style="height:22px;image-rendering:pixelated;display:block;"></button>
+  <div class="tb-divider"></div>
+  <div id="tb-clock"></div>
+</div>
+
+<!-- SCREENSAVER -->
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="lbClose()">
+  <div id="lb-close" onclick="lbClose()">✕</div>
+  <div id="lb-prev" onclick="lbPrev(event)">◀</div>
+  <img id="lb-img" src="" alt="" onclick="event.stopPropagation()">
+  <div id="lb-next" onclick="lbNext(event)">▶</div>
+  <div id="lb-counter">1 / 1</div>
+</div>
+
+<div id="screensaver" onclick="dismissSS()" onmousemove="dismissSS()">
+  <canvas id="ss-canvas"></canvas>
+</div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
@@ -550,6 +1330,406 @@ setTimeout(function(){
   focusWin('home');
   updateClippy();
 },80);
+})();
+</script>
+
+<!-- ══ MOBILE SITE ══ -->
+<div id="mobile-site">
+
+  <!-- Home -->
+  <div class="m-win m-active" id="m-win-home" style="width:100%;align:center;">
+    <div class="m-tb">
+      <span><img src="images/home.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;brendandevoy.com</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">&#10066;</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;font-size:11px;flex-shrink:0;">
+     <span style="padding:2px 8px;color:#000;"><u>F</u>ile</span>
+     <span style="padding:2px 8px;color:#000;"><u>E</u>dit</span>
+     <span style="padding:2px 8px;color:#000;"><u>V</u>iew</span>
+     <span style="padding:2px 8px;color:#000;"><u>H</u>elp</span>
+    </div>
+    <div class="m-body">
+      <div class="m-h1">BRENDAN DEVOY</div>
+      <div class="m-inset" style="display:block;"> 
+        <img class="m-profile" src="images/me.png" alt="Brendan Devoy" style="margin-bottom:10px;">
+        <br>
+        <div>
+          <p style="font-weight:bold;margin-bottom:6px;font-size:12px;">Kia Ora! </p>
+          <p style="font-size:11px;line-height:1.2;color:#000;">I'm a pilsner-loving, Auckland-based creative thinker, looking for opportunities to learn new things and push myself into challenging &amp; uncomfortable situations. With a sales and marketing background in liquor and FMCG, I'm passionate about driving brand success and consumer connection.</p>
+          <br>
+          <p style="font-size:11px;line-height:1.2;color:#000;">Oh, and I like to paint.</p>
+        </div>
+      </div>
+      <div class="m-footer">
+        est. 1995 &nbsp;|&nbsp; +64 021 673 125 &nbsp;|&nbsp; <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;">hey@brendandevoy.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV -->
+  <div class="m-win" id="m-win-cv">
+    <div class="m-tb">
+      <span> <img src="images/word.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Brendan Devoy CV.doc </span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">&#10066;</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;font-size:11px;flex-shrink:0;">
+     <span style="padding:2px 8px;color:#000;"><u>F</u>ile</span>
+     <span style="padding:2px 8px;color:#000;"><u>E</u>dit</span>
+     <span style="padding:2px 8px;color:#000;"><u>V</u>iew</span>
+     <span style="padding:2px 8px;color:#000;"><u>I</u>nsert</span>
+     <span style="padding:2px 8px;color:#000;">F<u>o</u>rmat</span>
+     <span style="padding:2px 8px;color:#000;"><u>T</u>ools</span>
+     <span style="padding:2px 8px;color:#000;"><u>H</u>elp</span>
+    </div>
+    <div class="m-word-outer">
+      <div class="m-word-doc">
+        <img src="images/BrendanDevoy.png" alt="Brendan Devoy" style="max-width:100%;margin-bottom:6px;display:block;">
+        <div style="text-align:center;font-size:10px;letter-spacing:4px;color:#555;margin-bottom:12px;text-transform:uppercase;font-family:'Times New Roman',serif;">Curriculum Vitae</div>
+        <hr style="border:none;border-top:2px solid #000;margin-bottom:12px;">
+        <p style="font-family:'Times New Roman',serif;font-size:11px;font-style:italic;line-height:1.2;color:#111;margin-bottom:8px;">I am a results-driven sales and marketing professional with expertise in liquor and FMCG. Skilled in relationship management, stakeholder engagement, and data-driven decision-making, I thrive in fast-paced environments. I’m passionate about driving brand success, revenue growth, and consumer connection through strategic account management and trade execution.</p>
+        <span class="m-sec">Experience</span>
+        <div class="m-job-t">Atomic Coffee &#8212; Account Manager</div>
+        <div class="m-job-m">Mar 2023 &#8211; Jul 2025</div>
+        <br>
+        <div class="m-job-d">Managed key accounts, ensuring optimal sales performance and brand visibility. Developed and executed promotional strategies, driving increased distribution and revenue growth. Strengthened customer relationships, ensuring a symbiotic alignment of their ambitions with wider business and marketing goals.</div>
+        <br>
+        <div class="m-job-t">Futurity &#8212; Sales Manager</div>
+        <div class="m-job-m">Jun 2021 &#8211; Dec 2022</div>
+        <br>
+        <div class="m-job-d">Brought to market NZ’s first 100% commercially compostable bottled water product. Led strategic sales planning, and managed customer relationships, ensuring high satisfaction, repeat business, and market share growth. Utilised CRM tools and data insights to enhance targeting and brand engagement strategies.</div>
+        <br>
+        <div class="m-job-t">Misfit Brewing Co. &#8212; Founder &amp; Sales Lead</div>
+        <div class="m-job-m">Jan 2018 &#8211; Jun 2021</div>
+        <br>
+        <div class="m-job-d">Developed and managed the brand from inception to national distribution, ensuring a strong market presence (50+ stockists). Built and nurtured relationships with distributors and consumers, enhancing brand loyalty and engagement. Leveraged consumer insights and sales data to refine marketing and product strategies.</div>
+        <br>
+        <div class="m-job-t">Lion NZ &#8212; Order Management Executive</div>
+        <div class="m-job-m">Jul 2016 &#8211; Jan 2018</div>
+        <br>
+        <div class="m-job-d">Liaised with various stakeholders, from supply-chain to brand management, to mitigate the effect of changing stock levels. Responsibility and trust were integral, with each department reliant on you to ensure a free-flowing sales channel.</div>
+        <span class="m-sec">Skills</span>
+        <div class="m-skill">▸ Project Management &nbsp; ▸ Commercial Acumen<br>▸ Marketing Strategy &nbsp; ▸ Sales Strategy<br>▸ Stakeholder Management &nbsp; ▸ Data-driven Decisions</div>
+        <span class="m-sec">Education</span>
+        <div class="m-job-t">University of Auckland</div><div class="m-job-m">BCom Marketing — 2013–2015</div>
+        <div class="m-job-t">Live The Dream</div><div class="m-job-m">Enterprise Accelerator 2015–16</div>
+        <div class="m-job-t">Toastmasters International</div><div class="m-job-m">Ponsonby Club 2022–2023</div>
+        <span class="m-sec">Achievements</span>
+        <div class="m-skill">▸ Self-appointed Employee of the Month — record 13 times<br>▸ Nationwide brand expansion across 50+ stockists<br>▸ Managed portfolio equating to $2m+ in annual revenue</div>
+        <div style="margin-top:16px;padding-top:10px;border-top:1px solid #c0c0c0;">
+          <a class="m-dl-btn" href="Brendan_Devoy_CV_2026.pdf" target="_blank">📄 Download CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+    <div class="m-sbar">Page 1 | Sec 1 | 1/1 | REC | OVR</div>
+  </div>
+
+  <!-- Misfit -->
+  <div class="m-win" id="m-win-misfit">
+    <div class="m-tb">
+      <span><img src="images/power.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;misfitbeer.ppt</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">&#10066;</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;font-size:11px;flex-shrink:0;">
+     <span style="padding:2px 8px;color:#000;"><u>F</u>ile</span>
+     <span style="padding:2px 8px;color:#000;"><u>E</u>dit</span>
+     <span style="padding:2px 8px;color:#000;"><u>V</u>iew</span>
+     <span style="padding:2px 8px;color:#000;"><u>I</u>nsert</span>
+     <span style="padding:2px 8px;color:#000;">Slide<u>S</u>how</span>
+     <span style="padding:2px 8px;color:#000;"><u>H</u>elp</span>
+    </div>
+    <div class="m-ppt-outer">
+      <div class="m-ppt-slide">
+        <img src="images/Mlogo.JPG" alt="Misfit Beer Logo" style="max-width:100%;display:block;margin:0 auto 12px;">
+      </div>
+      <div class="m-ppt-slide">
+        <img src="images/misfit6.jpg" alt="Misfit" style="width:100%;display:block;">
+      </div>
+      <div class="m-ppt-slide">
+        <p class="m-ppt-p">I founded Misfit — a team of creatives and square pegs set on inventing and pushing boundaries, with an uncompromising approach to crafting the perfect beer.</p>
+        <p class="m-ppt-p">A New Zealand social enterprise brewing company, we fought to restore clean water sources in NZ and the wider Pacific by donating all profits to the cause.</p>
+        <div class="m-ppt-li">50+ stockists nationwide</div>
+        <div class="m-ppt-li">7 SKUs</div>
+        <div class="m-ppt-li" style="font-style:italic;">"Here's to the crazy ones."</div>
+      </div>
+      <div class="m-ppt-slide">
+        <div class="m-img-3">
+          <img src="images/misfit2.jpg" alt="Misfit"><img src="images/misfit3.jpg" alt="Misfit"><img src="images/misfit4.jpg" alt="Misfit">
+          <img src="images/misfit5.jpg" alt="Misfit"><img src="images/misfit7.jpg" alt="Misfit"><img src="images/misfit8.jpg" alt="Misfit">
+        </div>
+      </div>
+    </div>
+    <div class="m-sbar">Slide 1–4 | @misfitbeer | Normal View</div>
+  </div>
+
+  <!-- Bundi / Paint -->
+  <div class="m-win" id="m-win-bundi">
+    <div class="m-tb">
+      <span><img src="images/paint.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;bundipaints.bmp </span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">&#10066;</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;font-size:11px;flex-shrink:0;">
+     <span style="padding:2px 8px;color:#000;"><u>F</u>ile</span>
+     <span style="padding:2px 8px;color:#000;"><u>E</u>dit</span>
+     <span style="padding:2px 8px;color:#000;"><u>V</u>iew</span>
+     <span style="padding:2px 8px;color:#000;"><u>I</u>mage</span>
+     <span style="padding:2px 8px;color:#000;"><u>H</u>elp</span>
+    </div>
+    <div class="m-paint-outer">
+      <div class="m-paint-toolbox">
+        <div class="m-pt on"><img src="images/paint7.png" style="width:25px;height:25px;image-rendering:pixelated;"></div><div class="m-pt"><img src="images/paint8.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="m-pt"><img src="images/paint3.png" style="width:25px;height:25px;image-rendering:pixelated;"></div><div class="m-pt"><img src="images/paint4.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="m-pt"><img src="images/paint5.png" style="width:25px;height:25px;image-rendering:pixelated;"></div><div class="m-pt"><img src="images/paint6.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="m-pt"><img src="images/paint9.png" style="width:25px;height:25px;image-rendering:pixelated;"></div><div class="m-pt"><img src="images/paint10.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="m-pt"><img src="images/paint1.png" style="width:25px;height:25px;image-rendering:pixelated;"></div><div class="m-pt"><img src="images/paint12.png" style="width:25px;height:25px;image-rendering:pixelated;"></div>
+        <div class="m-pt">&#x25A2;</div><div class="m-pt">&#x2B20;</div>
+      </div>
+      <div class="m-paint-canvas">
+        <div class="m-img-4">
+          <a href="https://open.spotify.com/album/4gylHoAp7UM7oEQuPzJsMM?si=oa1c4eNOTNq5g_hLd2tvPQ" target="_blank">
+             <img class="paint-img" src="images/bundi1.jpg" alt="Artwork1" style="cursor:pointer;">
+            </a>
+          <img src="images/bundi2.jpg" alt="Art">
+          <img src="images/bundi3.jpg" alt="Art"><img src="images/bundi4.jpg" alt="Art">
+        </div>
+        <div class="m-img-4">
+          <img src="images/bundi5.jpg" alt="Art"><img src="images/bundi6.jpg" alt="Art">
+          <img src="images/bundi7.jpg" alt="Art"><img src="images/bundi8.jpg" alt="Art">
+        </div>
+        <div class="m-img-4">
+          <img src="images/bundi9.jpg" alt="Art"><img src="images/bundi10.jpg" alt="Art">
+          <img src="images/bundi11.jpg" alt="Art"><img src="images/bundi12.jpg" alt="Art">
+        </div>
+      </div>
+    </div>
+    <div class="m-palette">
+      <div class="m-pal-active"><div class="m-pal-fg"></div><div class="m-pal-bg"></div></div>
+      <div class="m-pc" style="background:#000"></div><div class="m-pc" style="background:#808080"></div>
+      <div class="m-pc" style="background:#800000"></div><div class="m-pc" style="background:#808000"></div>
+      <div class="m-pc" style="background:#008000"></div><div class="m-pc" style="background:#008080"></div>
+      <div class="m-pc" style="background:#000080"></div><div class="m-pc" style="background:#800080"></div>
+      <div class="m-pc" style="background:#fff"></div><div class="m-pc" style="background:#c0c0c0"></div>
+      <div class="m-pc" style="background:#f00"></div><div class="m-pc" style="background:#ff0"></div>
+      <div class="m-pc" style="background:#0f0"></div><div class="m-pc" style="background:#0ff"></div>
+      <div class="m-pc" style="background:#00f"></div><div class="m-pc" style="background:#f0f"></div>
+      <div class="m-pc" style="background:#ff8000"></div><div class="m-pc" style="background:#00ff80"></div>
+    </div>
+    <div class="m-sbar">For Help, click Help Topics on the Help Menu.</div>
+  </div>
+
+  <!-- Contact -->
+  <div class="m-win" id="m-win-contact" style="margin-top:100px;">
+    <div class="m-tb">
+      <span><img src="images/contact.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Contact Brendan</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div style="background:#c0c0c0;border-bottom:1px solid #808080;padding:1px 4px;display:flex;font-size:11px;flex-shrink:0;">
+     <span style="padding:2px 8px;color:#000;"><u>F</u>ile</span>
+     <span style="padding:2px 8px;color:#000;"><u>E</u>dit</span>
+     <span style="padding:2px 8px;color:#000;"><u>H</u>elp</span>
+    </div>
+    <div class="m-body">
+      <div style="font-size:11px;margin-bottom:10px;color:#000;">Send a message to <a href="/cdn-cgi/l/email-protection#d3bbb6aa93b1a1b6bdb7b2bdb7b6a5bcaafdb0bcbe" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="3f575a467f5d4d5a515b5e515b5a495046115c5052">[email&#160;protected]</span></a></div>
+      <label style="font-size:11px;display:block;margin-bottom:3px;">Your name:</label>
+      <input class="m-input" id="m-name" type="text" placeholder="Full name">
+      <label style="font-size:11px;display:block;margin-bottom:3px;">Your email:</label>
+      <input class="m-input" id="m-email" type="email" placeholder="you@email.com">
+      <label style="font-size:11px;display:block;margin-bottom:3px;">Message:</label>
+      <textarea class="m-input m-textarea" id="m-msg" placeholder="Type your message here..."></textarea>
+      <button class="m-send-btn" onclick="mobileSubmit()">✉️ Send</button>
+      <div id="m-confirm" style="display:none;margin-top:10px;font-size:11px;font-family:Arial,sans-serif;color:#000;">✅ Sent! Brendan will get back to you soon.</div>
+    </div>
+    <div class="m-sbar">Ready to send</div>
+  </div>
+  
+  <!-- Minesweeper -->
+  <div class="m-win" id="m-win-mines" style="margin-top:65px;">
+    <div class="m-tb">
+      <span><img src="images/mine.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Minesweeper</span>
+      <div class="m-tb-btns"><div class="m-tb-btn">_</div><div class="m-tb-btn">✕</div></div>
+    </div>
+    <div class="m-mines-body">
+      <div class="m-mines-panel">
+        <div class="m-mines-counter" id="m-mine-count">010</div>
+        <div class="m-face-btn" id="m-face-btn" onclick="mInitMines()">🙂</div>
+        <div class="m-mines-counter" id="m-mine-timer">000</div>
+      </div>
+      <div style="overflow-x:auto;width:100%;">
+        <div class="m-mines-grid" id="m-mines-grid"></div>
+      </div>
+    </div>
+    <div class="m-sbar"><span id="m-mines-status">Tap to reveal. Long-press to flag.</span></div>
+  </div>
+
+</div><!-- end mobile-site -->
+
+<!-- MOBILE TASKBAR -->
+<div id="m-taskbar" style="display:none;">
+  <button id="m-start-btn" onclick="mToggleStart()" style="background:none;border:none;padding:0;cursor:pointer;"><img src="images/start.png" style="height:25px;image-rendering:pixelated;display:block;"></button>
+  <div id="m-clock" style="margin-left:auto;border:1px solid;height:25px;border-color:#808080 #fff #fff #808080;padding:2px 2px;font-size:15px;font-family:Arial,sans-serif;"></div>
+</div>
+
+<!-- MOBILE START MENU -->
+<div id="m-start-menu" style="display:none;">
+  <div class="m-sidebar"><span class="m-sidebar-text">Windows 95</span></div>
+  <div class="m-menu-inner">
+    <div class="m-menu-item" onclick="mOpenPage('cv')"><img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">CV.doc</div>
+    <div class="m-menu-item" onclick="mOpenPage('misfit')"><img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">@misfitbeer</div>
+    <div class="m-menu-item" onclick="mOpenPage('bundi')"><img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">@bundipaints</div>
+    <div class="m-menu-item" onclick="mOpenPage('contact')"><img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">Contact.msg</div>
+    <div class="m-menu-item" onclick="mOpenPage('mines')"><img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">Minesweeper</div>
+    <div class="m-menu-item" onclick="mOpenPage('home')"><img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">Home</div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* MOBILE LOGIC — only runs on mobile */
+(function(){
+  var isMobile=window.innerWidth<=768;
+  function checkMobile(){return window.innerWidth<=768;}
+
+  /* Show correct layout */
+  function applyLayout(){
+    var mobile=checkMobile();
+    document.getElementById('mobile-site').style.display=mobile?'block':'none';
+    document.getElementById('m-taskbar').style.display=mobile?'flex':'none';
+    document.getElementById('m-start-menu').style.display='none';
+    mStartOpen=false;
+  }
+  applyLayout();
+  window.addEventListener('resize',applyLayout);
+
+  /* Mobile clock */
+  function mTick(){
+    var el=document.getElementById('m-clock');
+    if(!el)return;
+    var d=new Date(),h=d.getHours(),m=d.getMinutes(),ap=h>=12?'PM':'AM';
+    h=h%12||12;el.textContent=h+':'+(m<10?'0':'')+m+' '+ap;
+  }
+  mTick();setInterval(mTick,10000);
+
+  /* Mobile start menu */
+  var mStartOpen=false;
+  window.mToggleStart=function(){
+    if(!checkMobile())return;
+    mStartOpen=!mStartOpen;
+    document.getElementById('m-start-menu').style.display=mStartOpen?'flex':'none';
+  };
+  window.mCloseStart=function(){
+    mStartOpen=false;
+    document.getElementById('m-start-menu').style.display='none';
+  };
+
+  /* Mobile page switching */
+  var mPages=['home','cv','misfit','bundi','contact','mines'];
+  window.mOpenPage=function(id){
+    mPages.forEach(function(p){
+      var w=document.getElementById('m-win-'+p);
+      if(w)w.classList.remove('m-active');
+    });
+    var target=document.getElementById('m-win-'+id);
+    if(target){
+      target.classList.add('m-active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    window.mCloseStart();
+  };
+
+  /* Mobile Minesweeper */
+  var mMCfg={beginner:{rows:20,cols:16,mines:30},intermediate:{rows:13,cols:13,mines:25}};
+  var mMDiff='beginner',mMBoard=[],mMRevealed=[],mMFlagged=[],mMMines=[],mMOver=false,mMFirst=true;
+  var mMTimer=0,mMTI=null,mMRows,mMCols,mMCount;
+  function mPad3(n){return('000'+Math.max(0,n)).slice(-3);}
+  window.mSetDiff=function(d){
+    mMDiff=d;
+    document.querySelectorAll('.m-diff-btn').forEach(function(b){b.classList.remove('active');});
+    document.getElementById('m-diff-'+d.substring(0,3)).classList.add('active');
+    mInitMines();
+  };
+  window.mInitMines=function(){
+    clearInterval(mMTI);mMTimer=0;mMOver=false;mMFirst=true;
+    var cfg=mMCfg[mMDiff];mMRows=cfg.rows;mMCols=cfg.cols;mMCount=cfg.mines;
+    mMBoard=[];mMRevealed=[];mMFlagged=[];mMMines=[];
+    for(var i=0;i<mMRows*mMCols;i++){mMBoard.push(0);mMRevealed.push(false);mMFlagged.push(false);}
+    var fb=document.getElementById('m-face-btn');if(fb)fb.textContent='🙂';
+    var mc=document.getElementById('m-mine-count');if(mc)mc.textContent=mPad3(mMCount);
+    var mt=document.getElementById('m-mine-timer');if(mt)mt.textContent='000';
+    var ms=document.getElementById('m-mines-status');if(ms)ms.textContent='Tap to reveal. Long-press to flag.';
+    mRenderMines();
+  };
+  function mGetN(r,c){var n=[];for(var dr=-1;dr<=1;dr++)for(var dc=-1;dc<=1;dc++){if(dr===0&&dc===0)continue;var nr=r+dr,nc=c+dc;if(nr>=0&&nr<mMRows&&nc>=0&&nc<mMCols)n.push(nr*mMCols+nc);}return n;}
+  function mPlaceMines(safe){
+    var p=0;while(p<mMCount){var idx=Math.floor(Math.random()*mMRows*mMCols);if(idx!==safe&&mMBoard[idx]!==-1){mMBoard[idx]=-1;mMMines.push(idx);p++;}}
+    for(var r=0;r<mMRows;r++)for(var c=0;c<mMCols;c++){var i2=r*mMCols+c;if(mMBoard[i2]===-1)continue;var cnt=0;mGetN(r,c).forEach(function(n){if(mMBoard[n]===-1)cnt++;});mMBoard[i2]=cnt;}
+  }
+  function mReveal(r,c){var idx=r*mMCols+c;if(mMRevealed[idx]||mMFlagged[idx])return;mMRevealed[idx]=true;if(mMBoard[idx]===0)mGetN(r,c).forEach(function(n){mReveal(Math.floor(n/mMCols),n%mMCols);});}
+  var mNC=['','#0000ff','#008000','#ff0000','#000080','#800000','#008080','#000000','#808080'];
+  function mRenderMines(){
+    var grid=document.getElementById('m-mines-grid');if(!grid)return;
+    grid.style.gridTemplateColumns='repeat('+mMCols+', 20px)';grid.innerHTML='';
+    for(var r=0;r<mMRows;r++)for(var c=0;c<mMCols;c++){
+      var idx=r*mMCols+c,cell=document.createElement('div');cell.className='m-mine-cell';
+      if(mMRevealed[idx]){cell.classList.add('revealed');if(mMBoard[idx]===-1){cell.classList.add('boom');cell.textContent='💣';}else if(mMBoard[idx]>0){cell.textContent=mMBoard[idx];cell.style.color=mNC[mMBoard[idx]];}}
+      else if(mMFlagged[idx])cell.textContent='🚩';
+      (function(rr,cc,ii){
+        cell.addEventListener('click',function(){mHClick(rr,cc,ii);});
+        var pressTimer;
+        cell.addEventListener('touchstart',function(e){pressTimer=setTimeout(function(){mHFlag(rr,cc,ii);},500);},{ passive:true });
+        cell.addEventListener('touchend',function(){clearTimeout(pressTimer);});
+      })(r,c,idx);
+      grid.appendChild(cell);
+    }
+  }
+  function mHClick(r,c,idx){
+    if(mMOver||mMRevealed[idx]||mMFlagged[idx])return;
+    if(mMFirst){mMFirst=false;mPlaceMines(idx);mMTI=setInterval(function(){mMTimer=Math.min(999,mMTimer+1);var el=document.getElementById('m-mine-timer');if(el)el.textContent=mPad3(mMTimer);},1000);}
+    if(mMBoard[idx]===-1){mMOver=true;clearInterval(mMTI);mMRevealed[idx]=true;var fb=document.getElementById('m-face-btn');if(fb)fb.textContent='😵';var ms=document.getElementById('m-mines-status');if(ms)ms.textContent='BOOM! Tap face to retry.';mMMines.forEach(function(mi){mMRevealed[mi]=true;});}
+    else{mReveal(r,c);var unrev=mMRevealed.filter(function(v){return!v;}).length;if(unrev===mMCount){mMOver=true;clearInterval(mMTI);var fb2=document.getElementById('m-face-btn');if(fb2)fb2.textContent='😎';var ms2=document.getElementById('m-mines-status');if(ms2)ms2.textContent='🎉 You win! Time: '+mMTimer+'s';}}
+    mRenderMines();
+  }
+  function mHFlag(r,c,idx){if(mMOver||mMRevealed[idx])return;mMFlagged[idx]=!mMFlagged[idx];var mc=document.getElementById('m-mine-count');if(mc)mc.textContent=mPad3(mMCount-mMFlagged.filter(Boolean).length);mRenderMines();}
+
+  /* Init Minesweeper when page opens */
+  var origMOpen=window.mOpenPage;
+  window.mOpenPage=function(id){
+    origMOpen(id);
+    if('mines')mInitMines();
+  };
+  document.addEventListener('click',function(e){
+    if(mStartOpen&&!e.target.closest('#m-start-menu')&&!e.target.closest('#m-start-btn')){
+      window.mCloseStart();
+    }
+  });
+
+  /* Mobile contact form */
+  window.mobileSubmit=function(){
+    var name=document.getElementById('m-name').value.trim();
+    var email=document.getElementById('m-email').value.trim();
+    var msg=document.getElementById('m-msg').value.trim();
+    if(!name||!email||!msg){alert('Please fill in all fields!');return;}
+    var btn=document.querySelector('#m-win-contact .m-send-btn');
+    btn.textContent='Sending...';btn.disabled=true;
+    fetch('https://formspree.io/f/mojpwzan',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name:name,email:email,message:msg})
+    })
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.ok){
+        document.getElementById('m-confirm').style.display='block';
+        document.getElementById('m-name').value='';
+        document.getElementById('m-email').value='';
+        document.getElementById('m-msg').value='';
+      } else {
+        alert('Something went wrong. Please email hey@brendandevoy.com directly.');
+      }
+      btn.textContent='✉️ Send';btn.disabled=false;
+    })
+    .catch(function(){
+      alert('Could not send. Please email hey@brendandevoy.com directly.');
+      btn.textContent='✉️ Send';btn.disabled=false;
+    });
+  };
 })();
 </script>
 </body>
