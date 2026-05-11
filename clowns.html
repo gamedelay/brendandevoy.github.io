@@ -248,6 +248,7 @@ footer{padding:2.5rem 2rem;border-top:0.5px solid var(--border);display:flex;ali
         </div>
         <div class="progress-track"><div class="progress-fill" id="progress" style="width:0%"></div></div>
         <div class="qcard">
+          <div class="qcard-lbl">Who said this?</div>
           <div class="qcard-text" id="quote-text"></div>
           <span class="qcard-theme" id="theme-tag"></span>
         </div>
@@ -302,36 +303,36 @@ footer{padding:2.5rem 2rem;border-top:0.5px solid var(--border);display:flex;ali
 
 <script>
 const Q=[
-  {q:"The silent majority is back, and we're going to take the country back.",a:0,"},
-  {q:"It's our country, stupid. We are going to take back control, take back our country, and Make [us number one] Again.",a:2,"},
-  {q:"It's been one hell of a journey, but we have got our country back!",a:1,"},
-  {q:"The fake news media is not my enemy, it is the enemy of [the people]!",a:0,"},
-  {q:"Many in the mainstream media have deliberately, deceitfully, and ignorantly misrepresented what I said. It is a disgraceful example of journalism — yet another example of blatant political bias.",a:2,"},
-  {q:"The mainstream media are political actors conspiring to stop us — this is election interference.",a:1,"},
-  {q:"We have some very bad people. We have some sick people. Radical left lunatics.",a:0,"},
-  {q:"The woke agenda of the left has crept in like a cancer that has spread so deep into their divisive thinking it has become their sole focus.",a:2,"},
-  {q:"It's not wrong to want this country to be great again like it once was.",a:2,"},
-  {q:"We will not apologise for defending our country from you wokesters and cultural Marxists. Your time is up and people have had enough.",a:2,"},
-  {q:"If you come here illegally, you will be detained and deported and never, ever allowed to stay. Period. That is our big message.",a:1,"},
-  {q:"This is serious political persecution at the very highest level of our system. The establishment are trying to force me out.",a:1,"},
-  {q:"Immigration is good for the rich...but it's bad news for ordinary people.",a:1,"},
-  {q:"It's not just us they want to shut down — it's you they want to silence. We've been the voice of the people.",a:2,"},
-  {q:"The [election] is a victory for cheating in elections. [We] won among [country-born] voters.",a:1,"},
-  {q:"Merry Christmas to all, including the radical left scum that is doing everything possible to destroy our country.",a:0,"},
-  {q:"We will no longer surrender this country or its people to the false song of globalism.",a:0,"},
-  {q:"We must push back on globalist bureaucrats — and we have kept that promise.",a:2,"},
-  {q:"Either you support the existing global elite, or you want real change and believe in nation-state democracy.",a:1,"},
-  {q:"Everything was stolen and rigged in order to drain the wealth out of the productive, hard-working people who make our country great.",a:0,"},
-  {q:"We've been betrayed by our career political class.",a:1,"},
-  {q:"They've become a party of moral outrage — obsessed with accusations, gotcha politics, woke ideology, and opposing anything that might offend someone, somewhere.",a:2,"},
-  {q:"Political correctness has gone mad. It's stifling free speech and preventing honest conversations about important issues.",a:1,"},
-  {q:"Our country is being destroyed at [the border] — a terrible thing to see!",a:0,"},
-  {q:"My opponents are the people who gave up our borders.",a:1,"},
-  {q:"There is only one nationalist party in this country. The rest are globalists.",a:2,"},
-  {q:"We will not let them silence your voices. We're not going to let it happen. I'm not going to let it happen.",a:0,"},
-  {q:"Some of us know what poverty tastes, feels and smells like. But there is now hope on the horizon.",a:2,"},
-  {q:"In scores of our cities and market towns, this country, in a short space of time, has frankly become unrecognisable.",a:1,"},
-  {q:"We have a fifth column living within our own countries that is utterly opposed to our values. We're going to have to be a lot braver in standing up for our Judaeo-Christian culture.",a:1,"},
+  {q:"The silent majority is back, and we're going to take the country back.",a:0,t:"Take back our country",f:"All three men use near-identical 'take back our country' rhetoric — same phrase, three continents."},
+  {q:"It's our country, stupid. We are going to take back control, take back our country, and Make [us number one] Again.",a:2,t:"Take back our country",f:"Peters coined 'Make NZ First Again' — a direct echo of Trump's MAGA slogan. He was doing this before Trump made it globally famous."},
+  {q:"It's been one hell of a journey, but we have got our country back!",a:1,t:"Take back our country",f:"Said on Brexit night 2016. Farage's campaign bus literally read: 'We want our country back.'"},
+  {q:"The fake news media is not my enemy, it is the enemy of [the people]!",a:0,t:"Enemy of the people",f:"Peters used the phrase 'fake news' directly in 2019, causing NZ media to explicitly note his Trump-like rhetoric."},
+  {q:"Many in the mainstream media have deliberately, deceitfully, and ignorantly misrepresented what I said. It is a disgraceful example of journalism — yet another example of blatant political bias.",a:2,t:"Media attacks",f:"Peters published this as an all-caps press release titled 'MEDIA MISREPRESENTATION, INCONSISTENCY, AND DRIPPING BIAS.'"},
+  {q:"The mainstream media are political actors conspiring to stop us — this is election interference.",a:1,t:"Media attacks",f:"Farage made this claim in 2024. Analysts noted it directly mirrored Trump's language about the American press."},
+  {q:"We have some very bad people. We have some sick people. Radical left lunatics.",a:0,t:"Radical left",f:"Trump's 'radical left lunatics' is echoed by Peters calling protesters 'communist, left-wing, fascist, anti-democracy, Marxist whingers.'"},
+  {q:"The woke agenda of the left has crept in like a cancer that has spread so deep into their divisive thinking it has become their sole focus.",a:2,t:"War on woke",f:"Peters uses the word 'cancer' repeatedly to describe woke ideology — a rhetorical escalation Trump and Farage also favour."},
+  {q:"It's not wrong to want this country to be great again like it once was.",a:2,t:"Make it great again",f:"This Peters quote — said in a speech in Blackball, NZ — is the most Trump-adjacent sentence ever uttered by a New Zealand politician."},
+  {q:"We will not apologise for defending our country from you wokesters and cultural Marxists. Your time is up and people have had enough.",a:2,t:"War on woke",f:"Peters delivered this in March 2026 — showing the rhetoric is intensifying, not fading, years into his political career."},
+  {q:"If you come here illegally, you will be detained and deported and never, ever allowed to stay. Period. That is our big message.",a:1,t:"Immigration",f:"This Farage quote is functionally identical to Trump's January 2025 executive order language on illegal immigration."},
+  {q:"This is serious political persecution at the very highest level of our system. The establishment are trying to force me out.",a:1,t:"Political persecution",f:"Trump's own version: 'The lawlessness, political persecution and witch-hunt must be exposed and stopped.' Same script."},
+  {q:"Immigration is good for the rich...but it's bad news for ordinary people.",a:1,t:"Immigration",f:"This class-based framing of immigration is a key Farage move — positioning himself as the defender of the working class against the elite."},
+  {q:"It's not just us they want to shut down — it's you they want to silence. We've been the voice of the people.",a:2,t:"Voice of the people",f:"This Peters quote is pure Trump rally rhetoric — the idea that attacking the leader is really an attack on 'you, the people.'"},
+  {q:"The [election] is a victory for cheating in elections. [We] won among [country-born] voters.",a:1,t:"Election denial",f:"After losing the by-election in Feb 2026, Farage claimed victory 'among British-born voters' — his own party chairman publicly contradicted him."},
+  {q:"Merry Christmas to all, including the radical left scum that is doing everything possible to destroy our country.",a:0,t:"Radical left",f:"A Christmas 2025 Truth Social post. Peters called opponents 'communist, left-wing, fascist, anti-democracy, Marxist whingers' — same energy, different season."},
+  {q:"We will no longer surrender this country or its people to the false song of globalism.",a:0,t:"Anti-globalism",f:"All three men use 'globalism' as a slur. Peters literally promised to 'push back on globalist bureaucrats' in his 2026 State of the Nation speech."},
+  {q:"We must push back on globalist bureaucrats — and we have kept that promise.",a:2,t:"Anti-globalism",f:"Peters said this in his 2026 State of the Nation address, having rejected WHO amendments. The language is interchangeable with Trump's anti-globalist speeches."},
+  {q:"Either you support the existing global elite, or you want real change and believe in nation-state democracy.",a:1,t:"Anti-globalism",f:"Farage's starkest either/or framing — the same binary Trump and Peters both deploy. You're either with the people or with the elite."},
+  {q:"Everything was stolen and rigged in order to drain the wealth out of the productive, hard-working people who make our country great.",a:0,t:"Rigged system",f:"Trump's 2025 address to Congress. Peters uses 'litany of lies' and 'bare-faced lies' for the same effect. Farage says 'we've been betrayed.'"},
+  {q:"We've been betrayed by our career political class.",a:1,t:"Betrayal narrative",f:"Farage's signature line. Trump says 'everything was stolen and rigged.' Peters says Labour told 'a litany of lies.' Same narrative, three flags."},
+  {q:"They've become a party of moral outrage — obsessed with accusations, gotcha politics, woke ideology, and opposing anything that might offend someone, somewhere.",a:2,t:"War on woke",f:"Strip out the NZ context and this could be Trump on Democrats or Farage on Labour. All three use 'moral outrage' as a slur against the left."},
+  {q:"Political correctness has gone mad. It's stifling free speech and preventing honest conversations about important issues.",a:1,t:"Free speech / woke",f:"Farage said this before 'anti-woke' was even a mainstream phrase. All three men built careers attacking political correctness well before it became fashionable."},
+  {q:"Our country is being destroyed at [the border] — a terrible thing to see!",a:0,t:"Immigration",f:"Trump's most-used rhetorical move: the nation being 'destroyed' by immigration. Peters warns of cities becoming 'unrecognisable.' Farage says the country is 'being invaded.'"},
+  {q:"My opponents are the people who gave up our borders.",a:1,t:"Immigration",f:"Farage at his most economical — the entire populist immigration argument in one sentence. Trump and Peters both frame open borders as an act of betrayal by political opponents."},
+  {q:"There is only one nationalist party in this country. The rest are globalists.",a:2,t:"Anti-globalism",f:"Peters frames the entire political spectrum as globalists versus nationalists — the exact same binary Trump and Farage use to define themselves as the only true patriots."},
+  {q:"We will not let them silence your voices. We're not going to let it happen. I'm not going to let it happen.",a:0,t:"Voice of the people",f:"January 6th rally, 2021. Peters: 'it's you they want to silence.' Farage: 'they weren't booing me, they were booing you.' One script, three rallies."},
+  {q:"Some of us know what poverty tastes, feels and smells like. But there is now hope on the horizon.",a:2,t:"Man of the people",f:"Peters claims working-class authenticity while being a 79-year-old career politician. Trump and Farage perform the same trick — billionaire and stockbroker as champions of ordinary workers."},
+  {q:"In scores of our cities and market towns, this country, in a short space of time, has frankly become unrecognisable.",a:1,t:"Immigration",f:"Farage's most Trump-like immigration quote. Peters said the same thing about Queen Street, Auckland. Trump said 'our cities are being taken over.'"},
+  {q:"We have a fifth column living within our own countries that is utterly opposed to our values. We're going to have to be a lot braver in standing up for our Judaeo-Christian culture.",a:1,t:"Culture war",f:"Farage at his most inflammatory. Trump and Peters both invoke 'Judaeo-Christian values' and the idea of an internal enemy. All three frame multiculturalism as an existential threat."}
 ];
 let ord=[],cur=0,sc=0,done=false;
 function shuf(a){for(let i=a.length-1;i>0;i--){const j=0|Math.random()*(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
