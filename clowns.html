@@ -349,7 +349,7 @@ function answer(c){
   const q=Q[ord[cur]];
   for(let i=0;i<3;i++) document.getElementById('btn-'+i).disabled=true;
   if(c===q.a){sc++;document.getElementById('btn-'+c).classList.add('correct');document.getElementById('ov-'+c).textContent='\u2713';document.getElementById('result-msg').textContent='\u2713 Correct \u2014 of course it was.';document.getElementById('result-msg').classList.add('ok');}
-  else{document.getElementById('btn-'+c).classList.add('wrong');document.getElementById('ov-'+c).textContent='\u2717';document.getElementById('btn-'+q.a).classList.add('correct');document.getElementById('ov-'+q.a).textContent='\u2713';const n=['Trump','Farage','Peters'];document.getElementById('result-msg').textContent='\u2717 Wrong \u2014 it was '+n[q.a]+'. Spot the difference?';document.getElementById('result-msg').classList.add('bad');}
+  else{document.getElementById('btn-'+c).classList.add('wrong');document.getElementById('ov-'+c).textContent='\u2717';document.getElementById('btn-'+q.a).classList.add('correct');document.getElementById('ov-'+q.a).textContent='\u2713';const n=['Trump','Farage','Peters'];document.getElementById('result-msg').textContent='\u2717 Wrong \u2014 it was '+n[q.a]+'.';document.getElementById('result-msg').classList.add('bad');}
   document.getElementById('fun-fact').classList.add('show');
   document.getElementById('next-btn').classList.add('show');
   document.getElementById('next-btn').textContent=cur<Q.length-1?'Next question \u2192':'See results \u2192';
