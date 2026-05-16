@@ -11,7 +11,104 @@
 
   gtag('config', 'G-6R1022R9SE');
 </script>
-<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Scoped clowns(4) styles — only inside #clowns-content ── */
+#clowns-content{
+  --bg:#f3f4ef;--surface:#eaeae4;--surface2:#e0e0da;--surface3:#d4d4ce;
+  --border:rgba(26,26,24,0.1);--border-hover:rgba(26,26,24,0.28);
+  --text:#1a1a18;--muted:rgba(26,26,24,0.48);--gold:#1a1a18;
+  --correct-bg:rgba(20,83,45,0.1);--correct-border:#14532d;--correct-text:#166534;
+  --wrong-bg:rgba(153,27,27,0.08);--wrong-border:#991b1b;--wrong-text:#b91c1c;
+  font-family:'DM Mono',monospace;background:var(--bg);color:var(--text);line-height:1.6;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+#clowns-content::-webkit-scrollbar{display:none}
+@keyframes ie-throb{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* hero */
+#clowns-content .c-hero{min-height:unset;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem 3rem;text-align:center}
+#clowns-content .c-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+#clowns-content .c-h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,90px);font-weight:900;line-height:0.92;letter-spacing:-3px;margin-bottom:1.25rem;color:var(--text)}
+#clowns-content .c-sub{font-size:13px;color:var(--muted);margin-bottom:3rem;max-width:680px;line-height:1.85;letter-spacing:0.02em}
+#clowns-content .c-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:0}
+#clowns-content .c-btn-gold{background:var(--gold);border:none;border-radius:3px;padding:0.75rem 2rem;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#f3f4ef;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity 0.2s}
+#clowns-content .c-btn-gold:hover{opacity:0.82}
+#clowns-content .c-btn-outline{background:transparent;border:0.5px solid var(--border-hover);border-radius:3px;padding:0.75rem 2rem;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color 0.2s}
+#clowns-content .c-btn-outline:hover{border-color:rgba(26,26,24,0.5)}
+
+/* sections */
+#clowns-content .c-section{padding:3.5rem 2rem}
+#clowns-content .c-inner{max-width:860px;margin:0 auto}
+#clowns-content .c-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
+#clowns-content .c-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,40px);font-weight:900;line-height:1.05;margin-bottom:0.75rem;color:var(--text)}
+#clowns-content .c-body{font-size:13px;color:var(--muted);line-height:1.9}
+#clowns-content .c-rule{width:40px;height:1px;background:var(--gold);opacity:0.4;margin:1.5rem 0}
+
+/* portrait grid */
+#clowns-content .c-pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:1rem}
+#clowns-content .c-pcard{background:none;overflow:hidden}
+#clowns-content .c-pcard img{width:100%;display:block;transition:transform 0.5s ease}
+#clowns-content .c-pcard:hover img{transform:scale(1.04)}
+#clowns-content .c-pcard-info{padding:1rem 0.5rem 0}
+#clowns-content .c-pcard-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:0.2rem;color:var(--text)}
+#clowns-content .c-pcard-role{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+
+/* quiz */
+#clowns-content .c-quiz-inner{max-width:860px;margin:2rem auto 0}
+#clowns-content .c-qbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.85rem;font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+#clowns-content .c-qbar-score{color:var(--gold);font-weight:500;font-size:14px}
+#clowns-content .c-progress-track{width:100%;height:2px;background:var(--surface3);margin-bottom:2rem;border-radius:1px}
+#clowns-content .c-progress-fill{height:100%;background:var(--gold);border-radius:1px;transition:width 0.45s ease}
+#clowns-content .c-qcard{padding:0 0 1rem;margin-bottom:0.5rem}
+#clowns-content .c-qcard-text{font-family:'Playfair Display',serif;font-size:clamp(16px,2.2vw,21px);font-weight:700;font-style:italic;line-height:1.5;color:var(--text)}
+#clowns-content .c-qcard-text::before{content:'\201C';color:var(--gold)}
+#clowns-content .c-qcard-text::after{content:'\201D';color:var(--gold)}
+#clowns-content .c-qcard-theme{display:inline-block;margin-top:0.75rem;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+
+/* choices */
+#clowns-content .c-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:1rem}
+#clowns-content .c-choice-btn{cursor:pointer;background:none;border:none;padding:0;display:flex;flex-direction:column;align-items:center;transition:transform 0.25s cubic-bezier(.22,.68,0,1.2);position:relative}
+#clowns-content .c-choice-btn:hover:not(:disabled){transform:translateY(-4px)}
+#clowns-content .c-choice-btn:disabled{cursor:default}
+#clowns-content .c-choice-btn img{width:100%;display:block;border-radius:4px;border:2px solid transparent;mix-blend-mode:multiply;box-shadow:0 4px 18px rgba(26,26,24,0.15);transition:border-color 0.2s,box-shadow 0.2s}
+#clowns-content .c-choice-btn:hover:not(:disabled) img{box-shadow:0 8px 28px rgba(26,26,24,0.22)}
+#clowns-content .c-choice-btn.correct img{border-color:var(--correct-border);box-shadow:0 0 0 3px rgba(20,83,45,0.2)}
+#clowns-content .c-choice-btn.wrong img{border-color:var(--wrong-border);opacity:0.5;filter:saturate(0.3)}
+#clowns-content .c-choice-name{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;text-align:center;font-family:'DM Mono',monospace}
+#clowns-content .c-choice-btn.correct .c-choice-name{color:var(--correct-text);font-weight:500}
+#clowns-content .c-choice-btn.wrong .c-choice-name{color:var(--wrong-text)}
+#clowns-content .c-choice-overlay{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+#clowns-content .c-choice-btn.correct .c-choice-overlay{display:flex;background:var(--correct-border);color:#fff}
+#clowns-content .c-choice-btn.wrong .c-choice-overlay{display:flex;background:var(--wrong-border);color:#fff}
+
+/* result / fact / next */
+#clowns-content .c-result{text-align:center;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;min-height:16px;margin-bottom:0.75rem;color:var(--muted)}
+#clowns-content .c-result.ok{color:var(--correct-text)}
+#clowns-content .c-result.bad{color:var(--wrong-text)}
+#clowns-content .c-fun-fact{background:none;border-left:2px solid var(--gold);padding:0.8rem 1rem;font-size:12px;color:var(--muted);line-height:1.75;margin-bottom:1rem;display:none}
+#clowns-content .c-fun-fact.show{display:block}
+#clowns-content .c-next-btn{width:100%;background:var(--gold);border:none;border-radius:4px;padding:0.85rem;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;color:#f3f4ef;display:none;transition:opacity 0.15s}
+#clowns-content .c-next-btn:hover{opacity:0.82}
+#clowns-content .c-next-btn.show{display:block}
+
+/* final */
+#clowns-content .c-final{text-align:center;padding:3rem 0;display:none}
+#clowns-content .c-final.show{display:block}
+#clowns-content .c-final-faces{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem}
+#clowns-content .c-final-face{width:64px;height:64px;border-radius:50%;overflow:hidden;border:0.5px solid var(--border);opacity:0.7}
+#clowns-content .c-final-face img{width:100%;height:100%;object-fit:cover;object-position:top}
+#clowns-content .c-final-num{font-family:'Playfair Display',serif;font-size:76px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:0.2rem}
+#clowns-content .c-final-lbl{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+#clowns-content .c-final-verdict{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;line-height:1.35;margin-bottom:0.75rem;color:var(--text)}
+#clowns-content .c-final-sub{font-size:12px;color:var(--muted);line-height:1.85;max-width:460px;margin:0 auto 2rem}
+#clowns-content .c-final-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* footer line */
+#clowns-content .c-foot{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:1rem 2rem 2rem;border-top:0.5px solid var(--border);margin-top:1rem}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>@brendandevoy</title>
 <style>
@@ -825,139 +922,105 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   <!-- Body: content + scrollbar -->
   <div style="display:flex;flex:1;overflow:hidden;min-height:0;">
     <!-- Scrollable page content -->
-    <div id="clowns-content" class="win-body" style="flex:1;background:#f3f4ef;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none;font-family:'Times New Roman',serif;font-size:14px;color:#000;">
-      <style>
-        #clowns-content::-webkit-scrollbar{display:none}
-        @keyframes ie-throb{0%,100%{opacity:1}50%{opacity:.4}}
-        .cp{padding:10px 14px 28px}
-        .cp h1{font-size:20px;font-weight:700;margin-bottom:4px;border-bottom:1px solid #000;padding-bottom:3px}
-        .cp h2{font-size:16px;font-weight:700;margin:14px 0 4px}
-        .cp p{margin-bottom:6px;line-height:1.3}
-        .cp a{color:#000080;cursor:pointer}
-        .cp hr{border:none;border-top:1px solid #808080;margin:8px 0}
-        .cp .sec-rule{border:none;border-top:2px solid #000080;margin:20px 0 14px}
-        .cp .eyebrow{font-size:11px;font-family:Arial,sans-serif;color:#808080;margin-bottom:2px}
-        .cp .page-nav{font-size:11px;font-family:Arial,sans-serif;border-bottom:1px solid #808080;padding-bottom:4px;margin-bottom:10px;display:flex;flex-wrap:wrap}
-        .cp .page-nav a{color:#000080;padding:0 4px;border-right:1px solid #808080;cursor:pointer}
-        .cp .page-nav a:last-child{border-right:none}
-        .cp .ie-hero{text-align:center;padding:16px 0 12px;border-bottom:1px solid #c0c0c0;margin-bottom:14px}
-        .cp .ie-hero h1{font-size:35px;font-weight:700;border:none;padding:0;margin-bottom:6px}
-        .cp .ie-hero p{font-size:12px;color:#555;line-height:1.3;max-width:800px;margin:0 auto 12px;font-family:Arial,sans-serif}
-        .cp .trip{width:100%;border:1px solid #808080;display:block;margin:8px 0}
-        .cp .trip img{width:80%;display:block}
-        .cp .ptbl{width:100%;border-collapse:collapse;margin:8px 0}
-        .cp .ptbl td{width:33%;vertical-align:top;padding-right:8px}
-        .cp .ptbl td:last-child{padding-right:0}
-        .cp .ptbl img{width:100%;display:block;border:0px solid #808080;}
-        .cp .pname{font-size:14px;font-weight:700;margin-top:4px}
-        .cp .prole{font-size:11px;color:#555;font-family:Arial,sans-serif}
-        .cqbar{display:flex;justify-content:space-between;font-size:11px;color:#555;margin-bottom:4px;font-family:Arial,sans-serif}
-        .cqbar strong{color:#000080}
-        .cprog-outer{background:#f3f4ef;border:1px inset #808080;height:14px;margin-bottom:8px;overflow:hidden}
-        .cprog-fill{height:100%;background:#000080;transition:width .4s}
-        .cqcard{background:#f3f4ef;border:1px inset #808080;padding:8px;margin-bottom:8px;min-height:64px}
-        .cqcard-lbl{font-size:10px;color:#808080;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;font-family:Arial,sans-serif}
-        .cqcard-text{font-size:14px;font-style:italic;line-height:1.5}
-        .cqcard-text::before{content:"C";color:#000080;font-size:16px}
-        .cqcard-text::after{content:"D";color:#000080;font-size:16px}
-        .cqtheme{display:inline-block;margin-top:4px;font-size:10px;color:#555;font-family:Arial,sans-serif;background:#c0c0c0;border:1px outset #c0c0c0;padding:0 5px}
-        .cchoices{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:6px}
-        .ccbtn{cursor:pointer;background:#c0c0c0;border:2px outset #c0c0c0;padding:3px;display:flex;flex-direction:column;align-items:center;gap:2px;position:relative;font-family:Arial,sans-serif}
-        .ccbtn:hover:not(:disabled){background:#d4d0c8}
-        .ccbtn:active:not(:disabled){border-style:inset}
-        .ccbtn:disabled{cursor:default}
-        .ccbtn img{width:100%;display:block;border:1px inset #808080;mix-blend-mode:multiply}
-        .ccbtn.correct{background:#cce8cc;border-style:inset}
-        .ccbtn.wrong{background:#f0cccc;border-style:inset}
-        .ccbtn.wrong img{opacity:.35;filter:saturate(.15)}
-        .ccname{font-size:11px;color:#000;font-family:Arial,sans-serif}
-        .ccbtn.correct .ccname{color:#006400;font-weight:700}
-        .ccbtn.wrong .ccname{color:#8b0000}
-        .ccov{position:absolute;top:4px;right:4px;width:18px;height:18px;display:none;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid}
-        .ccbtn.correct .ccov{display:flex;background:#cce8cc;border-color:#006400;color:#006400}
-        .ccbtn.wrong .ccov{display:flex;background:#f0cccc;border-color:#8b0000;color:#8b0000}
-        .cresult{text-align:center;font-size:12px;min-height:15px;margin-bottom:4px;font-weight:700;color:#555;font-family:Arial,sans-serif}
-        .cresult.ok{color:#006400}.cresult.bad{color:#8b0000}
-        .cfact{background:#ffffc0;border:1px inset #808080;padding:5px 7px;font-size:11px;color:#333;line-height:1.55;margin-bottom:5px;display:none;font-family:Arial,sans-serif}
-        .cfact.show{display:block}
-        .cnext{width:100%;background:#c0c0c0;border:2px outset #c0c0c0;padding:5px;font-family:Arial,sans-serif;font-size:12px;font-weight:700;cursor:pointer;display:none}
-        .cnext:active{border-style:inset}.cnext.show{display:block}
-        .cie-btn{background:#c0c0c0;border-top:2px solid #fff;border-left:2px solid #fff;border-right:2px solid #404040;border-bottom:2px solid #404040;padding:3px 12px;font-family:Arial,sans-serif;font-size:12px;cursor:pointer;min-width:80px;color:#000}
-        .cie-btn:active{border-color:#404040 #fff #fff #404040}
-        .cfinal{text-align:center;padding:1.5rem 0;display:none}
-        .cfinal.show{display:block}
-        .cffaces{display:flex;justify-content:center;gap:6px;margin-bottom:12px}
-        .cfface{width:56px;height:56px;overflow:hidden;border:0px inset #808080}
-        .cfface img{width:100%;height:100%;object-fit:cover;object-position:top;}
-        .cfnum{font-size:48px;font-weight:700;color:#000080;line-height:1;margin-bottom:2px}
-        .cflbl{font-size:11px;color:#555;margin-bottom:8px;font-family:Arial,sans-serif}
-        .cfverdict{font-size:15px;font-weight:700;margin-bottom:4px}
-        .cfsub{font-size:11px;color:#555;line-height:1.6;max-width:380px;margin:0 auto 1rem;font-family:Arial,sans-serif}
-        .cfbtns{display:flex;gap:6px;justify-content:center}
-      </style>
-      <div class="cp">
-        <!-- HERO -->
-        <div class="ie-hero" id="s-home">
-          <p class="eyebrow">A PORTRAIT TRILOGY BY BUNDI</p>
-          <h1>Three Clowns.</h1>
-          <p>The populist playbook is self-replicating - same fears, same enemies, same promises. Just different accents.</p>
-          <p>A satirical portrait trilogy exploring the global populist playbook.</p>
-          <p>Three countries. Three demagogues. One script.</p>
-          <br>
-          <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-            <button class="cie-btn" onclick="clownsSec('s-quiz')">Take the quiz</button>
-            <button class="cie-btn" onclick="clownsSec('s-paintings')"> View the paintings</button>
-          </div>
+    <div id="clowns-content" class="win-body" style="flex:1;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none;">
+      <!-- HERO -->
+      <div class="c-hero" id="s-home">
+        <p class="c-eyebrow">A portrait trilogy by Bundi</p>
+        <h1 class="c-h1">Three Clowns.</h1>
+        <p class="c-sub">The populist playbook is self-replicating — same fears, same enemies, same promises. Just different accents.<br>Three countries. Three demagogues. One script.</p>
+        <div class="c-cta">
+          <a class="c-btn-gold" onclick="clownsSec('s-quiz')" style="cursor:pointer;">Take the quiz</a>
+          <a class="c-btn-outline" onclick="clownsSec('s-paintings')" style="cursor:pointer;">View the paintings</a>
         </div>
-        <!-- PORTRAITS -->
-        <hr class="sec-rule" id="s-paintings">
-        <p class="eyebrow">The works</p>
-        <h1>Three Clowns.</h1>
-        <p>Devoy, B. (2026). <i>Three Clowns (Triptych).</i> [Oil on canvas]. Auckland, New Zealand.</p>
-        <table class="ptbl"><tbody><tr>
-          <td><img src="images/donaldtrump.png" alt="Donald Trump"><div class="pname">Donald J. Trump</div><div class="prole">45th &amp; 47th President &middot; United States</div></td>
-          <td><img src="images/nigelfarage.png" alt="Nigel Farage"><div class="pname">Nigel Farage</div><div class="prole">Reform UK Leader &middot; United Kingdom</div></td>
-          <td><img src="images/winstonpeters.png" alt="Winston Peters"><div class="pname">Winston Peters</div><div class="prole">NZ First Leader &middot; New Zealand</div></td>
-        </tr></tbody></table>
-        <!-- QUIZ -->
-        <hr class="sec-rule" id="s-quiz">
-        <p class="eyebrow">The quiz</p>
-        <h1>Who Said It?</h1>
-        <p>30 real quotes. Click the portrait of who you think said it. Some are obvious. Most are not. That's the point.</p>
-        <hr>
-        <div id="cquiz-body">
-          <div class="cqbar"><span id="cq-count">Question 1 of 30</span><span>Score: <strong id="cscore">0</strong></span></div>
-          <div class="cprog-outer"><div class="cprog-fill" id="cprogress" style="width:0%"></div></div>
-          <div class="cqcard">
-            <div class="cqcard-text" id="cquote-text"></div>
-          </div>
-          <div class="cresult" id="cresult"></div>
-          <div class="cfact" id="cfact"></div>
-          <div class="cchoices">
-            <button class="ccbtn" id="cbtn-0" onclick="canswer(0)"><div style="position:relative;width:100%"><img src="images/donaldtrump.png" alt="Trump"><div class="ccov" id="cov-0"></div></div><span class="ccname">Trump</span></button>
-            <button class="ccbtn" id="cbtn-1" onclick="canswer(1)"><div style="position:relative;width:100%"><img src="images/nigelfarage.png" alt="Farage"><div class="ccov" id="cov-1"></div></div><span class="ccname">Farage</span></button>
-            <button class="ccbtn" id="cbtn-2" onclick="canswer(2)"><div style="position:relative;width:100%"><img src="images/winstonpeters.png" alt="Peters"><div class="ccov" id="cov-2"></div></div><span class="ccname">Peters</span></button>
-          </div>
-          <button class="cnext" id="cnext" onclick="cnextQ()">Next question &#8594;</button>
-        </div>
-        <div class="cfinal" id="cfinal">
-          <div class="cffaces">
-            <div class="cfface"><img src="images/donaldtrump.png" alt="Trump"></div>
-            <div class="cfface"><img src="images/nigelfarage.png" alt="Farage"></div>
-            <div class="cfface"><img src="images/winstonpeters.png" alt="Peters"></div>
-          </div>
-          <div class="cfnum" id="cfinal-score"></div>
-          <div class="cflbl">out of 30 correct</div>
-          <div class="cfverdict" id="cfinal-verdict"></div>
-          <div class="cfsub" id="cfinal-sub"></div>
-          <div class="cfbtns">
-            <button class="cie-btn" onclick="crestart()">&#9654; Play Again</button>
-            <button class="cie-btn" onclick="clownsSec('s-paintings')">&#128444; View Paintings</button>
-          </div>
-        </div>
-        <hr style="margin-top:20px">
-        <p style="font-size:11px;color:#808080;font-family:Arial,sans-serif;text-align:right;margin-top:6px">Paintings by Bundi &nbsp;&middot;&nbsp; A satirical artwork &nbsp;&middot;&nbsp; All quotes real and sourced</p>
       </div>
+
+      <!-- PORTRAITS -->
+      <div class="c-section" id="s-paintings">
+        <div class="c-inner">
+          <p class="c-label">The works</p>
+          <h2 class="c-title">Three Clowns.</h2>
+          <p class="c-body">Devoy, B. (2026). <em>Three Clowns (Triptych).</em> [Oil on canvas]. Auckland, New Zealand.</p>
+          <div class="c-pgrid">
+            <div class="c-pcard">
+              <img src="images/donaldtrump.png" alt="Donald Trump">
+              <div class="c-pcard-info">
+                <div class="c-pcard-name">Donald J. Trump</div>
+                <div class="c-pcard-role">45th &amp; 47th President &middot; United States</div>
+              </div>
+            </div>
+            <div class="c-pcard">
+              <img src="images/nigelfarage.png" alt="Nigel Farage">
+              <div class="c-pcard-info">
+                <div class="c-pcard-name">Nigel Farage</div>
+                <div class="c-pcard-role">Reform UK Leader &middot; United Kingdom</div>
+              </div>
+            </div>
+            <div class="c-pcard">
+              <img src="images/winstonpeters.png" alt="Winston Peters">
+              <div class="c-pcard-info">
+                <div class="c-pcard-name">Winston Peters</div>
+                <div class="c-pcard-role">NZ First Leader &middot; New Zealand</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ -->
+      <div class="c-section" id="s-quiz">
+        <div class="c-inner">
+          <p class="c-label">The quiz</p>
+          <h2 class="c-title">Who Said It?</h2>
+          <p class="c-body">30 real quotes. Click the portrait of who you think said it. Some are obvious. Most are not. That's the point.</p>
+          <div class="c-rule"></div>
+          <div class="c-quiz-inner">
+            <div id="cquiz-body">
+              <div class="c-qbar">
+                <span id="cq-count">Question 1 of 30</span>
+                <span>Score: <span class="c-qbar-score" id="cscore">0</span></span>
+              </div>
+              <div class="c-progress-track"><div class="c-progress-fill" id="cprogress" style="width:0%"></div></div>
+              <div class="c-qcard">
+                <div class="c-qcard-text" id="cquote-text"></div>
+                <span class="c-qcard-theme" id="ctheme-tag"></span>
+              </div>
+              <div class="c-result" id="cresult"></div>
+              <div class="c-fun-fact" id="cfact"></div>
+              <div class="c-choices">
+                <button class="c-choice-btn" id="cbtn-0" onclick="canswer(0)">
+                  <div style="position:relative;width:100%"><img src="images/donaldtrump.png" alt="Trump"><div class="c-choice-overlay" id="cov-0"></div></div>
+                  <span class="c-choice-name">Trump</span>
+                </button>
+                <button class="c-choice-btn" id="cbtn-1" onclick="canswer(1)">
+                  <div style="position:relative;width:100%"><img src="images/nigelfarage.png" alt="Farage"><div class="c-choice-overlay" id="cov-1"></div></div>
+                  <span class="c-choice-name">Farage</span>
+                </button>
+                <button class="c-choice-btn" id="cbtn-2" onclick="canswer(2)">
+                  <div style="position:relative;width:100%"><img src="images/winstonpeters.png" alt="Peters"><div class="c-choice-overlay" id="cov-2"></div></div>
+                  <span class="c-choice-name">Peters</span>
+                </button>
+              </div>
+              <button class="c-next-btn" id="cnext" onclick="cnextQ()">Next question &#8594;</button>
+            </div>
+            <div class="c-final" id="cfinal">
+              <div class="c-final-faces">
+                <div class="c-final-face"><img src="images/donaldtrump.png" alt="Trump"></div>
+                <div class="c-final-face"><img src="images/nigelfarage.png" alt="Farage"></div>
+                <div class="c-final-face"><img src="images/winstonpeters.png" alt="Peters"></div>
+              </div>
+              <div class="c-final-num" id="cfinal-score"></div>
+              <div class="c-final-lbl">out of 30 correct</div>
+              <div class="c-final-verdict" id="cfinal-verdict"></div>
+              <div class="c-final-sub" id="cfinal-sub"></div>
+              <div class="c-final-btns">
+                <button class="c-btn-gold" onclick="crestart()">&#9654; Play Again</button>
+                <button class="c-btn-outline" onclick="clownsSec('s-paintings')">View Paintings</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-foot">Paintings by Bundi &nbsp;&middot;&nbsp; A satirical artwork &nbsp;&middot;&nbsp; All quotes real and sourced</div>
     </div>
     <!-- Win95 scrollbar -->
     <div style="width:17px;background:#c0c0c0;border-left:1px solid #808080;display:flex;flex-direction:column;flex-shrink:0;user-select:none;">
@@ -1551,7 +1614,11 @@ setTimeout(function(){
 function clownsSec(id){
   var el=document.getElementById(id);
   var cont=document.getElementById('clowns-content');
-  if(el&&cont){cont.scrollTo({top:el.offsetTop-10,behavior:'smooth'});}
+  if(!el||!cont)return;
+  // Walk up the DOM summing offsetTop until we reach the container
+  var top=0,node=el;
+  while(node&&node!==cont){top+=node.offsetTop;node=node.offsetParent;}
+  cont.scrollTo({top:top-10,behavior:'smooth'});
 }
 function csbTrackClick(e){
   var thumb=document.getElementById('csb-thumb'),track=document.getElementById('csb-track'),cont=document.getElementById('clowns-content');
@@ -1625,7 +1692,7 @@ function cload(){
   document.getElementById('cquote-text').textContent=q.q;
   document.getElementById('ctheme-tag').textContent=q.t;
   document.getElementById('cresult').textContent='';
-  document.getElementById('cresult').className='cresult';
+  document.getElementById('cresult').className='c-result';
   document.getElementById('cfact').textContent='';
   document.getElementById('cfact').classList.remove('show');
   document.getElementById('cnext').classList.remove('show');
@@ -1634,7 +1701,7 @@ function cload(){
   document.getElementById('cprogress').style.width=((ccur/CQ.length)*100)+'%';
   document.getElementById('csb-msg').textContent='Question '+(ccur+1)+' of 30';
   document.getElementById('csb-zone').textContent='Score: '+csc+'/30';
-  for(var i=0;i<3;i++){var b=document.getElementById('cbtn-'+i);b.disabled=false;b.className='ccbtn';document.getElementById('cov-'+i).textContent='';}
+  for(var i=0;i<3;i++){var b=document.getElementById('cbtn-'+i);b.disabled=false;b.className='c-choice-btn';document.getElementById('cov-'+i).textContent='';}
 }
 function canswer(c){
   if(cdone)return;cdone=true;
