@@ -978,22 +978,17 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
               <div class="c-progress-track"><div class="c-progress-fill" id="cprogress" style="width:0%"></div></div>
               <div class="c-qcard">
                 <div class="c-qcard-text" id="cquote-text"></div>
-                <span class="c-qcard-theme" id="ctheme-tag"></span>
               </div>
               <div class="c-result" id="cresult"></div>
-              <div class="c-fun-fact" id="cfact"></div>
               <div class="c-choices">
                 <button class="c-choice-btn" id="cbtn-0" onclick="canswer(0)">
                   <div style="position:relative;width:100%"><img src="images/donaldtrump.png" alt="Trump"><div class="c-choice-overlay" id="cov-0"></div></div>
-                  <span class="c-choice-name">Trump</span>
                 </button>
                 <button class="c-choice-btn" id="cbtn-1" onclick="canswer(1)">
                   <div style="position:relative;width:100%"><img src="images/nigelfarage.png" alt="Farage"><div class="c-choice-overlay" id="cov-1"></div></div>
-                  <span class="c-choice-name">Farage</span>
                 </button>
                 <button class="c-choice-btn" id="cbtn-2" onclick="canswer(2)">
                   <div style="position:relative;width:100%"><img src="images/winstonpeters.png" alt="Peters"><div class="c-choice-overlay" id="cov-2"></div></div>
-                  <span class="c-choice-name">Peters</span>
                 </button>
               </div>
               <button class="c-next-btn" id="cnext" onclick="cnextQ()">Next question &#8594;</button>
@@ -1209,8 +1204,10 @@ window.openWin=function(id){
       el.style.top=Math.round(dh*0.25)+'px';
     }
     if(id==='clowns'){
-      el.style.width=Math.round(dw*1)+'px';
-      el.style.height=Math.round(dh*1)+'px';
+      el.style.width=Math.round(dw*0.75)+'px';
+      el.style.height=Math.round(dh*0.9)+'px';
+      el.style.left=Math.round(dw*0.125)+'px';
+      el.style.top=Math.round(dh*0.03)+'px';
     }
   }
   focusWin(id);
