@@ -927,9 +927,12 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
       <!-- HERO -->
       <div class="c-hero" id="s-home">
         <br>
+        <br>
         <p class="c-eyebrow">A portrait trilogy by Bundi</p>
         <h1 class="c-h1">Three Clowns.</h1>
+        <br>
         <p class="c-sub">The populist playbook is self-replicating — same fears, same enemies, same promises. Just different accents.<br>A satirical portrait trilogy exploring the global populist playbook.<br>Three countries. Three demagogues. One script.</p>
+        <br>
         <br>
         <div class="c-cta">
           <a class="c-btn-gold" href="javascript:void(0)" onclick="clownsSec('s-quiz')">Take the quiz</a>
@@ -985,10 +988,8 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
               <div class="c-progress-track"><div class="c-progress-fill" id="cprogress" style="width:0%"></div></div>
               <div class="c-qcard">
                 <div class="c-qcard-text" id="cquote-text"></div>
-                <span class="c-qcard-theme" id="ctheme-tag"></span>
               </div>
               <div class="c-result" id="cresult"></div>
-              <div class="c-fun-fact" id="cfact"></div>
               <div class="c-choices">
                 <button class="c-choice-btn" id="cbtn-0" onclick="canswer(0)">
                   <div style="position:relative;width:100%"><img src="images/donaldtrump.png" alt="Trump"><div class="c-choice-overlay" id="cov-0"></div></div>
@@ -1618,7 +1619,7 @@ window.clownsSec=function(id){
   var el=document.getElementById(id);
   var cont=document.getElementById('clowns-content');
   if(!el||!cont)return;
-  cont.scrollTop=el.offsetTop-10;
+  cont.scrollTop=el.offsetTop+45;
 };
 function csbTrackClick(e){
   var thumb=document.getElementById('csb-thumb'),track=document.getElementById('csb-track'),cont=document.getElementById('clowns-content');
