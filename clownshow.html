@@ -922,7 +922,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   <!-- Body: content + scrollbar -->
   <div style="display:flex;flex:1;overflow:hidden;min-height:0;">
     <!-- Scrollable page content -->
-    <div id="clowns-content" class="win-body" style="flex:1;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none;">
+    <div id="clowns-content" class="win-body" style="flex:1;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none;position:relative;">
       <!-- HERO -->
       <div class="c-hero" id="s-home">
         <br>
@@ -1612,14 +1612,8 @@ function clownsSec(id){
   var el=document.getElementById(id);
   var cont=document.getElementById('clowns-content');
   if(!el||!cont)return;
-  // Accumulate offsetTop walking up through cont's children only
-  var t=0,node=el;
-  while(node&&node!==cont){t+=node.offsetTop;node=node.offsetParent;}
-  // If offsetParent chain skipped cont entirely, fall back to getBoundingClientRect
-  if(node!==cont){
-    t=el.getBoundingClientRect().top-cont.getBoundingClientRect().top+cont.scrollTop;
-  }
-  cont.scrollTop=Math.max(0,t-10);
+  // #clowns-content is position:relative so el.offsetTop is relative to it directly
+  cont.scrollTop=el.offsetTop-10;
 }
 function csbTrackClick(e){
   var thumb=document.getElementById('csb-thumb'),track=document.getElementById('csb-track'),cont=document.getElementById('clowns-content');
