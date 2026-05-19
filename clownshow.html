@@ -1617,7 +1617,7 @@ window.clownsSec=function(id){
   var el=document.getElementById(id);
   var cont=document.getElementById('clowns-content');
   if(!el||!cont)return;
-  cont.scrollTop=el;
+  cont.scrollTop=el.offsetTop-60;
 };
 function csbTrackClick(e){
   var thumb=document.getElementById('csb-thumb'),track=document.getElementById('csb-track'),cont=document.getElementById('clowns-content');
