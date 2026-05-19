@@ -931,8 +931,8 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
         <p class="c-sub">The populist playbook is self-replicating — same fears, same enemies, same promises. Just different accents.<br>A satirical portrait trilogy exploring the global populist playbook.<br>Three countries. Three demagogues. One script.</p>
         <br>
         <div class="c-cta">
-          <a class="c-btn-gold" onclick="clownsSec('s-quiz')" style="cursor:pointer;">Take the quiz</a>
-          <a class="c-btn-outline" onclick="clownsSec('s-paintings')" style="cursor:pointer;">View the paintings</a>
+          <a class="c-btn-gold" href="javascript:void(0)" onclick="clownsSec('s-quiz')">Take the quiz</a>
+          <a class="c-btn-outline" href="javascript:void(0)" onclick="clownsSec('s-paintings')">View the paintings</a>
         </div>
       </div>
 
@@ -1011,7 +1011,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
               <div class="c-final-sub" id="cfinal-sub"></div>
               <div class="c-final-btns">
                 <button class="c-btn-gold" onclick="crestart()">&#9654; Play Again</button>
-                <button class="c-btn-outline" onclick="clownsSec('s-paintings')">View Paintings</button>
+                <a class="c-btn-outline" href="javascript:void(0)" onclick="clownsSec('s-paintings')">View Paintings</a>
               </div>
             </div>
           </div>
@@ -1608,12 +1608,12 @@ setTimeout(function(){
 },80);
 
 /* THREE CLOWNS QUIZ */
-function clownsSec(id){
+window.clownsSec=function(id){
   var el=document.getElementById(id);
   var cont=document.getElementById('clowns-content');
   if(!el||!cont)return;
   cont.scrollTop=el.offsetTop-10;
-}
+};
 function csbTrackClick(e){
   var thumb=document.getElementById('csb-thumb'),track=document.getElementById('csb-track'),cont=document.getElementById('clowns-content');
   if(e.target===thumb)return;
