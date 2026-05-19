@@ -71,19 +71,16 @@
 
 /* choices */
 #clowns-content .c-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:1rem}
-#clowns-content .c-choice-btn{max-width:180px;margin:0 auto;}
 #clowns-content .c-choice-btn{cursor:pointer;background:none;border:none;padding:0;display:flex;flex-direction:column;align-items:center;transition:transform 0.25s cubic-bezier(.22,.68,0,1.2);position:relative}
 #clowns-content .c-choice-btn:hover:not(:disabled){transform:translateY(-4px)}
 #clowns-content .c-choice-btn:disabled{cursor:default}
 #clowns-content .c-choice-btn > div{position:relative;width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;}
-#clowns-content .c-choice-btn img{width:100%;height:100%;display:block;border-radius:0;border:none;mix-blend-mode:multiply;box-shadow:none;object-fit:cover;object-position:center top;transition:border-color 0.2s,box-shadow 0.2s;}
-#clowns-content .c-choice-btn:hover:not(:disabled) img{box-shadow:0 8px 28px rgba(26,26,24,0.22)}
-#clowns-content .c-choice-btn.correct img{border-color:var(--correct-border);box-shadow:0 0 0 3px rgba(20,83,45,0.2)}
-#clowns-content .c-choice-btn.wrong img{border-color:var(--wrong-border);opacity:0.5;filter:saturate(0.3)}
+#clowns-content .c-choice-btn img{width:100%;height:100%;display:block;border-radius:0;border:none;mix-blend-mode:multiply;box-shadow:none;object-fit:cover;object-position:center top;transition:opacity 0.2s,filter 0.2s;}
+#clowns-content .c-choice-btn.wrong img{opacity:0.4;filter:saturate(0.2)}
 #clowns-content .c-choice-name{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;text-align:center;font-family:'DM Mono',monospace}
 #clowns-content .c-choice-btn.correct .c-choice-name{color:var(--correct-text);font-weight:500}
 #clowns-content .c-choice-btn.wrong .c-choice-name{color:var(--wrong-text)}
-#clowns-content .c-choice-overlay{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+#clowns-content .c-choice-overlay{position:absolute;top:2px;right:2px;width:28px;height:28px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:13px;font-weight:700;z-index:10;pointer-events:none;}
 #clowns-content .c-choice-btn.correct .c-choice-overlay{display:flex;background:var(--correct-border);color:#fff}
 #clowns-content .c-choice-btn.wrong .c-choice-overlay{display:flex;background:var(--wrong-border);color:#fff}
 
@@ -997,13 +994,16 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
               <div class="c-fun-fact" id="cfact"></div>
               <div class="c-choices">
                 <button class="c-choice-btn" id="cbtn-0" onclick="canswer(0)">
-                  <div style="position:relative;width:100%"><img src="images/donaldtrump.png" alt="Trump"><div class="c-choice-overlay" id="cov-0"></div></div>
+                  <div style="position:relative;width:100%"><img src="images/donaldtrump.png" alt="Trump"></div>
+                  <div class="c-choice-overlay" id="cov-0"></div>
                 </button>
                 <button class="c-choice-btn" id="cbtn-1" onclick="canswer(1)">
-                  <div style="position:relative;width:100%"><img src="images/nigelfarage.png" alt="Farage"><div class="c-choice-overlay" id="cov-1"></div></div>
+                  <div style="position:relative;width:100%"><img src="images/nigelfarage.png" alt="Farage"></div>
+                  <div class="c-choice-overlay" id="cov-1"></div>
                 </button>
                 <button class="c-choice-btn" id="cbtn-2" onclick="canswer(2)">
-                  <div style="position:relative;width:100%"><img src="images/winstonpeters.png" alt="Peters"><div class="c-choice-overlay" id="cov-2"></div></div>
+                  <div style="position:relative;width:100%"><img src="images/winstonpeters.png" alt="Peters"></div>
+                  <div class="c-choice-overlay" id="cov-2"></div>
                 </button>
               </div>
               <button class="c-next-btn" id="cnext" onclick="cnextQ()">Next question &#8594;</button>
