@@ -57,7 +57,7 @@
 #clowns-content .c-pcard-role{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
 
 /* quiz */
-#clowns-content .c-quiz-inner{max-width:860px;margin:0rem auto 0}
+#clowns-content .c-quiz-inner{max-width:860px;margin:2rem auto 0}
 #clowns-content .c-qbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.85rem;font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
 #clowns-content .c-qbar-score{color:var(--gold);font-weight:500;font-size:14px}
 #clowns-content .c-progress-track{width:100%;height:2px;background:var(--surface3);margin-bottom:2rem;border-radius:1px}
@@ -73,7 +73,8 @@
 #clowns-content .c-choice-btn{cursor:pointer;background:none;border:none;padding:0;display:flex;flex-direction:column;align-items:center;transition:transform 0.25s cubic-bezier(.22,.68,0,1.2);position:relative}
 #clowns-content .c-choice-btn:hover:not(:disabled){transform:translateY(-4px)}
 #clowns-content .c-choice-btn:disabled{cursor:default}
-#clowns-content .c-choice-btn img{width:80%;display:block;border-radius:0px;border:0px solid transparent;mix-blend-mode:multiply;box-shadow:0 0px 0px rgba(26,26,24,0.15);transition:border-color 0.2s,box-shadow 0.2s}
+#clowns-content .c-choice-btn > div{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;}
+#clowns-content .c-choice-btn img{width:100%;height:100%;display:block;border-radius:0px;border:none;mix-blend-mode:multiply;box-shadow:none;object-fit:cover;object-position:center top;transition:border-color 0.2s,box-shadow 0.2s;}
 #clowns-content .c-choice-btn:hover:not(:disabled) img{box-shadow:0 8px 28px rgba(26,26,24,0.22)}
 #clowns-content .c-choice-btn.correct img{border-color:var(--correct-border);box-shadow:0 0 0 3px rgba(20,83,45,0.2)}
 #clowns-content .c-choice-btn.wrong img{border-color:var(--wrong-border);opacity:0.5;filter:saturate(0.3)}
@@ -882,7 +883,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 <!-- THREE CLOWNS WINDOW -->
 <div class="win hidden" id="win-clowns" style="width:760px;position:absolute;top:30px;left:80px;z-index:22;">
   <div class="titlebar inactive" id="tb-clowns" onmousedown="startDrag(event,'clowns')">
-    <span><img src="images/internet.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Three Clowns - Microsoft Internet Explorer</span>
+    <span>🌐&nbsp;&nbsp;Three Clowns - Microsoft Internet Explorer</span>
     <div class="titlebar-btns">
       <div class="wbtn" onclick="minimiseWin('clowns')">_</div>
       <div class="wbtn" onclick="toggleMax('clowns')">&#10066;</div>
@@ -904,7 +905,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
     <span class="tb">🔍</span><span class="tb">⭐</span><span class="tb">📋</span><span class="tb">📡</span>
     <span class="tbsep"></span>
     <span class="tb">✉️</span><span class="tb">🖨</span>
-    <span style="margin-left:auto;font-size:16px;animation:ie-throb 2s ease-in-out infinite;padding:0 4px;"><img src="images/internet.png" style="width:14px;height:14px;image-rendering:pixelated;"></span>
+    <span style="margin-left:auto;font-size:16px;animation:ie-throb 2s ease-in-out infinite;padding:0 4px;">🌐</span>
   </div>
   <!-- Address bar -->
   <div style="display:flex;align-items:center;gap:4px;padding:2px 4px;border-bottom:1px solid #808080;background:#c0c0c0;flex-shrink:0;">
@@ -926,14 +927,9 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
       <!-- HERO -->
       <div class="c-hero" id="s-home">
         <br>
-        <br>
-        <br>
         <p class="c-eyebrow">A portrait trilogy by Bundi</p>
         <h1 class="c-h1">Three Clowns.</h1>
-        <br>
-        <br>
         <p class="c-sub">The populist playbook is self-replicating — same fears, same enemies, same promises. Just different accents.<br>A satirical portrait trilogy exploring the global populist playbook.<br>Three countries. Three demagogues. One script.</p>
-        <br>
         <br>
         <div class="c-cta">
           <a class="c-btn-gold" href="javascript:void(0)" onclick="clownsSec('s-quiz')">Take the quiz</a>
@@ -978,8 +974,8 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
         <div class="c-inner">
           <p class="c-label">The quiz</p>
           <h2 class="c-title">Who Said It?</h2>
-          <p class="c-body"><i>Click the portrait of who you think said it. Some are obvious. Most are not. That's the point.</i></p>
-          <br>
+          <p class="c-body">30 real quotes. Click the portrait of who you think said it. Some are obvious. Most are not. That's the point.</p>
+          <div class="c-rule"></div>
           <div class="c-quiz-inner">
             <div id="cquiz-body">
               <div class="c-qbar">
@@ -1617,7 +1613,7 @@ window.clownsSec=function(id){
   var el=document.getElementById(id);
   var cont=document.getElementById('clowns-content');
   if(!el||!cont)return;
-  cont.scrollTop=el.offsetTop-100;
+  cont.scrollTop=el.offsetTop-10;
 };
 function csbTrackClick(e){
   var thumb=document.getElementById('csb-thumb'),track=document.getElementById('csb-track'),cont=document.getElementById('clowns-content');
