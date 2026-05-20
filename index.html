@@ -1627,6 +1627,7 @@ setTimeout(function(){
 updateTaskbar();
 updateClippy();
 setTimeout(function(){
+  centreWin('home');
   centreWin('contact');
   var hash=window.location.hash.replace('#','');
   var target=(hash&&WINS.indexOf(hash)>-1)?hash:'home';
