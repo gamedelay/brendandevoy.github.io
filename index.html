@@ -1246,7 +1246,6 @@ window.openWin=function(id){
   focusWin(id);
   if(id==='mines')initMines();
   updateClippy();
-  if(window._hashReady)history.replaceState(null,'','#'+id);
 };
 window.minimiseWin=function(id){state[id].min=true;document.getElementById('win-'+id).classList.add('hidden');updateTaskbar();updateClippy();};
 window.closeWin=function(id){
@@ -1626,14 +1625,13 @@ setTimeout(function(){
 
 /* INIT */
 updateTaskbar();
+focusWin('home');
 updateClippy();
 setTimeout(function(){
+  centreWin('home');
   centreWin('contact');
-  var hash=window.location.hash.replace('#','');
-  var target=(hash&&WINS.indexOf(hash)>-1)?hash:'home';
-  window.openWin(target);
+  focusWin('home');
   updateClippy();
-  window._hashReady=true;
 },80);
 
 /* THREE CLOWNS QUIZ */
