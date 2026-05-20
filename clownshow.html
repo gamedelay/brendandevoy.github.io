@@ -77,7 +77,7 @@
 #clowns-content .c-choice-btn > div{position:relative;width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;outline:4px solid transparent;outline-offset:3px;transition:outline-color 0.2s;}
 #clowns-content .c-choice-btn.correct > div{outline-color:var(--correct-border);}
 #clowns-content .c-choice-btn.wrong > div{outline-color:var(--wrong-border);}
-#clowns-content .c-choice-btn img{width:100%;height:100%;display:block;border-radius:0;border:none;mix-blend-mode:multiply;box-shadow:none;object-fit:cover;object-position:center top;transition:opacity 0.2s,filter 0.2s;transform:scale(1.1)}
+#clowns-content .c-choice-btn img{width:100%;height:100%;display:block;border-radius:0;border:none;mix-blend-mode:multiply;box-shadow:none;object-fit:cover;object-position:center top;transition:opacity 0.2s,filter 0.2s;transform:scale(1.15)}
 #clowns-content .c-choice-btn.wrong img{opacity:0.4;filter:saturate(0.2)}
 #clowns-content .c-choice-name{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;text-align:center;font-family:'DM Mono',monospace}
 #clowns-content .c-choice-btn.correct .c-choice-name{color:var(--correct-text);font-weight:500}
@@ -402,8 +402,8 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 <div class="icon" id="ico-bundi" style="top:194px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
   <img src="images/paint.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">bundipaints.bmp</span>
 </div>
-<div class="icon" id="ico-cv" style="top:284px;left:14px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
-  <img src="images/word.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">CV.doc</span>
+<div class="icon" id="ico-" style="top:284px;left:14px;" ondblclick="openWin('')" onclick="selIcon('')">
+  <img src="images/word.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">.doc</span>
 </div>
 <div class="icon" id="ico-contact" style="top:374px;left:14px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
   <img src="images/contact.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Contact.msg</span>
@@ -452,7 +452,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   </div>
 </div>
 
-<!-- CV WINDOW -->
+<!--  WINDOW -->
 <div class="win maximised hidden" id="win-cv" style="z-index:11;">
   <div class="titlebar inactive" id="tb-cv" onmousedown="startDrag(event,'cv')">
     <span> <img src="images/word.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Brendan Devoy CV.doc </span>
@@ -1159,7 +1159,7 @@ var WINS=['home','cv','misfit','bundi','contact','mines','folder','clowns'];
 var zTop=20,state={};
 WINS.forEach(function(w){state[w]={min:false,closed:true};});
 state['home'].closed=false;
-var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper',folder:'<img src="images/folder.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Random Stuff'};
+var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper',folder:'<img src="images/folder.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Random Stuff',clowns:'<img src="images/internet.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Three Clowns'};
 var isMax={home:false,cv:false,misfit:false,bundi:true,contact:false,mines:false,folder:false,clowns:true};
 var savedPos={};
 
