@@ -1743,7 +1743,7 @@ function cshowFinal(){
   document.getElementById('cfinal-verdict').textContent=v;
   document.getElementById('cfinal-sub').textContent=s;
 }
-window.cinit=function(){cord=cshuf(CQ.map(function(_,i){return i;})).slice(0,30);ccur=0;csc=0;cdone=false;document.getElementById('cquiz-body').style.display='block';document.getElementById('cfinal').classList.remove('show');cload();}
+window.cinit=function(){cord=cshuf(CQ.map(function(_,i){return i;})).slice(0,20);ccur=0;csc=0;cdone=false;document.getElementById('cquiz-body').style.display='block';document.getElementById('cfinal').classList.remove('show');cload();}
 window.canswer=function(c){
   if(cdone)return;cdone=true;
   var q=CQ[cord[ccur]];
