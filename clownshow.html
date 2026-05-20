@@ -1724,7 +1724,7 @@ function cload(){
   document.getElementById('cnext').classList.remove('show');
   document.getElementById('cq-count').textContent='Question '+(ccur+1)+' of '+cord.length;
   document.getElementById('cscore').textContent=csc;
-  document.getElementById('cprogress').style.width=((ccur/CQ.length)*100)+'%';
+  document.getElementById('cprogress').style.width=((ccur/cord.length)*100)+'%';
   document.getElementById('csb-msg').textContent='Question '+(ccur+1)+' of '+cord.length;
   document.getElementById('csb-zone').textContent='Score: '+csc+'/'+cord.length;
   for(var i=0;i<3;i++){var b=document.getElementById('cbtn-'+i);b.disabled=false;b.className='c-choice-btn';document.getElementById('cov-'+i).textContent='';}
@@ -1734,7 +1734,7 @@ function cshowFinal(){
   document.getElementById('cfinal').classList.add('show');
   document.getElementById('cfinal-score').textContent=csc;
   document.getElementById('cprogress').style.width='100%';
-  var p=csc/CQ.length,v,s;
+  var p=csc/cord.length,v,s;
   if(p===1){v="Perfect. You saw right through them.";s="30 out of 30 — three countries, three clowns, one script.";}
   else if(p>=0.8){v="Sharp. But they fooled you a few times.";s="The ones you missed were the hardest — quotes so interchangeable they could be any of them.";}
   else if(p>=0.6){v="The script is working on you.";s="More than a third stumped you — same playbook, different accents, different flags.";}
@@ -1753,10 +1753,10 @@ window.canswer=function(c){
   document.getElementById('cfact').textContent=q.f;
   document.getElementById('cfact').classList.add('show');
   document.getElementById('cnext').classList.add('show');
-  document.getElementById('cnext').textContent=ccur<CQ.length-1?'Next question →':'See results →';
+  document.getElementById('cnext').textContent=ccur<cord.length-1?'Next question →':'See results →';
   document.getElementById('csb-zone').textContent='Score: '+csc+'/30';
 }
-window.cnextQ=function(){ccur++;ccur>=CQ.length?cshowFinal():cload();}
+window.cnextQ=function(){ccur++;ccur>=cord.length?cshowFinal():cload();}
 window.crestart=function(){document.getElementById('cfinal').classList.remove('show');document.getElementById('cquiz-body').style.display='block';cinit();}
 cinit();
 
