@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,103 @@
 
   gtag('config', 'G-6R1022R9SE');
 </script>
-<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Scoped clowns(4) styles — only inside #clowns-content ── */
+#clowns-content{
+  --bg:#f3f4ef;--surface:#eaeae4;--surface2:#e0e0da;--surface3:#d4d4ce;
+  --border:rgba(26,26,24,0.1);--border-hover:rgba(26,26,24,0.28);
+  --text:#1a1a18;--muted:rgba(26,26,24,0.48);--gold:#1a1a18;
+  --correct-bg:rgba(20,83,45,0.1);--correct-border:#14532d;--correct-text:#166534;
+  --wrong-bg:rgba(153,27,27,0.08);--wrong-border:#991b1b;--wrong-text:#b91c1c;
+  font-family:'DM Mono',monospace;background:var(--bg);color:var(--text);line-height:1.6;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+#clowns-content::-webkit-scrollbar{display:none}
+@keyframes ie-throb{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* hero */
+#clowns-content .c-hero{min-height:unset;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 2rem 3rem;text-align:center}
+#clowns-content .c-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+#clowns-content .c-h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,90px);font-weight:900;line-height:0.92;letter-spacing:-3px;margin-bottom:1.25rem;color:var(--text)}
+#clowns-content .c-sub{font-size:13px;color:var(--muted);margin-bottom:3rem;max-width:950px;line-height:1.85;letter-spacing:0.02em}
+#clowns-content .c-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:0}
+#clowns-content .c-btn-gold{background:var(--gold);border:none;border-radius:3px;padding:0.75rem 2rem;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#f3f4ef;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity 0.2s}
+#clowns-content .c-btn-gold:hover{opacity:0.82}
+#clowns-content .c-btn-outline{background:transparent;border:0.5px solid var(--border-hover);border-radius:3px;padding:0.75rem 2rem;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color 0.2s}
+#clowns-content .c-btn-outline:hover{border-color:rgba(26,26,24,0.5)}
+
+/* sections */
+#clowns-content .c-section{padding:3.5rem 2rem}
+#clowns-content .c-inner{max-width:860px;margin:0 auto}
+#clowns-content .c-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
+#clowns-content .c-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,40px);font-weight:900;line-height:1.05;margin-bottom:0.75rem;color:var(--text)}
+#clowns-content .c-body{font-size:13px;color:var(--muted);line-height:1.9}
+#clowns-content .c-rule{width:40px;height:1px;background:var(--gold);opacity:0.4;margin:1.5rem 0}
+
+/* portrait grid */
+#clowns-content .c-pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:1rem}
+#clowns-content .c-pcard{background:none;overflow:hidden}
+#clowns-content .c-pcard img{width:100%;display:block;transition:transform 0.5s ease}
+#clowns-content .c-pcard:hover img{transform:scale(1.04)}
+#clowns-content .c-pcard-info{padding:1rem 0.5rem 0}
+#clowns-content .c-pcard-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:0.2rem;color:var(--text)}
+#clowns-content .c-pcard-role{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+
+/* quiz */
+#clowns-content .c-quiz-inner{max-width:860px;margin:0rem auto 0}
+#clowns-content .c-qbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.85rem;font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+#clowns-content .c-qbar-score{color:var(--gold);font-weight:500;font-size:14px}
+#clowns-content .c-progress-track{width:100%;height:2px;background:var(--surface3);margin-bottom:2rem;border-radius:1px}
+#clowns-content .c-progress-fill{height:100%;background:var(--gold);border-radius:1px;transition:width 0.45s ease}
+#clowns-content .c-qcard{padding:0 0 1rem;margin-bottom:0.5rem}
+#clowns-content .c-qcard-text{font-family:'Playfair Display',serif;font-size:clamp(16px,2.2vw,21px);font-weight:700;font-style:italic;line-height:1.5;color:var(--text)}
+#clowns-content .c-qcard-text::before{content:'\201C';color:var(--gold)}
+#clowns-content .c-qcard-text::after{content:'\201D';color:var(--gold)}
+#clowns-content .c-qcard-theme{display:none!important;}
+#clowns-content .c-fun-fact{display:none!important;}
+
+/* choices */
+#clowns-content .c-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:1rem;max-width:600px;margin-left:auto;margin-right:auto;}
+#clowns-content .c-choice-btn{cursor:pointer;background:none;border:none;padding:0;display:flex;flex-direction:column;align-items:center;transition:transform 0.25s cubic-bezier(.22,.68,0,1.2);position:relative}
+#clowns-content .c-choice-btn:hover:not(:disabled){transform:translateY(-4px)}
+#clowns-content .c-choice-btn:disabled{cursor:default}
+#clowns-content .c-choice-btn > div{position:relative;width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;outline:4px solid transparent;outline-offset:3px;transition:outline-color 0.2s;}
+#clowns-content .c-choice-btn.correct > div{outline-color:var(--correct-border);}
+#clowns-content .c-choice-btn.wrong > div{outline-color:var(--wrong-border);}
+#clowns-content .c-choice-btn img{width:100%;height:100%;display:block;border-radius:0;border:none;mix-blend-mode:multiply;box-shadow:none;object-fit:cover;object-position:center top;transition:opacity 0.2s,filter 0.2s;transform:scale(1.15)}
+#clowns-content .c-choice-btn.wrong img{opacity:0.4;filter:saturate(0.2)}
+#clowns-content .c-choice-name{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-top:0.5rem;text-align:center;font-family:'DM Mono',monospace}
+#clowns-content .c-choice-btn.correct .c-choice-name{color:var(--correct-text);font-weight:500}
+#clowns-content .c-choice-btn.wrong .c-choice-name{color:var(--wrong-text)}
+#clowns-content .c-choice-overlay{display:none;}
+
+/* result / fact / next */
+#clowns-content .c-result{display:none!important;}
+#clowns-content .c-result.ok{color:var(--correct-text)}
+#clowns-content .c-result.bad{color:var(--wrong-text)}
+#clowns-content .c-fun-fact.show{}
+#clowns-content .c-next-btn{width:100%;background:var(--gold);border:none;border-radius:4px;padding:0.85rem;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;color:#f3f4ef;display:none;transition:opacity 0.15s}
+#clowns-content .c-next-btn:hover{opacity:0.82}
+#clowns-content .c-next-btn.show{display:block}
+
+/* final */
+#clowns-content .c-final{text-align:center;padding:3rem 0;display:none}
+#clowns-content .c-final.show{display:block}
+#clowns-content .c-final-faces{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem}
+#clowns-content .c-final-face{width:64px;height:64px;border-radius:50%;overflow:hidden;border:0.5px solid var(--border);opacity:0.7}
+#clowns-content .c-final-face img{width:100%;height:100%;object-fit:cover;object-position:top;transform:scale(1.15)}
+#clowns-content .c-final-num{font-family:'Playfair Display',serif;font-size:76px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:0.2rem}
+#clowns-content .c-final-lbl{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+#clowns-content .c-final-verdict{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;line-height:1.35;margin-bottom:0.75rem;color:var(--text)}
+#clowns-content .c-final-sub{font-size:12px;color:var(--muted);line-height:1.85;max-width:460px;margin:0 auto 2rem}
+#clowns-content .c-final-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* footer line */
+#clowns-content .c-foot{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:1rem 2rem 2rem;border-top:0.5px solid var(--border);margin-top:1rem}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>@brendandevoy</title>
 <style>
@@ -307,8 +402,8 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 <div class="icon" id="ico-bundi" style="top:194px;left:14px;" ondblclick="openWin('bundi')" onclick="selIcon('bundi')">
   <img src="images/paint.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">bundipaints.bmp</span>
 </div>
-<div class="icon" id="ico-cv" style="top:284px;left:14px;" ondblclick="openWin('cv')" onclick="selIcon('cv')">
-  <img src="images/word.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">CV.doc</span>
+<div class="icon" id="ico-" style="top:284px;left:14px;" ondblclick="openWin('')" onclick="selIcon('')">
+  <img src="images/word.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">.doc</span>
 </div>
 <div class="icon" id="ico-contact" style="top:374px;left:14px;" ondblclick="openWin('contact')" onclick="selIcon('contact')">
   <img src="images/contact.png" style="width:32px;height:32px;image-rendering:pixelated;"><span class="icon-label">Contact.msg</span>
@@ -357,7 +452,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   </div>
 </div>
 
-<!-- CV WINDOW -->
+<!--  WINDOW -->
 <div class="win maximised hidden" id="win-cv" style="z-index:11;">
   <div class="titlebar inactive" id="tb-cv" onmousedown="startDrag(event,'cv')">
     <span> <img src="images/word.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Brendan Devoy CV.doc </span>
@@ -700,29 +795,29 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
     <div style="flex:1;background:#fff;border:2px solid;border-color:#808080 #fff #fff #808080;padding:1px 4px;font-size:11px;color:#000;">C:\Random Stuff</div>
   </div>
   <div class="win-body" style="background:#fff;padding:12px;min-height:160px;">
+    <!-- File 3 -->
+    <div onclick="openWin('clowns')"
+         style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;width:80px;padding:6px;cursor:pointer;vertical-align:top;"
+         onmouseover="this.style.background='#000080';this.querySelectorAll('span').forEach(function(s){s.style.color='#fff';})"
+         onmouseout="this.style.background='transparent';this.querySelectorAll('span').forEach(function(s){s.style.color='#000';})">
+      <span style="font-size:28px;line-height:1;"><img src="images/internet.png" style="width:32px;height:32px;image-rendering:pixelated;"></span>
+      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">Three Clowns.</span>
+    </div>
     <!-- File 1 -->
     <div onclick="window.open('https://chromewebstore.google.com/detail/klnchidnhhkcpojbdokilheijadeeeek?utm_source=item-share-cb','_blank')"
          style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;width:80px;padding:6px;cursor:pointer;margin-right:8px;vertical-align:top;"
          onmouseover="this.style.background='#000080';this.querySelectorAll('span').forEach(function(s){s.style.color='#fff';})"
          onmouseout="this.style.background='transparent';this.querySelectorAll('span').forEach(function(s){s.style.color='#000';})">
-      <span style="font-size:28px;line-height:1;">📄</span>
-      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">GameDelay.ext</span>
+      <span style="font-size:28px;line-height:1;"><img src="images/internet.png" style="width:32px;height:32px;image-rendering:pixelated;"></span>
+      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">Game Delay.ext</span>
     </div>
     <!-- File 2 -->
     <div onclick="window.open('https://brendandevoy.com/ouichef','_blank')"
          style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;width:80px;padding:6px;cursor:pointer;vertical-align:top;"
          onmouseover="this.style.background='#000080';this.querySelectorAll('span').forEach(function(s){s.style.color='#fff';})"
          onmouseout="this.style.background='transparent';this.querySelectorAll('span').forEach(function(s){s.style.color='#000';})">
-      <span style="font-size:28px;line-height:1;">📄</span>
-      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">OuiChef.app</span>
-    </div>
-    <!-- File 3 -->
-    <div onclick="window.open('https://misfitbrewing.co.nz','_blank')"
-         style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;width:80px;padding:6px;cursor:pointer;vertical-align:top;"
-         onmouseover="this.style.background='#000080';this.querySelectorAll('span').forEach(function(s){s.style.color='#fff';})"
-         onmouseout="this.style.background='transparent';this.querySelectorAll('span').forEach(function(s){s.style.color='#000';})">
-      <span style="font-size:28px;line-height:1;">📄</span>
-      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">MisfitBeer.site</span>
+      <span style="font-size:28px;line-height:1;"><img src="images/internet.png" style="width:32px;height:32px;image-rendering:pixelated;"></span>
+      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">Oui, Chef.app</span>
     </div>
   </div>
   <div class="statusbar">
@@ -788,6 +883,175 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
     </div>
   </div>
   <div class="statusbar"><span class="sstat" id="mines-status">Left-click to reveal. Right-click to flag.</span></div>
+</div>
+
+
+<!-- THREE CLOWNS WINDOW -->
+<div class="win hidden" id="win-clowns" style="width:760px;position:absolute;top:30px;left:80px;z-index:22;">
+  <div class="titlebar inactive" id="tb-clowns" onmousedown="startDrag(event,'clowns')">
+    <span><img src="images/internet.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;Three Clowns - Microsoft Internet Explorer</span>
+    <div class="titlebar-btns">
+      <div class="wbtn" onclick="minimiseWin('clowns')">_</div>
+      <div class="wbtn" onclick="toggleMax('clowns')">&#10066;</div>
+      <div class="wbtn" onclick="closeWin('clowns')">&#10005;</div>
+    </div>
+  </div>
+  <!-- IE menubar -->
+  <div class="menubar">
+    <span class="mitem">File</span><span class="mitem">Edit</span><span class="mitem">View</span><span class="mitem">Go</span><span class="mitem">Favorites</span><span class="mitem">Help</span>
+  </div>
+  <!-- IE toolbar -->
+  <div class="toolbar" style="gap:1px;">
+    <span class="tb" style="opacity:.4;">◀</span>
+    <span class="tb" style="opacity:.4;">▶</span>
+    <span class="tb">🛑</span>
+    <span class="tb">🔄</span>
+    <span class="tb" onclick="document.getElementById('clowns-content').scrollTo({top:0,behavior:'smooth'})">🏠</span>
+    <span class="tbsep"></span>
+    <span class="tb">🔍</span><span class="tb">⭐</span><span class="tb">📋</span><span class="tb">📡</span>
+    <span class="tbsep"></span>
+    <span class="tb">✉️</span><span class="tb">🖨</span>
+    <span style="margin-left:auto;font-size:16px;animation:ie-throb 2s ease-in-out infinite;padding:0 4px;"><img src="images/internet.png" style="width:14px;height:14px;image-rendering:pixelated;"></span>
+  </div>
+  <!-- Address bar -->
+  <div style="display:flex;align-items:center;gap:4px;padding:2px 4px;border-bottom:1px solid #808080;background:#c0c0c0;flex-shrink:0;">
+    <span style="font-size:12px;">Address</span>
+    <input id="clowns-addr" readonly style="flex:1;height:20px;background:#f3f4ef;border-top:1px solid #808080;border-left:1px solid #808080;border-right:1px solid #fff;border-bottom:1px solid #fff;padding:0 4px;font-family:Arial,sans-serif;font-size:12px;outline:none;" value="http://www.brendandevoy.com/clowns">
+    <span style="background:#c0c0c0;border-top:1px solid #fff;border-left:1px solid #fff;border-right:1px solid #808080;border-bottom:1px solid #808080;padding:1px 8px;font-size:11px;cursor:pointer;">▶</span>
+  </div>
+  <!-- Links bar -->
+  <div style="display:flex;align-items:center;padding:1px 4px;border-bottom:2px solid #808080;background:#c0c0c0;font-size:11px;flex-shrink:0;flex-wrap:wrap;gap:1px;">
+    <span style="font-weight:700;margin-right:4px;">Links</span>
+    <a onclick="clownsSec('s-home')" style="color:#000080;padding:1px 6px;cursor:pointer;text-decoration:none;">Three Clowns</a>
+    <a onclick="clownsSec('s-paintings')" style="color:#000080;padding:1px 6px;cursor:pointer;text-decoration:none;">The Paintings</a>
+    <a onclick="clownsSec('s-quiz')" style="color:#000080;padding:1px 6px;cursor:pointer;text-decoration:none;">Who Said It?</a>
+  </div>
+  <!-- Body: content + scrollbar -->
+  <div style="display:flex;flex:1;overflow:hidden;min-height:0;">
+    <!-- Scrollable page content -->
+    <div id="clowns-content" class="win-body" style="flex:1;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none;position:relative;">
+      <!-- HERO -->
+      <div class="c-hero" id="s-home">
+        <br>
+        <br>
+        <br>
+        <p class="c-eyebrow">A portrait trilogy by Bundi</p>
+        <h1 class="c-h1">Three Clowns.</h1>
+        <br>
+        <br>
+        <p class="c-sub">The populist playbook is self-replicating — same fears, same enemies, same promises. Just different accents.<br>A satirical portrait trilogy exploring the global populist playbook.<br>Three countries. Three demagogues. One script.</p>
+        <br>
+        <br>
+        <div class="c-cta">
+          <a class="c-btn-outline" href="javascript:void(0)" onclick="clownsSec('s-paintings')">View the paintings</a>
+          <a class="c-btn-gold" href="javascript:void(0)" onclick="clownsSec('s-quiz')">Take the quiz</a>
+        </div>
+      </div>
+
+      <!-- PORTRAITS -->
+      <div class="c-section" id="s-paintings">
+        <div class="c-inner">
+          <p class="c-label">The works</p>
+          <h2 class="c-title">Three Clowns.</h2>
+          <p class="c-body">Devoy, B. (2026). <em>Three Clowns (Triptych).</em> [Oil on canvas]. Auckland, New Zealand.</p>
+          <div class="c-pgrid">
+            <div class="c-pcard">
+              <img src="images/donaldtrump.png" alt="Donald Trump">
+              <div class="c-pcard-info">
+                <div class="c-pcard-name">Donald J. Trump</div>
+                <div class="c-pcard-role">45th &amp; 47th President &middot; United States</div>
+              </div>
+            </div>
+            <div class="c-pcard">
+              <img src="images/nigelfarage.png" alt="Nigel Farage">
+              <div class="c-pcard-info">
+                <div class="c-pcard-name">Nigel Farage</div>
+                <div class="c-pcard-role">Reform UK Leader &middot; United Kingdom</div>
+              </div>
+            </div>
+            <div class="c-pcard">
+              <img src="images/winstonpeters.png" alt="Winston Peters">
+              <div class="c-pcard-info">
+                <div class="c-pcard-name">Winston Peters</div>
+                <div class="c-pcard-role">NZ First Leader &middot; New Zealand</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ -->
+      <div class="c-section" id="s-quiz">
+        <div class="c-inner">
+          <p class="c-label">The quiz</p>
+          <h2 class="c-title">Who Said It?</h2>
+          <p class="c-body"><i>Click the portrait of who you think said it. Some are obvious. Most are not. That's the point.</i></p>
+          <br>
+          <div class="c-quiz-inner">
+            <div id="cquiz-body">
+              <div class="c-qbar">
+                <span id="cq-count">Question 1 of 20</span>
+                <span>Score: <span class="c-qbar-score" id="cscore">0</span></span>
+              </div>
+              <div class="c-progress-track"><div class="c-progress-fill" id="cprogress" style="width:0%"></div></div>
+              <div class="c-qcard">
+                <div class="c-qcard-text" id="cquote-text"></div>
+                <span class="c-qcard-theme" id="ctheme-tag"></span>
+                <br>
+              </div>
+              <div class="c-result" id="cresult"></div>
+              <div class="c-fun-fact" id="cfact"></div>
+              <div class="c-choices">
+                <button class="c-choice-btn" id="cbtn-0" onclick="canswer(0)">
+                  <div style="position:relative;width:100%"><img src="images/donaldtrump.png" alt="Trump"></div>
+                  <div class="c-choice-overlay" id="cov-0"></div>
+                </button>
+                <button class="c-choice-btn" id="cbtn-1" onclick="canswer(1)">
+                  <div style="position:relative;width:100%"><img src="images/nigelfarage.png" alt="Farage"></div>
+                  <div class="c-choice-overlay" id="cov-1"></div>
+                </button>
+                <button class="c-choice-btn" id="cbtn-2" onclick="canswer(2)">
+                  <div style="position:relative;width:100%"><img src="images/winstonpeters.png" alt="Peters"></div>
+                  <div class="c-choice-overlay" id="cov-2"></div>
+                </button>
+              </div>
+              <button class="c-next-btn" id="cnext" onclick="cnextQ()">Next question &#8594;</button>
+            </div>
+            <div class="c-final" id="cfinal">
+              <div class="c-final-faces">
+                <div class="c-final-face"><img src="images/donaldtrump.png" alt="Trump"></div>
+                <div class="c-final-face"><img src="images/nigelfarage.png" alt="Farage"></div>
+                <div class="c-final-face"><img src="images/winstonpeters.png" alt="Peters"></div>
+              </div>
+              <div class="c-final-num" id="cfinal-score"></div>
+              <div class="c-final-lbl">out of 30 correct</div>
+              <div class="c-final-verdict" id="cfinal-verdict"></div>
+              <div class="c-final-sub" id="cfinal-sub"></div>
+              <div class="c-final-btns">
+                <button class="c-btn-gold" onclick="crestart()">&#9654; Play Again</button>
+                <a class="c-btn-outline" href="javascript:void(0)" onclick="clownsSec('s-paintings')">View Paintings</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="c-foot">Paintings by Bundi &nbsp;&middot;&nbsp; A satirical artwork &nbsp;&middot;&nbsp; <a href="clownquotes.pdf" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none";>All quotes real and sourced </a></div>
+    </div>
+    
+    <!-- Win95 scrollbar -->
+    <div style="width:17px;background:#c0c0c0;border-left:1px solid #808080;display:flex;flex-direction:column;flex-shrink:0;user-select:none;">
+      <div onclick="document.getElementById('clowns-content').scrollBy({top:-40,behavior:'smooth'})" style="width:17px;height:17px;flex-shrink:0;background:#c0c0c0;border-top:1px solid #fff;border-left:1px solid #fff;border-right:1px solid #404040;border-bottom:1px solid #404040;display:flex;align-items:center;justify-content:center;font-size:8px;cursor:pointer;">&#9650;</div>
+      <div id="csb-track" style="flex:1;background:repeating-conic-gradient(#808080 0% 25%,#c0c0c0 0% 50%) 0 0/2px 2px;position:relative;cursor:pointer;" onclick="csbTrackClick(event)">
+        <div id="csb-thumb" style="position:absolute;left:0;width:17px;background:#c0c0c0;border-top:1px solid #fff;border-left:1px solid #fff;border-right:1px solid #404040;border-bottom:1px solid #404040;cursor:pointer;min-height:20px;"></div>
+      </div>
+      <div onclick="document.getElementById('clowns-content').scrollBy({top:40,behavior:'smooth'})" style="width:17px;height:17px;flex-shrink:0;background:#c0c0c0;border-top:1px solid #fff;border-left:1px solid #fff;border-right:1px solid #404040;border-bottom:1px solid #404040;display:flex;align-items:center;justify-content:center;font-size:8px;cursor:pointer;">&#9660;</div>
+    </div>
+  </div>
+  <!-- Status bar -->
+  <div class="statusbar">
+    <span class="sstat" id="csb-msg">Done</span>
+    <span class="sstat" style="margin-left:auto;" id="csb-zone">Internet</span>
+  </div>
 </div>
 
 </div><!-- end desktop -->
@@ -871,6 +1135,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
       <div class="start-item" onclick="startOpen('bundi')"><img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">@bundipaints</div>
       <div class="start-item" onclick="startOpen('contact')"><img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">Contact.msg</div>
       <div class="start-item" onclick="startOpen('mines')"><img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">Minesweeper</div>
+      <div class="start-item" onclick="startOpen('clowns')"><img src="images/internet.png" style="width:18px;height:18px;image-rendering:pixelated;">Three Clowns</div>
     </div>
   </div>
 </div>
@@ -899,12 +1164,12 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
-var WINS=['home','cv','misfit','bundi','contact','mines','folder'];
+var WINS=['home','cv','misfit','bundi','contact','mines','folder','clowns'];
 var zTop=20,state={};
 WINS.forEach(function(w){state[w]={min:false,closed:true};});
 state['home'].closed=false;
-var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper',folder:'<img src="images/folder.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Random Stuff'};
-var isMax={home:false,cv:false,misfit:false,bundi:true,contact:false,mines:false,folder:false};
+var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper',folder:'<img src="images/folder.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Random Stuff',clowns:'<img src="images/internet.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Three Clowns'};
+var isMax={home:false,cv:false,misfit:false,bundi:true,contact:false,mines:false,folder:false,clowns:true};
 var savedPos={};
 
 function centreWin(id){
@@ -962,6 +1227,12 @@ window.openWin=function(id){
       el.style.width=Math.round(dw*0.30)+'px';
       el.style.left=Math.round(dw*0.35)+'px';
       el.style.top=Math.round(dh*0.25)+'px';
+    }
+    if(id==='clowns'){
+      el.style.width=Math.round(dw*0.75)+'px';
+      el.style.height=Math.round(dh*0.9)+'px';
+      el.style.left=Math.round(dw*0.125)+'px';
+      el.style.top=Math.round(dh*0.03)+'px';
     }
   }
   focusWin(id);
@@ -1354,6 +1625,141 @@ setTimeout(function(){
   focusWin('home');
   updateClippy();
 },80);
+
+/* THREE CLOWNS QUIZ */
+window.clownsSec=function(id){
+  var el=document.getElementById(id);
+  var cont=document.getElementById('clowns-content');
+  if(!el||!cont)return;
+  cont.scrollTop=el.offsetTop+45;
+};
+function csbTrackClick(e){
+  var thumb=document.getElementById('csb-thumb'),track=document.getElementById('csb-track'),cont=document.getElementById('clowns-content');
+  if(e.target===thumb)return;
+  var rect=track.getBoundingClientRect(),clickY=e.clientY-rect.top,thumbH=thumb.clientHeight,trackH=track.clientHeight;
+  var ratio=(clickY-thumbH/2)/(trackH-thumbH);
+  cont.scrollTo({top:ratio*(cont.scrollHeight-cont.clientHeight),behavior:'smooth'});
+}
+(function(){
+  var cont=document.getElementById('clowns-content');
+  var track=document.getElementById('csb-track');
+  var thumb=document.getElementById('csb-thumb');
+  if(!cont||!track||!thumb)return;
+  function updThumb(){
+    var trackH=track.clientHeight,ratio=cont.clientHeight/cont.scrollHeight;
+    var thumbH=Math.max(20,trackH*ratio),maxTop=trackH-thumbH;
+    var sr=cont.scrollTop/(cont.scrollHeight-cont.clientHeight||1);
+    thumb.style.height=thumbH+'px';thumb.style.top=(sr*maxTop)+'px';
+  }
+  cont.addEventListener('scroll',function(){
+    updThumb();
+    var secs=[{id:'s-home',url:'http://www.brendandevoy.com/threeclowns'},{id:'s-paintings',url:'http://www.brendandevoy.com/threeclowns/paintings'},{id:'s-quiz',url:'http://www.brendandevoy.com/threeclowns/quiz'}];
+    var cur=secs[0];
+    secs.forEach(function(s){var el=document.getElementById(s.id);if(el&&el.getBoundingClientRect().top<=60)cur=s;});
+    var addr=document.getElementById('clowns-addr');if(addr)addr.value=cur.url;
+  });
+  window.addEventListener('resize',updThumb);
+  var drag=false,dragY=0,dragScroll=0;
+  thumb.addEventListener('mousedown',function(e){drag=true;dragY=e.clientY;dragScroll=cont.scrollTop;e.preventDefault();});
+  document.addEventListener('mousemove',function(e){if(!drag)return;var trackH=track.clientHeight,thumbH=thumb.clientHeight;cont.scrollTop=dragScroll+(e.clientY-dragY)/(trackH-thumbH)*(cont.scrollHeight-cont.clientHeight);});
+  document.addEventListener('mouseup',function(){drag=false;});
+  setTimeout(updThumb,200);
+})();
+var CQ=[
+  {q:"The silent majority is back, and we're going to take the country back.",a:0,t:"Take back our country",f:"All three men use near-identical 'take back our country' rhetoric — same phrase, three continents."},
+  {q:"It's our country, stupid. We are going to take back control, take back our country, and Make [us number one] Again.",a:2,t:"Take back our country",f:"Peters coined 'Make NZ First Again' — a direct echo of Trump's MAGA slogan. He was doing this before Trump made it globally famous."},
+  {q:"It's been one hell of a journey, but we have got our country back!",a:1,t:"Take back our country",f:"Said on Brexit night 2016. Farage's campaign bus literally read: 'We want our country back.'"},
+  {q:"The fake news media is not my enemy, it is the enemy of [the people]!",a:0,t:"Enemy of the people",f:"Peters used the phrase 'fake news' directly in 2019, causing NZ media to explicitly note his Trump-like rhetoric."},
+  {q:"Many in the mainstream media have deliberately, deceitfully, and ignorantly misrepresented what I said. It is a disgraceful example of journalism — yet another example of blatant political bias.",a:2,t:"Media attacks",f:"Peters published this as an all-caps press release titled 'MEDIA MISREPRESENTATION, INCONSISTENCY, AND DRIPPING BIAS.'"},
+  {q:"The mainstream media are political actors conspiring to stop us — this is election interference.",a:1,t:"Media attacks",f:"Farage made this claim in 2024. Analysts noted it directly mirrored Trump's language about the American press."},
+  {q:"The woke agenda of the left has crept in like a cancer that has spread so deep into their divisive thinking it has become their sole focus.",a:2,t:"War on woke",f:"Peters uses the word 'cancer' repeatedly to describe woke ideology — a rhetorical escalation Trump and Farage also favour."},
+  {q:"It's not wrong to want this country to be great again like it once was.",a:2,t:"Make it great again",f:"This Peters quote — said in a speech in Blackball, NZ — is the most Trump-adjacent sentence ever uttered by a New Zealand politician."},
+  {q:"We will not apologise for defending our country from you wokesters and cultural Marxists. Your time is up and people have had enough.",a:2,t:"War on woke",f:"Peters delivered this in March 2026 — showing the rhetoric is intensifying, not fading, years into his political career."},
+  {q:"If you come here illegally, you will be detained and deported and never, ever allowed to stay. Period. That is our big message.",a:1,t:"Immigration",f:"This Farage quote is functionally identical to Trump's January 2025 executive order language on illegal immigration."},
+  {q:"This is serious political persecution at the very highest level of our system. The establishment are trying to force me out.",a:1,t:"Political persecution",f:"Trump's own version: 'The lawlessness, political persecution and witch-hunt must be exposed and stopped.' Same script."},
+  {q:"It's not just us they want to shut down — it's you they want to silence. We've been the voice of the people.",a:2,t:"Voice of the people",f:"This Peters quote is pure Trump rally rhetoric — the idea that attacking the leader is really an attack on 'you, the people.'"},
+  {q:"The [election] is a victory for cheating in elections. [We] won among [country-born] voters.",a:1,t:"Election denial",f:"After losing the by-election in Feb 2026, Farage claimed victory 'among British-born voters' — his own party chairman publicly contradicted him."},
+  {q:"We will no longer surrender this country or its people to the false song of globalism.",a:0,t:"Anti-globalism",f:"All three men use 'globalism' as a slur. Peters literally promised to 'push back on globalist bureaucrats' in his 2026 State of the Nation speech."},
+  {q:"We must push back on globalist bureaucrats — and we have kept that promise.",a:2,t:"Anti-globalism",f:"Peters said this in his 2026 State of the Nation address, having rejected WHO amendments. The language is interchangeable with Trump's anti-globalist speeches."},
+  {q:"Either you support the existing global elite, or you want real change and believe in nation-state democracy.",a:1,t:"Anti-globalism",f:"Farage's starkest either/or framing — the same binary Trump and Peters both deploy. You're either with the people or with the elite."},
+  {q:"Everything was stolen and rigged in order to drain the wealth out of the productive, hard-working people who make our country great.",a:0,t:"Rigged system",f:"Trump's 2025 address to Congress. Peters uses 'litany of lies' and 'bare-faced lies' for the same effect. Farage says 'we've been betrayed.'"},
+  {q:"We've been betrayed by our career political class.",a:1,t:"Betrayal narrative",f:"Farage's signature line. Trump says 'everything was stolen and rigged.' Peters says Labour told 'a litany of lies.' Same narrative, three flags."},
+  {q:"They've become a party of moral outrage — obsessed with accusations, gotcha politics, woke ideology, and opposing anything that might offend someone, somewhere.",a:2,t:"War on woke",f:"Strip out the NZ context and this could be Trump on Democrats or Farage on Labour. All three use 'moral outrage' as a slur against the left."},
+  {q:"Our country is being destroyed at [the border] — a terrible thing to see!",a:0,t:"Immigration",f:"Trump's most-used rhetorical move: the nation being 'destroyed' by immigration. Peters warns of cities becoming 'unrecognisable.' Farage says the country is 'being invaded.'"},
+  {q:"My opponents are the people who gave up our borders.",a:1,t:"Immigration",f:"Farage at his most economical — the entire populist immigration argument in one sentence. Trump and Peters both frame open borders as an act of betrayal by political opponents."},
+  {q:"There is only one nationalist party in this country. The rest are globalists.",a:2,t:"Anti-globalism",f:"Peters frames the entire political spectrum as globalists versus nationalists — the exact same binary Trump and Farage use to define themselves as the only true patriots."},
+  {q:"We will not let them silence your voices. We're not going to let it happen. I'm not going to let it happen.",a:0,t:"Voice of the people",f:"January 6th rally, 2021. Peters: 'it's you they want to silence.' Farage: 'they weren't booing me, they were booing you.' One script, three rallies."},
+  {q:"In scores of our cities and market towns, this country, in a short space of time, has frankly become unrecognisable.",a:1,t:"Immigration",f:"Farage's most Trump-like immigration quote. Peters said the same thing about Queen Street, Auckland. Trump said 'our cities are being taken over.'"},
+  {q:"They lecture us about values while destroying everything that made this country great.",a:0,t:"Establishment hypocrisy",f:"This is Trump at his most interchangeable. Peters used almost identical language attacking Labour's 'social engineering.' Farage said the same about the British liberal elite."},
+  {q:"The establishment doesn't fear me. They fear you. And that's why they're coming after me.",a:2,t:"Voice of the people",f:"Peters deployed this exact framing repeatedly — the idea that attacking him is really an attack on his voters. Trump and Farage use the same rhetorical sleight of hand."},
+  {q:"Our children are being indoctrinated. Parents have no say. That ends now.",a:0,t:"War on woke",f:"Trump's 2023 education platform. Peters said NZ schools were 'captured by a radical ideology.' Farage promised to 'stop the indoctrination of our children.' Same script."},
+  {q:"They called us racists. They called us xenophobes. They were wrong then and they're wrong now.",a:1,t:"Anti-establishment",f:"Farage after Brexit. Peters used near-identical language defending NZ First's immigration policies. Trump said 'they called us every name in the book — and we won anyway.'"},
+  {q:"The working people of this country built everything you see. And they've been repaid with open borders and broken promises.",a:2,t:"Immigration",f:"Peters at his most deliberately working-class. Trump: 'The forgotten men and women.' Farage: 'The people who built Britain.' One populist script, three countries."},
+  {q:"I don't care what the critics say. I care what the people say. And the people are with us.",a:0,t:"Voice of the people",f:"Trump's rallying cry. Peters said 'the critics are always wrong and the people are always right.' Farage: 'The commentators didn't get it. The people did.' Interchangeable."},
+  {q:"The mainstream media are political actors conspiring to stop us — this is election interference.",a:1,t:"Media attacks",f:"Farage made this claim in 2024. Analysts noted it directly mirrored Trump's language about the American press. Peters called journalists 'bare-faced liars.'"},
+  {q:"We have to be honest about what mass immigration has done to the wages and living conditions of ordinary working people.",a:1,t:"Immigration",f:"Farage's class-based immigration argument. Peters made the same case in NZ for 30 years. Trump: 'Illegal immigrants are taking your jobs and killing your wages.'"},
+  {q:"Political correctness is a weapon the elite uses to silence people who are just telling the truth.",a:1,t:"Free speech",f:"Farage built his entire early career on this argument. Trump called PC culture 'a disaster.' Peters: 'Political correctness is the enemy of free speech and common sense.'"},
+  {q:"Our country is being destroyed. Our culture is being replaced. And the people responsible call it progress.",a:0,t:"Immigration",f:"Trump on the border. Farage on immigration to Britain. Peters on demographic change in New Zealand. The language is so uniform it has become a genre unto itself."},
+  {q:"I've been investigated, harassed, and lied about. In any other country they'd call it what it is — political persecution.",a:1,t:"Political persecution",f:"Farage on the NatWest bank account scandal. Trump on his indictments. Peters on the 2008 election financing scandal. Same victimhood script, different charges."},
+  {q:"They call it diversity. We call it the deliberate destruction of everything that made this country what it is.",a:1,t:"Culture war",f:"Farage at his most inflammatory. Trump and Peters both frame multiculturalism as an imposed ideology rather than an organic development. Same grievance, different accents."},
+  {q:"We will not apologise for defending our country from those who want to tear down everything our ancestors built.",a:2,t:"Culture war",f:"Peters on Māori co-governance opponents. Trump on Confederate statues. Farage on British history curriculum. The 'ancestors built it' frame is universal to all three."},
+  {q:"The people who built this country, who work hard, pay their taxes, and play by the rules — they've been forgotten. Not by me.",a:0,t:"Man of the people",f:"Trump's 'forgotten men and women' framing. Peters: 'The quiet, hard-working people nobody talks about.' Farage: 'The ordinary, decent people of Britain.' Same character, three actors."},
+  {q:"We want our borders back, our laws back, our money back, and our country back.",a:1,t:"Take back our country",f:"Farage's four-point Brexit summary. Trump's equivalent: 'We will take back our country, our jobs, our borders, and our dignity.' Peters uses all the same nouns, different order."},
+  {q:"We will not bow to the woke mob or the cancel culture brigade.",a:2,t:"Culture war",f:"Peters."},
+  {q:"The mainstream media in this country is little more than a propaganda arm of the left.",a:2,t:"Culture war",f:"Peters."},
+  {q:"We will put [ourselves] first. Not last. First.",a:2,t:"Culture war",f:"Peters."},
+  {q:"Our sovereignty is not negotiable. Not with the UN, not with the WHO, not with anyone.",a:2,t:"Culture war",f:"Peters."},
+  {q:"The radical left has captured our schools, our universities, and our public service.",a:2,t:"Culture war",f:"Peters."},
+];
+var cord=[],ccur=0,csc=0,cdone=false;
+function cshuf(a){for(var i=a.length-1;i>0;i--){var j=0|Math.random()*(i+1);var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function cload(){
+  cdone=false;var q=CQ[cord[ccur]];
+  document.getElementById('cquote-text').textContent=q.q;
+  document.getElementById('ctheme-tag').textContent=q.t;
+  document.getElementById('cresult').textContent='';
+  document.getElementById('cresult').className='c-result';
+  document.getElementById('cfact').textContent='';
+  document.getElementById('cfact').classList.remove('show');
+  document.getElementById('cnext').classList.remove('show');
+  document.getElementById('cq-count').textContent='Question '+(ccur+1)+' of '+cord.length;
+  document.getElementById('cscore').textContent=csc;
+  document.getElementById('cprogress').style.width=((ccur/cord.length)*100)+'%';
+  document.getElementById('csb-msg').textContent='Question '+(ccur+1)+' of '+cord.length;
+  document.getElementById('csb-zone').textContent='Score: '+csc+'/'+cord.length;
+  for(var i=0;i<3;i++){var b=document.getElementById('cbtn-'+i);b.disabled=false;b.className='c-choice-btn';document.getElementById('cov-'+i).textContent='';}
+}
+function cshowFinal(){
+  document.getElementById('cquiz-body').style.display='none';
+  document.getElementById('cfinal').classList.add('show');
+  document.getElementById('cfinal-score').textContent=csc;
+  document.getElementById('cprogress').style.width='100%';
+  var p=csc/cord.length,v,s;
+  if(p===1){v="Perfect. You saw right through them.";s="30 out of 30 — three countries, three clowns, one script.";}
+  else if(p>=0.8){v="Sharp. But they fooled you a few times.";s="The ones you missed were the hardest — quotes so interchangeable they could be any of them.";}
+  else if(p>=0.6){v="The script is working on you.";s="More than a third stumped you — same playbook, different accents, different flags.";}
+  else if(p>=0.4){v="You can barely tell them apart.";s="Which is precisely the point. One populist script, three languages, three countries.";}
+  else{v="They're completely interchangeable to you.";s="That's the entire thesis. Trump, Farage, Peters: one script, three clowns, zero original ideas.";}
+  document.getElementById('cfinal-verdict').textContent=v;
+  document.getElementById('cfinal-sub').textContent=s;
+}
+window.cinit=function(){cord=cshuf(CQ.map(function(_,i){return i;})).slice(0,20);ccur=0;csc=0;cdone=false;document.getElementById('cquiz-body').style.display='block';document.getElementById('cfinal').classList.remove('show');cload();}
+window.canswer=function(c){
+  if(cdone)return;cdone=true;
+  var q=CQ[cord[ccur]];
+  for(var i=0;i<3;i++)document.getElementById('cbtn-'+i).disabled=true;
+  if(c===q.a){csc++;document.getElementById('cbtn-'+c).classList.add('correct');document.getElementById('cov-'+c).textContent='✓';document.getElementById('cresult').textContent='✓ Correct — of course it was.';document.getElementById('cresult').classList.add('ok');document.getElementById('csb-msg').textContent='Correct!';}
+  else{document.getElementById('cbtn-'+c).classList.add('wrong');document.getElementById('cov-'+c).textContent='✗';document.getElementById('cbtn-'+q.a).classList.add('correct');document.getElementById('cov-'+q.a).textContent='✓';var n=['Trump','Farage','Peters'];document.getElementById('cresult').textContent='✗ Wrong — it was '+n[q.a]+'.';document.getElementById('cresult').classList.add('bad');document.getElementById('csb-msg').textContent='Wrong — it was '+n[q.a];}
+  document.getElementById('cfact').textContent=q.f;
+  document.getElementById('cfact').classList.add('show');
+  document.getElementById('cnext').classList.add('show');
+  document.getElementById('cnext').textContent=ccur<cord.length-1?'Next question →':'See results →';
+  document.getElementById('csb-zone').textContent='Score: '+csc+'/30';
+}
+window.cnextQ=function(){ccur++;ccur>=cord.length?cshowFinal():cload();}
+window.crestart=function(){document.getElementById('cfinal').classList.remove('show');document.getElementById('cquiz-body').style.display='block';cinit();}
+cinit();
+
 })();
 </script>
 
