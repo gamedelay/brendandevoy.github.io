@@ -935,8 +935,8 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
         <br>
         <br>
         <div class="c-cta">
-          <a class="c-btn-gold" href="javascript:void(0)" onclick="clownsSec('s-quiz')">Take the quiz</a>
           <a class="c-btn-outline" href="javascript:void(0)" onclick="clownsSec('s-paintings')">View the paintings</a>
+          <a class="c-btn-gold" href="javascript:void(0)" onclick="clownsSec('s-quiz')">Take the quiz</a>
         </div>
       </div>
 
@@ -1644,7 +1644,7 @@ function csbTrackClick(e){
   }
   cont.addEventListener('scroll',function(){
     updThumb();
-    var secs=[{id:'s-home',url:'http://www.brendandevoy.com/bundipaints/threeclowns/index.htm'},{id:'s-paintings',url:'http://www.brendandevoy.com/bundipaints/threeclowns/paintings.htm'},{id:'s-quiz',url:'http://www.brendandevoy.com/bundipaints/threeclowns/whosaidit.htm'}];
+    var secs=[{id:'s-home',url:'http://www.brendandevoy.com/threeclowns'},{id:'s-paintings',url:'http://www.brendandevoy.com/threeclowns/paintings'},{id:'s-quiz',url:'http://www.brendandevoy.com/threeclowns/quiz'}];
     var cur=secs[0];
     secs.forEach(function(s){var el=document.getElementById(s.id);if(el&&el.getBoundingClientRect().top<=60)cur=s;});
     var addr=document.getElementById('clowns-addr');if(addr)addr.value=cur.url;
