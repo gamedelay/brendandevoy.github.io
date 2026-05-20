@@ -1625,12 +1625,12 @@ setTimeout(function(){
 
 /* INIT */
 updateTaskbar();
-focusWin('home');
 updateClippy();
 setTimeout(function(){
-  centreWin('home');
   centreWin('contact');
-  focusWin('home');
+  var hash=window.location.hash.replace('#','');
+  var target=(hash&&WINS.indexOf(hash)>-1)?hash:'home';
+  window.openWin(target);
   updateClippy();
 },80);
 
