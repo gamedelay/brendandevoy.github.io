@@ -416,7 +416,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 </div>
 
 <!-- HOME WINDOW -->
-<div class="win hidden" id="win-home" style="width:700px;z-index:10;">
+<div class="win" id="win-home" style="width:700px;z-index:10;">
   <div class="titlebar" id="tb-home" onmousedown="startDrag(event,'home')">
     <span><img src="images/home.png" style="width:14px;height:14px;image-rendering:pixelated;">&nbsp;&nbsp;brendandevoy.com</span>
     <div class="titlebar-btns">
@@ -819,6 +819,14 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
       <span style="font-size:28px;line-height:1;"><img src="images/internet.png" style="width:32px;height:32px;image-rendering:pixelated;"></span>
       <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">Oui, Chef.app</span>
     </div>
+    <!-- File 4 -->
+    <div onclick="window.open('https://misfitbrewing.co.nz','_blank')"
+         style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;width:80px;padding:6px;cursor:pointer;vertical-align:top;"
+         onmouseover="this.style.background='#000080';this.querySelectorAll('span').forEach(function(s){s.style.color='#fff';})"
+         onmouseout="this.style.background='transparent';this.querySelectorAll('span').forEach(function(s){s.style.color='#000';})">
+      <span style="font-size:28px;line-height:1;"><img src="images/internet.png" style="width:32px;height:32px;image-rendering:pixelated;"></span>
+      <span style="font-size:11px;font-family:Arial,sans-serif;color:#000;text-align:center;line-height:1.3;">Misfit Beer.site</span>
+    </div>
   </div>
   <div class="statusbar">
     <span class="sstat">2 object(s)</span>
@@ -904,13 +912,13 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   <div class="toolbar" style="gap:1px;">
     <span class="tb" style="opacity:.4;">◀</span>
     <span class="tb" style="opacity:.4;">▶</span>
-    <span class="tb">🛑</span>
-    <span class="tb">🔄</span>
-    <span class="tb" onclick="document.getElementById('clowns-content').scrollTo({top:0,behavior:'smooth'})">🏠</span>
+    <span class="tb"><img src="images/stopsign.png" style="width:14px;height:14px;image-rendering:pixelated;"></span>
+    <span class="tb"><img src="images/refresh.png" style="width:14px;height:14px;image-rendering:pixelated;"></span>
+    <span class="tb" onclick="document.getElementById('clowns-content').scrollTo({top:0,behavior:'smooth'})"><img src="images/pc.png" style="width:14px;height:14px;image-rendering:pixelated;"></span>
     <span class="tbsep"></span>
-    <span class="tb">🔍</span><span class="tb">⭐</span><span class="tb">📋</span><span class="tb">📡</span>
+    <span class="tb"><img src="images/look.png" style="width:14px;height:14px;image-rendering:pixelated;"></span><span class="tb"><img src="images/msn.png" style="width:14px;height:14px;image-rendering:pixelated;"></span><span class="tb"><img src="images/note.png" style="width:14px;height:14px;image-rendering:pixelated;"></span><span class="tb"><img src="images/satellite.png" style="width:14px;height:14px;image-rendering:pixelated;"></span>
     <span class="tbsep"></span>
-    <span class="tb">✉️</span><span class="tb">🖨</span>
+    <span class="tb"><img src="images/mail2.png" style="width:14px;height:14px;image-rendering:pixelated;"></span><span class="tb"><img src="images/print.png" style="width:14px;height:14px;image-rendering:pixelated;"></span>
     <span style="margin-left:auto;font-size:16px;animation:ie-throb 2s ease-in-out infinite;padding:0 4px;"><img src="images/internet.png" style="width:14px;height:14px;image-rendering:pixelated;"></span>
   </div>
   <!-- Address bar -->
@@ -1167,7 +1175,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 var WINS=['home','cv','misfit','bundi','contact','mines','folder','clowns'];
 var zTop=20,state={};
 WINS.forEach(function(w){state[w]={min:false,closed:true};});
-state['home'].closed=true;state['clowns'].closed=false;
+state['home'].closed=false;
 var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper',folder:'<img src="images/folder.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Random Stuff',clowns:'<img src="images/internet.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Three Clowns'};
 var isMax={home:false,cv:false,misfit:false,bundi:true,contact:false,mines:false,folder:false,clowns:true};
 var savedPos={};
@@ -1238,7 +1246,6 @@ window.openWin=function(id){
   focusWin(id);
   if(id==='mines')initMines();
   updateClippy();
-  history.replaceState(null,'','#'+id);
 };
 window.minimiseWin=function(id){state[id].min=true;document.getElementById('win-'+id).classList.add('hidden');updateTaskbar();updateClippy();};
 window.closeWin=function(id){
@@ -1618,12 +1625,12 @@ setTimeout(function(){
 
 /* INIT */
 updateTaskbar();
+focusWin('home');
 updateClippy();
 setTimeout(function(){
+  centreWin('home');
   centreWin('contact');
-  var hash=window.location.hash.replace('#','');
-  var target=(hash&&WINS.indexOf(hash)>-1)?hash:'clowns';
-  window.openWin(target);
+  focusWin('home');
   updateClippy();
 },80);
 
@@ -1654,7 +1661,7 @@ function csbTrackClick(e){
   }
   cont.addEventListener('scroll',function(){
     updThumb();
-    var secs=[{id:'s-home',url:'http://www.brendandevoy.com/threeclowns'},{id:'s-paintings',url:'http://www.brendandevoy.com/threeclowns/paintings'},{id:'s-quiz',url:'http://www.brendandevoy.com/threeclowns/quiz'}];
+    var secs=[{id:'s-home',url:'http://www.brendandevoy.com/clowns'},{id:'s-paintings',url:'http://www.brendandevoy.com/clowns/paintings'},{id:'s-quiz',url:'http://www.brendandevoy.com/clowns/quiz'}];
     var cur=secs[0];
     secs.forEach(function(s){var el=document.getElementById(s.id);if(el&&el.getBoundingClientRect().top<=60)cur=s;});
     var addr=document.getElementById('clowns-addr');if(addr)addr.value=cur.url;
