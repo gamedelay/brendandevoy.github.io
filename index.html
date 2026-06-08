@@ -1623,6 +1623,26 @@ setTimeout(function(){
   });
 },300);
 
+function pixelateBackground(src, blockSize){
+  var img = new Image();
+  img.onload = function(){
+    var cv = document.createElement('canvas');
+    var sw = Math.floor(img.width / blockSize);
+    var sh = Math.floor(img.height / blockSize);
+    cv.width = sw; cv.height = sh;
+    var cx = cv.getContext('2d');
+    cx.imageSmoothingEnabled = false;
+    cx.drawImage(img, 0, 0, sw, sh);
+    var big = document.createElement('canvas');
+    big.width = img.width; big.height = img.height;
+    var bx = big.getContext('2d');
+    bx.imageSmoothingEnabled = false;
+    bx.drawImage(cv, 0, 0, img.width, img.height);
+    document.getElementById('desktop').style.backgroundImage = "url('" + big.toDataURL() + "')";
+  };
+  img.src = src;
+}
+
 /* INIT */
 updateTaskbar();
 updateClippy();
@@ -1633,6 +1653,7 @@ setTimeout(function(){
   var target=(hash&&WINS.indexOf(hash)>-1)?hash:'home';
   window.openWin(target);
   updateClippy();
+  pixelateBackground('images/back.jpeg', 8);
 },80);
 
 /* THREE CLOWNS QUIZ */
