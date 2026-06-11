@@ -1177,7 +1177,7 @@ var zTop=20,state={};
 WINS.forEach(function(w){state[w]={min:false,closed:true};});
 state['home'].closed=false;
 var LABELS={home:'<img src="images/home.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@brendandevoy',cv:'<img src="images/word.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;CV.doc',misfit:'<img src="images/power.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@misfitbeer',bundi:'<img src="images/paint.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;@bundipaints',contact:'<img src="images/contact.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Contact',mines:'<img src="images/mine.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Minesweeper',folder:'<img src="images/folder.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Random Stuff',clowns:'<img src="images/internet.png" style="width:18px;height:18px;image-rendering:pixelated;">&nbsp;Three Clowns'};
-var isMax={home:false,cv:false,misfit:false,bundi:true,contact:false,mines:false,folder:false,clowns:true};
+var isMax={home:false,cv:false,misfit:false,bundi:true,contact:false,mines:false,folder:false,clowns:false};
 var savedPos={};
 
 function centreWin(id){
