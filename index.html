@@ -1699,6 +1699,7 @@ updateTaskbar();
 updateClippy();
 setTimeout(function(){
   centreWin('contact');
+  centreWin('home');
   var hash=window.location.hash.replace('#','');
   var target=(hash&&WINS.indexOf(hash)>-1)?hash:'home';
   window.openWin(target);
