@@ -387,9 +387,64 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   .m-menu-sep{border:none;border-top:1px solid #808080;border-bottom:1px solid #fff;margin:2px 4px;}
 }
 
+
+/* LOADER — edit the two variables below to change colours */
+/* ─────────────────────────────────────────────────────
+   LOADER COLOURS — change these two values:
+   --loader-bg:        background behind the dialog
+   --loader-tb-from:   titlebar gradient left colour
+   --loader-tb-to:     titlebar gradient right colour
+   --loader-block-col: progress block colour
+   ───────────────────────────────────────────────── */
+:root{
+  --loader-bg:#2b579a;
+  --loader-tb-from:#000080;
+  --loader-tb-to:#1084d0;
+  --loader-block-col:#000080;
+}
+#page-loader{position:fixed;top:0;left:0;width:100vw;height:100vh;background:var(--loader-bg);display:flex;align-items:center;justify-content:center;z-index:9999999;font-family:Arial,sans-serif;}
+#loader-win{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;width:300px;}
+#loader-tb{background:linear-gradient(90deg,var(--loader-tb-from),var(--loader-tb-to));color:#fff;font-size:12px;font-weight:bold;padding:3px 8px;display:flex;justify-content:space-between;align-items:center;}
+#loader-tb-x{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:14px;height:12px;font-size:8px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:bold;}
+#loader-body{padding:18px 16px 12px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+#loader-msg{font-size:12px;color:#000;text-align:center;line-height:1.5;font-weight:bold;}
+#loader-bar-outer{width:220px;background:#fff;border:2px solid;border-color:#808080 #fff #fff #808080;height:20px;padding:2px;display:flex;gap:2px;align-items:center;}
+.loader-block{width:14px;height:14px;background:var(--loader-block-col);flex-shrink:0;opacity:0;transition:opacity 0.1s;}
+.loader-block.lit{opacity:1;}
+#loader-pct{font-size:10px;color:#444;}
+#loader-sbar{background:#c0c0c0;border-top:1px solid #808080;padding:1px 6px;font-size:10px;color:#000;}
 </style>
 </head>
 <body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div id="loader-win">
+    <div id="loader-tb">
+      <span>brendandevoy.com</span>
+      <div id="loader-tb-x">x</div>
+    </div>
+    <div id="loader-body">
+      <div id="loader-msg">Loading...<br> </div>
+      <div id="loader-bar-outer">
+      <div class="loader-block" id="lb0"></div>
+      <div class="loader-block" id="lb1"></div>
+      <div class="loader-block" id="lb2"></div>
+      <div class="loader-block" id="lb3"></div>
+      <div class="loader-block" id="lb4"></div>
+      <div class="loader-block" id="lb5"></div>
+      <div class="loader-block" id="lb6"></div>
+      <div class="loader-block" id="lb7"></div>
+      <div class="loader-block" id="lb8"></div>
+      <div class="loader-block" id="lb9"></div>
+      <div class="loader-block" id="lb10"></div>
+      <div class="loader-block" id="lb11"></div>
+      </div>
+      <div id="loader-pct">0%</div>
+    </div>
+    <div id="loader-sbar">Please wait while Windows loads your files.</div>
+  </div>
+</div>
 <div id="desktop">
 
 <!-- ICONS — left side -->
@@ -1161,7 +1216,7 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
   <canvas id="ss-canvas"></canvas>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function(){
 var WINS=['home','cv','misfit','bundi','contact','mines','folder','clowns'];
 var zTop=20,state={};
@@ -1984,7 +2039,7 @@ cinit();
      <span style="padding:2px 8px;color:#000;"><u>H</u>elp</span>
     </div>
     <div class="m-body">
-      <div style="font-size:11px;margin-bottom:10px;color:#000;">Send a message to <a href="/cdn-cgi/l/email-protection#d3bbb6aa93b1a1b6bdb7b2bdb7b6a5bcaafdb0bcbe" style="color:#000080;text-decoration:underline;"><span class="__cf_email__" data-cfemail="3f575a467f5d4d5a515b5e515b5a495046115c5052">[email&#160;protected]</span></a></div>
+      <div style="font-size:11px;margin-bottom:10px;color:#000;">Send a message to <a href="mailto:hey@brendandevoy.com" style="color:#000080;text-decoration:underline;">hey@brendandevoy.com</a></div>
       <label style="font-size:11px;display:block;margin-bottom:3px;">Your name:</label>
       <input class="m-input" id="m-name" type="text" placeholder="Full name">
       <label style="font-size:11px;display:block;margin-bottom:3px;">Your email:</label>
@@ -2037,7 +2092,7 @@ cinit();
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* MOBILE LOGIC — only runs on mobile */
 (function(){
   var isMobile=window.innerWidth<=768;
@@ -2189,4 +2244,38 @@ cinit();
 })();
 </script>
 </body>
+
+<script>
+/* PAGE LOADER */
+(function(){
+  var NUM_BLOCKS=12;
+  var pct=document.getElementById('loader-pct');
+  var loader=document.getElementById('page-loader');
+  var progress=0;
+  function setProgress(p){
+    progress=p;
+    var lit=Math.round((p/100)*NUM_BLOCKS);
+    for(var i=0;i<NUM_BLOCKS;i++){
+      var b=document.getElementById('lb'+i);
+      if(b)b.classList.toggle('lit',i<lit);
+    }
+    pct.textContent=Math.round(p)+'%';
+  }
+  var iv=setInterval(function(){
+    progress+=Math.floor(Math.random()*6)+2;
+    if(progress>90)progress=90;
+    setProgress(progress);
+  },160);
+  window.addEventListener('load',function(){
+    clearInterval(iv);
+    setProgress(100);
+    document.getElementById('loader-sbar').textContent='Done! Starting Windows...';
+    setTimeout(function(){
+      loader.style.transition='opacity 0.4s';
+      loader.style.opacity='0';
+      setTimeout(function(){loader.style.display='none';},400);
+    },300);
+  });
+})();
+</script>
 </html>
