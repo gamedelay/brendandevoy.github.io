@@ -388,14 +388,29 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 }
 
 
-/* LOADER */
-#page-loader{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#008080;display:flex;align-items:center;justify-content:center;z-index:9999999;font-family:Arial,sans-serif;}
-#loader-win{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;width:280px;}
-#loader-tb{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-size:12px;font-weight:bold;padding:3px 8px;}
-#loader-body{padding:20px 16px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;}
-#loader-msg{font-size:12px;color:#000;text-align:center;line-height:1.5;}
-#loader-bar-outer{width:210px;background:#fff;border:2px solid;border-color:#808080 #fff #fff #808080;height:18px;overflow:hidden;}
-#loader-bar-inner{height:100%;width:0%;background:#000080;transition:width 0.3s ease;}
+/* LOADER — edit the two variables below to change colours */
+/* ─────────────────────────────────────────────────────
+   LOADER COLOURS — change these two values:
+   --loader-bg:        background behind the dialog
+   --loader-tb-from:   titlebar gradient left colour
+   --loader-tb-to:     titlebar gradient right colour
+   --loader-block-col: progress block colour
+   ───────────────────────────────────────────────── */
+:root{
+  --loader-bg:#008080;
+  --loader-tb-from:#000080;
+  --loader-tb-to:#1084d0;
+  --loader-block-col:#000080;
+}
+#page-loader{position:fixed;top:0;left:0;width:100vw;height:100vh;background:var(--loader-bg);display:flex;align-items:center;justify-content:center;z-index:9999999;font-family:Arial,sans-serif;}
+#loader-win{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 #000;width:300px;}
+#loader-tb{background:linear-gradient(90deg,var(--loader-tb-from),var(--loader-tb-to));color:#fff;font-size:12px;font-weight:bold;padding:3px 8px;display:flex;justify-content:space-between;align-items:center;}
+#loader-tb-x{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:14px;height:12px;font-size:8px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:bold;}
+#loader-body{padding:18px 16px 12px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+#loader-msg{font-size:12px;color:#000;text-align:center;line-height:1.5;font-weight:bold;}
+#loader-bar-outer{width:220px;background:#fff;border:2px solid;border-color:#808080 #fff #fff #808080;height:20px;padding:2px;display:flex;gap:2px;align-items:center;}
+.loader-block{width:14px;height:14px;background:var(--loader-block-col);flex-shrink:0;opacity:0;transition:opacity 0.1s;}
+.loader-block.lit{opacity:1;}
 #loader-pct{font-size:10px;color:#444;}
 #loader-sbar{background:#c0c0c0;border-top:1px solid #808080;padding:1px 6px;font-size:10px;color:#000;}
 </style>
@@ -405,11 +420,26 @@ body{font-family:Arial,sans-serif;font-size:12px;background:#2b579a;overflow:hid
 <!-- PAGE LOADER -->
 <div id="page-loader">
   <div id="loader-win">
-    <div id="loader-tb">brendandevoy.com</div>
+    <div id="loader-tb">
+      <span>brendandevoy.com</span>
+      <div id="loader-tb-x">x</div>
+    </div>
     <div id="loader-body">
-      <div style="font-size:28px;">&#x23F3;</div>
-      <div id="loader-msg">Loading brendandevoy.com<br>Please wait...</div>
-      <div id="loader-bar-outer"><div id="loader-bar-inner"></div></div>
+      <div id="loader-msg">Loading...<br> </div>
+      <div id="loader-bar-outer">
+      <div class="loader-block" id="lb0"></div>
+      <div class="loader-block" id="lb1"></div>
+      <div class="loader-block" id="lb2"></div>
+      <div class="loader-block" id="lb3"></div>
+      <div class="loader-block" id="lb4"></div>
+      <div class="loader-block" id="lb5"></div>
+      <div class="loader-block" id="lb6"></div>
+      <div class="loader-block" id="lb7"></div>
+      <div class="loader-block" id="lb8"></div>
+      <div class="loader-block" id="lb9"></div>
+      <div class="loader-block" id="lb10"></div>
+      <div class="loader-block" id="lb11"></div>
+      </div>
       <div id="loader-pct">0%</div>
     </div>
     <div id="loader-sbar">Please wait while Windows loads your files.</div>
@@ -2218,20 +2248,27 @@ cinit();
 <script>
 /* PAGE LOADER */
 (function(){
-  var bar=document.getElementById('loader-bar-inner');
+  var NUM_BLOCKS=12;
   var pct=document.getElementById('loader-pct');
   var loader=document.getElementById('page-loader');
   var progress=0;
+  function setProgress(p){
+    progress=p;
+    var lit=Math.round((p/100)*NUM_BLOCKS);
+    for(var i=0;i<NUM_BLOCKS;i++){
+      var b=document.getElementById('lb'+i);
+      if(b)b.classList.toggle('lit',i<lit);
+    }
+    pct.textContent=Math.round(p)+'%';
+  }
   var iv=setInterval(function(){
     progress+=Math.floor(Math.random()*6)+2;
     if(progress>90)progress=90;
-    bar.style.width=progress+'%';
-    pct.textContent=progress+'%';
-  },150);
+    setProgress(progress);
+  },160);
   window.addEventListener('load',function(){
     clearInterval(iv);
-    bar.style.width='100%';
-    pct.textContent='100%';
+    setProgress(100);
     document.getElementById('loader-sbar').textContent='Done! Starting Windows...';
     setTimeout(function(){
       loader.style.transition='opacity 0.4s';
