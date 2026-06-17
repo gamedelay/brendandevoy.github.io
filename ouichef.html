@@ -1461,7 +1461,7 @@ async function generateRecipe() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 8000,
         messages: [{ role: 'user', content: prompt }],
       }),
@@ -1476,7 +1476,18 @@ async function generateRecipe() {
     }
 
     const data = await response.json();
+
+    // Catch API-level errors (wrong model name, quota, etc.)
+    if (data.error) {
+      showPickerError(data.error.message || 'API error');
+      return;
+    }
+
     const raw = data.content?.map(b=>b.text||'').join('')||'';
+    if (!raw) {
+      showPickerError('Empty response from API — please try again');
+      return;
+    }
     const clean = raw.replace(/^```json\s*/i,'').replace(/```\s*$/,'').trim();
     const parsed = JSON.parse(clean);
     pickerRecipes = parsed.recipes || [parsed];
